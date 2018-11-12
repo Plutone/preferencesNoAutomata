@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.18)  12 NOV 2018 13:59
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.18)  12 NOV 2018 15:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -407,24 +407,27 @@ Package natbib Warning: Citation `IPC6' on page 3 undefined on input line 251.
 LaTeX Warning: Reference `eps:histogram_histograms_storage.eps' on page 3 undef
 ined on input line 285.
 
+
+LaTeX Warning: Reference `...' on page 3 undefined on input line 344.
+
 [3]
-Underfull \hbox (badness 1371) in paragraph at lines 374--375
+Underfull \hbox (badness 1371) in paragraph at lines 376--377
 \OT1/ptm/m/n/10 pa-ra-ble per-for-mance even if the clas-si-cal plan-ners are
  []
 
 
-Underfull \hbox (badness 3492) in paragraph at lines 376--389
+Underfull \hbox (badness 3492) in paragraph at lines 378--391
 \OT1/ptm/m/n/10 fdremix gen-er-ally com-pute higher qual-ity plans than
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 393.
+               Default added (so using `tbp') on input line 395.
 
 [4]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 478.
+               Default added (so using `tbp') on input line 480.
 
 Package epstopdf Info: Source file: <histogrammi/histogram_rovers_ALL_PERCENTAG
 E_COST.eps>
@@ -437,7 +440,7 @@ E_COST-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_rove
 rs_ALL_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram_rovers_ALL_PE
 RCENTAGE_COST.eps>
-(epstopdf)             \includegraphics on input line 490.
+(epstopdf)             \includegraphics on input line 492.
 Package epstopdf Info: Output file is already uptodate.
 
 <histogrammi/histogram_rovers_ALL_PERCENTAGE_COST-eps-converted-to.pdf, id=34, 
@@ -447,10 +450,10 @@ phic file (type pdf)
 
 <use histogrammi/histogram_rovers_ALL_PERCENTAGE_COST-eps-converted-to.pdf>
 Package pdftex.def Info: histogrammi/histogram_rovers_ALL_PERCENTAGE_COST-eps-c
-onverted-to.pdf used on input line 490.
+onverted-to.pdf used on input line 492.
 (pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 490--491
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 492--493
 [][] 
  []
 
@@ -465,7 +468,7 @@ OST-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_tpp_
 ALL_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram_tpp_ALL_PERCENTA
 GE_COST.eps>
-(epstopdf)             \includegraphics on input line 498.
+(epstopdf)             \includegraphics on input line 500.
 Package epstopdf Info: Output file is already uptodate.
 
 <histogrammi/histogram_tpp_ALL_PERCENTAGE_COST-eps-converted-to.pdf, id=35, 361
@@ -475,10 +478,10 @@ c file (type pdf)
 
 <use histogrammi/histogram_tpp_ALL_PERCENTAGE_COST-eps-converted-to.pdf>
 Package pdftex.def Info: histogrammi/histogram_tpp_ALL_PERCENTAGE_COST-eps-conv
-erted-to.pdf used on input line 498.
+erted-to.pdf used on input line 500.
 (pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 498--499
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 500--501
 [][] 
  []
 
@@ -493,7 +496,7 @@ E_COST-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_truc
 ks_ALL_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram_trucks_ALL_PE
 RCENTAGE_COST.eps>
-(epstopdf)             \includegraphics on input line 504.
+(epstopdf)             \includegraphics on input line 506.
 Package epstopdf Info: Output file is already uptodate.
 
 <histogrammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-converted-to.pdf, id=36, 
@@ -503,10 +506,10 @@ phic file (type pdf)
 
 <use histogrammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-converted-to.pdf>
 Package pdftex.def Info: histogrammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-c
-onverted-to.pdf used on input line 504.
+onverted-to.pdf used on input line 506.
 (pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 504--505
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 506--507
 [][] 
  []
 
@@ -521,7 +524,7 @@ NTAGE_COST-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_open
 stacks_ALL_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram_openstack
 s_ALL_PERCENTAGE_COST.eps>
-(epstopdf)             \includegraphics on input line 514.
+(epstopdf)             \includegraphics on input line 516.
 Package epstopdf Info: Output file is already uptodate.
 
 <histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST-eps-converted-to.pdf, id=
@@ -531,10 +534,10 @@ File: histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST-eps-converted-to.pdf
 
 <use histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST-eps-converted-to.pdf>
 Package pdftex.def Info: histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST-e
-ps-converted-to.pdf used on input line 514.
+ps-converted-to.pdf used on input line 516.
 (pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 514--515
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 516--517
 [][] 
  []
 
@@ -549,7 +552,7 @@ _ALL_PERCENTAGE_COST-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_prep
 rocessed-storage_ALL_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram
 _preprocessed-storage_ALL_PERCENTAGE_COST.eps>
-(epstopdf)             \includegraphics on input line 523.
+(epstopdf)             \includegraphics on input line 525.
 Package epstopdf Info: Output file is already uptodate.
 
 <histogrammi/histogram_preprocessed-storage_ALL_PERCENTAGE_COST-eps-converted-t
@@ -560,21 +563,21 @@ ted-to.pdf Graphic file (type pdf)
 <use histogrammi/histogram_preprocessed-storage_ALL_PERCENTAGE_COST-eps-convert
 ed-to.pdf>
 Package pdftex.def Info: histogrammi/histogram_preprocessed-storage_ALL_PERCENT
-AGE_COST-eps-converted-to.pdf used on input line 523.
+AGE_COST-eps-converted-to.pdf used on input line 525.
 (pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 523--524
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 525--526
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 513--528
+Underfull \hbox (badness 10000) in paragraph at lines 515--530
 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 594.
+               Default added (so using `tbp') on input line 596.
 
 Package epstopdf Info: Source file: <histogrammi/histogram_tpp_sg_PERCENTAGE_CO
 ST.eps>
@@ -587,7 +590,7 @@ ST-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_tpp_
 sg_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram_tpp_sg_PERCENTAGE
 _COST.eps>
-(epstopdf)             \includegraphics on input line 612.
+(epstopdf)             \includegraphics on input line 614.
 Package epstopdf Info: Output file is already uptodate.
 
 <histogrammi/histogram_tpp_sg_PERCENTAGE_COST-eps-converted-to.pdf, id=39, 361.
@@ -597,10 +600,10 @@ File: histogrammi/histogram_tpp_sg_PERCENTAGE_COST-eps-converted-to.pdf Graphic
 
 <use histogrammi/histogram_tpp_sg_PERCENTAGE_COST-eps-converted-to.pdf>
 Package pdftex.def Info: histogrammi/histogram_tpp_sg_PERCENTAGE_COST-eps-conve
-rted-to.pdf used on input line 612.
+rted-to.pdf used on input line 614.
 (pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 612--613
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 614--615
 [][] 
  []
 
@@ -615,7 +618,7 @@ OST-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_tpp_
 stg_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram_tpp_stg_PERCENTA
 GE_COST.eps>
-(epstopdf)             \includegraphics on input line 630.
+(epstopdf)             \includegraphics on input line 632.
 Package epstopdf Info: Output file is already uptodate.
 
 <histogrammi/histogram_tpp_stg_PERCENTAGE_COST-eps-converted-to.pdf, id=40, 361
@@ -625,19 +628,19 @@ c file (type pdf)
 
 <use histogrammi/histogram_tpp_stg_PERCENTAGE_COST-eps-converted-to.pdf>
 Package pdftex.def Info: histogrammi/histogram_tpp_stg_PERCENTAGE_COST-eps-conv
-erted-to.pdf used on input line 630.
+erted-to.pdf used on input line 632.
 (pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 630--631
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 632--633
 [][] 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 806.
+               Default added (so using `tbp') on input line 808.
 
 
-Overfull \hbox (4.77942pt too wide) in paragraph at lines 809--834
+Overfull \hbox (4.77942pt too wide) in paragraph at lines 811--836
  [][] 
  []
 
@@ -690,10 +693,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5353 strings out of 493304
- 80384 string characters out of 6139871
+ 5354 strings out of 493304
+ 80389 string characters out of 6139871
  174868 words of memory out of 5000000
- 8699 multiletter control sequences out of 15000+600000
+ 8700 multiletter control sequences out of 15000+600000
  32846 words of font info for 67 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,13n,38p,736b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -716,7 +719,7 @@ rsfs7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (7 pages, 287621 bytes).
+Output written on main.pdf (7 pages, 287658 bytes).
 PDF statistics:
  208 PDF objects out of 1000 (max. 8388607)
  128 compressed objects within 2 object streams
