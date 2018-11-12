@@ -1,0 +1,63 @@
+\begin{thebibliography}{10}
+
+\bibitem{ipc9website}
+The 2018 international planning competition classical tracks.
+\newblock \url{https://ipc2018-classical.bitbucket.io}.
+\newblock Accessed: 2018-10-12.
+
+\bibitem{Briel-et-al:AAAI04}
+M.~Briel, R.~Sanchez, M.~Do, and S.~Kambhampati.
+\newblock Effective approaches for partial satisfaction (over-subscription)
+  planning.
+\newblock In {\em Proceedings of 19th National Conference on Artificial
+  Intelligence ({AAAI}'04)}, 2004.
+
+\bibitem{cenamor2014ibacop}
+I.~Cenamor, T.~De~La~Rosa, and F.~Fern{\'a}ndez.
+\newblock {IB}a{C}o{P} and {IB}a{C}o{P} planner.
+\newblock In {\em In 8th International Planning Competition Booklet
+  (ICAPS-14)}, pages 35--38, 2014.
+
+\bibitem{GHLS+09}
+A.~Gerevini, P.~Haslum, D.~Long, A.~Saetti, and Y.~Dimopoulos.
+\newblock Deterministic planning in the fifth international planning
+  competition: {PDDL3} and experimental evaluation of the planners.
+\newblock {\em Artificial Intelligence}, 173(5-6):619--668, 2009.
+
+\bibitem{MercuryIPC8}
+M.~Katz and J.~Hoffmann.
+\newblock Mercury planner: Pushing the limits of partial delete relaxation.
+\newblock In {\em In 8th International Planning Competition Booklet
+  (ICAPS-14)}, pages 43--47, 2014.
+
+\bibitem{nunez2014miplan}
+S.~N{\'u}nez, D.~Borrajo, and C.~Linares~L{\'o}pez.
+\newblock {MIPlan} and {DPMPlan}.
+\newblock In {\em In 8th International Planning Competition Booklet
+  (ICAPS-14)}, pages 13--16, 2014.
+
+\bibitem{percassi2017improving}
+F.~Percassi, A.~Gerevini, and H.~Geffner.
+\newblock Improving plan quality through heuristics for guiding and pruning the
+  search: A study using {LAMA}.
+\newblock In {\em Proceedings of the Tenth International Symposium on
+  Combinatorial Search (SoCS 2017)}, pages 144--148, 2017.
+
+\bibitem{RicLAMA}
+S.~Richter and M.~Westphal.
+\newblock The {LAMA} planner: Guiding cost-based anytime planning with
+  landmarks.
+\newblock {\em Journal of Artificial Intelligence Research}, 39(1), 2010.
+
+\bibitem{vallati20152014}
+M.~Vallati, L.~Chrpa, M.~Grze{\'s}, T.~L. McCluskey, M.~Roberts, and S.~Sanner.
+\newblock The 2014 international planning competition: Progress and trends.
+\newblock {\em AI Magazine}, 36(3):90--98, 2015.
+
+\bibitem{nebel2018}
+Mattmüller~R. Wright~B. and Nebel B..
+\newblock Compiling away soft trajectory constraints in planning.
+\newblock In {\em In Proceedings of the Sixteenth Conference on Principles of
+  Knowledge Representation and Reasoning (KR18)}, 2018.
+
+\end{thebibliography}

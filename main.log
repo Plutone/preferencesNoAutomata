@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.18)  12 NOV 2018 09:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.18)  12 NOV 2018 10:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -212,19 +212,19 @@ LaTeX Info: Redefining \citeyear on input line 735.
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 49.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 70.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -294,230 +294,71 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 56.
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 56.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 77.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 77.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 56.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 56.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 77.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 77.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 56.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 77.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 57.
-
-! Undefined control sequence.
-l.60 supported in  {\pddlIII
-                            }, that is part of the standard planning language
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.61 {\pddl
-           } since the 5th International Planning Competition (\fifthIPC). Such
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.67 for translating a {\strips
-                               } problem enriched with qualitative  {\pddlIII}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.67 ...oblem enriched with qualitative  {\pddlIII
-                                                  }
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.68 ...th soft goals) into an equivalent {\strips
-                                                  }
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.71 from \fifthIPC, allows many existing {\strips
-                                                  } planners to immediately ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.74 state-of-the-art {\strips
-                              } planners supporting action costs using our c...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.75 approach to deal with qualitative  {\pddlIII
-                                                 } preferences.  The results...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 93.
-! Undefined control sequence.
-l.103 we have considered the following {\stripsp
-                                                } planning system
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.104 {\lama
-            }\cite{RicLAMA}, {\mercury} \cite{MercuryIPC8},
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 78.
 
 
-Package natbib Warning: Citation `RicLAMA' on page 1 undefined on input line 10
-4.
-
-! Undefined control sequence.
-l.104 {\lama}\cite{RicLAMA}, {\mercury
-                                      } \cite{MercuryIPC8},
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+Package natbib Warning: Citation `do-kambhampati04' on page 1 undefined on inpu
+t line 107.
 
 
-Package natbib Warning: Citation `MercuryIPC8' on page 1 undefined on input lin
-e 104.
-
-! Undefined control sequence.
-l.105 {\miplan
-              } \cite{nunez2014miplan}, {\ibacop} \cite{cenamor2014ibacop}, ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Package natbib Warning: Citation `nunez2014miplan' on page 1 undefined on input
- line 105.
-
-! Undefined control sequence.
-l.105 {\miplan} \cite{nunez2014miplan}, {\ibacop
-                                                } \cite{cenamor2014ibacop}, ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Package natbib Warning: Citation `cenamor2014ibacop' on page 1 undefined on inp
-ut line 105.
-
-
-Package natbib Warning: Citation `vallati20152014' on page 1 undefined on input
- line 106.
-
-! Undefined control sequence.
-l.107 \fdss
-            \cite{fdss2018}, \fdremixcomplete \cite{fdremix} (abbreviated wi...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Package natbib Warning: Citation `fdss2018' on page 1 undefined on input line 1
-07.
-
-! Undefined control sequence.
-l.107 \fdss \cite{fdss2018}, \fdremixcomplete
-                                              \cite{fdremix} (abbreviated wi...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Package natbib Warning: Citation `fdremix' on page 1 undefined on input line 10
+Package natbib Warning: Citation `smith04' on page 1 undefined on input line 10
 7.
 
-! Undefined control sequence.
-l.107 ...\cite{fdremix} (abbreviated with \fdremix
-                                                  ),
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+
+Package natbib Warning: Citation `Weld:94AA' on page 1 undefined on input line 
+109.
 
 
-Package natbib Warning: Citation `ipc9website' on page 1 undefined on input lin
-e 108.
+Package natbib Warning: Citation `bacKab' on page 1 undefined on input line 109
+.
 
-! Undefined control sequence.
-l.109 which have been compared with {\lprpgp
-                                            } \cite{LPRPGP-P:icaps11}, which...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+
+Package natbib Warning: Citation `Hplanp:aij09' on page 1 undefined on input li
+ne 109.
+
+
+Package natbib Warning: Citation `kn:geffner09' on page 1 undefined on input li
+ne 122.
+
+
+Package natbib Warning: Citation `Hplanp:aij09' on page 1 undefined on input li
+ne 133.
+
+
+Package natbib Warning: Citation `BM:AAAI06' on page 1 undefined on input line 
+133.
+
+
+Package natbib Warning: Citation `Edelk06' on page 1 undefined on input line 13
+4.
+
+
+Package natbib Warning: Citation `Edelk' on page 1 undefined on input line 134.
+
 
 
 Package natbib Warning: Citation `LPRPGP-P:icaps11' on page 1 undefined on inpu
-t line 109.
+t line 134.
 
 
-Package natbib Warning: Citation `GHLS+09' on page 1 undefined on input line 11
-3.
-
-! Undefined control sequence.
-l.119 ...d on the compiled problems while {\lprpgp
-                                                  }
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Package natbib Warning: Citation `IPC6' on page 1 undefined on input line 128.
+Package natbib Warning: Citation `coles2013searching' on page 1 undefined on in
+put line 135.
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -525,446 +366,59 @@ Package natbib Warning: Citation `IPC6' on page 1 undefined on input line 128.
 
 ]
 
-LaTeX Warning: Reference `eps:histogram_histograms_storage.eps' on page 2 undef
-ined on input line 161.
-
-! Undefined control sequence.
-l.166 which are {\lama
-                      }, {\ibacop} and {\lprpgp} respectively. Each figure i...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.166 which are {\lama}, {\ibacop
-                                 } and {\lprpgp} respectively. Each figure i...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.166 which are {\lama}, {\ibacop} and {\lprpgp
-                                               } respectively. Each figure i...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.204 ...ical planning system, except for {\miplan
-                                                  } and {\mercury}, perform ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.204 ...ystem, except for {\miplan} and {\mercury
-                                                  }, perform overall better ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.204 ...ry}, perform overall better than {\lprpgp
-                                                  } in term of IPC score
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.205 while {\miplan
-                    } and {\mercury} performs overall worse. The compilative...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.205 while {\miplan} and {\mercury
-                                   } performs overall worse. The compilative...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.207 ...tter or at least comparable than {\lprpgp
-                                                  } (except for {\mercury} i...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.207 ...able than {\lprpgp} (except for {\mercury
-                                                  } in Trucks); {\ibacop} pe...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.207 ...xcept for {\mercury} in Trucks); {\ibacop
-                                                  } performs particularly we...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.207 ... particularly well in Rovers while {\lama
-                                                  } in Trucks. Also {\miplan...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.207 ...rs while {\lama} in Trucks. Also {\miplan
-                                                  } get a well performance i...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.215 ...quality performance compared to {{\lprpgp
-                                                  }}. The bad performances i...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+Package natbib Warning: Citation `CC:ECAI04' on page 2 undefined on input line 
+141.
 
 
-Package natbib Warning: Citation `percassi2017improving' on page 2 undefined on
- input line 216.
-
-! Undefined control sequence.
-l.217 cleary shows that {\lprpgp
-                                } is overall more performing than the classi...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.224 ...re slightly penalized compared to \lprpgp
-                                                  . Also in this case the cl...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+Package natbib Warning: Citation `Rintanen:ECAI00' on page 2 undefined on input
+ line 141.
 
 
-Underfull \hbox (badness 1371) in paragraph at lines 224--225
+Package natbib Warning: Citation `Rintanen:personal2015' on page 2 undefined on
+ input line 146.
+
+
+Package natbib Warning: Citation `BM:AAAI06' on page 2 undefined on input line 
+147.
+
+
+Package natbib Warning: Citation `nebelCompiling' on page 2 undefined on input 
+line 152.
+
+Missing character: There is no Ã in font ptmb7t!
+Missing character: There is no   in font ptmb7t!
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 208.
+
+Package natbib Warning: Citation `fdss2018' on page 2 undefined on input line 2
+22.
+
+
+Package natbib Warning: Citation `fdremix' on page 2 undefined on input line 22
+2.
+
+
+Package natbib Warning: Citation `LPRPGP-P:icaps11' on page 2 undefined on inpu
+t line 224.
+
+[2]
+
+Package natbib Warning: Citation `IPC6' on page 3 undefined on input line 243.
+
+
+LaTeX Warning: Reference `eps:histogram_histograms_storage.eps' on page 3 undef
+ined on input line 276.
+
+
+Underfull \hbox (badness 1371) in paragraph at lines 339--340
 \OT1/ptm/m/n/10 pa-ra-ble per-for-mance even if the clas-si-cal plan-ners are
  []
 
-! Undefined control sequence.
-l.227 {\lama
-            } and {\fdremix} generally compute higher quality plans than {\l...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.227 {\lama} and {\fdremix
-                           } generally compute higher quality plans than {\l...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.227 ...ompute higher quality plans than {\lprpgp
-                                                  } in Rovers,
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.230 {\lama
-            } and {\fdremix} compute lower quality plans that {\lprpgp}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.230 {\lama} and {\fdremix
-                           } compute lower quality plans that {\lprpgp}
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.230 ...compute lower quality plans that {\lprpgp
-                                                  }
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.233 ...re \ref{lst:file3} we can say that {\lama
-                                                  } and {\fdremix} performs ...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.233 ...e3} we can say that {\lama} and {\fdremix
-                                                  } performs better
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.237 ...a comparable performance even if {\lprpgp
-                                                  } generally finds
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
+[3]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 243.
+               Default added (so using `tbp') on input line 358.
 
-! Undefined control sequence.
-<recently read> \fdremix 
-                         
-l.252 \fdremix
-               & 17.24 & 7.1 & 17.76 & 18.96 & 16.26 & 77.32\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \fdssshort 
-                           
-l.253 \fdssshort
-                 & 16.95 & 7.03 & 17.16 & 18.66 & 17.19 & 76.99\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \miplan 
-                        
-l.256 \miplan
-              & 16.9 & 8.8 & 9.23 & 17.32 & 14.47 & 66.72\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \fdssshort 
-                           
-l.266 \fdssshort
-                 & 14.19 & 17.0 & 18.0 & 17.83 & 20.0 & 87.02\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \miplan 
-                        
-l.267 \miplan
-              & 14.71 & 20.0 & 12.0 & 19.0 & 20.0 & 85.71\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \fdremix 
-                         
-l.268 \fdremix
-               & 12.64 & 15.0 & 15.0 & 18.5 & 19.0 & 80.14\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \fdremix 
-                         
-l.278 \fdremix
-               & --- & 14.73 & 17.12 & 18.59 & 18.63 & 69.07\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \fdssshort 
-                           
-l.279 \fdssshort
-                 & --- & 14.66 & 16.49 & 18.36 & 18.49 & 68.01\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \miplan 
-                        
-l.282 \miplan
-              & --- & 15.08 & 9.85 & 16.67 & 19.38 & 60.97\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \fdssshort 
-                           
-l.290 \fdssshort
-                 & 16.1 & 17.0 & 20.0 & --- & 19.0 & 72.1\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \fdremix 
-                         
-l.291 \fdremix
-               & 16.07 & 16.0 & 20.0 & --- & 18.0 & 70.07\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \miplan 
-                        
-l.293 \miplan
-              & 13.3 & 16.0 & 15.0 & --- & 20.0 & 64.3\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \miplan 
-                        
-l.304 \miplan
-              & 18.53 & 20.0 & 12.0 & --- & 20.0 & 68.53\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \fdremix 
-                         
-l.305 \fdremix
-               & 15.83 & 16.0 & 18.5 & --- & 20.0 & 68.33\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \fdssshort 
-                           
-l.306 \fdssshort
-                 & 15.8 & 17.0 & 18.5 & --- & 19.0 & 68.3\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \fdssshort 
-                           
-l.315 \fdssshort
-                 & 16.15 & 8.0 & --- & --- & 20.0 & 44.15\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \fdremix 
-                         
-l.318 \fdremix
-               & 15.42 & 8.0 & --- & --- & 17.0 & 40.42\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \miplan 
-                        
-l.319 \miplan
-              & 14.88 & 9.0 & --- & --- & 15.0 & 38.88\\ \hline
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[2]
 Package epstopdf Info: Source file: <histogrammi/histogram_rovers_ALL_PERCENTAG
 E_COST.eps>
 (epstopdf)                    date: 2018-11-12 09:46:22
@@ -976,20 +430,20 @@ E_COST-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_rove
 rs_ALL_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram_rovers_ALL_PE
 RCENTAGE_COST.eps>
-(epstopdf)             \includegraphics on input line 341.
+(epstopdf)             \includegraphics on input line 456.
 Package epstopdf Info: Output file is already uptodate.
 
-<histogrammi/histogram_rovers_ALL_PERCENTAGE_COST-eps-converted-to.pdf, id=21, 
+<histogrammi/histogram_rovers_ALL_PERCENTAGE_COST-eps-converted-to.pdf, id=26, 
 361.35pt x 216.81pt>
 File: histogrammi/histogram_rovers_ALL_PERCENTAGE_COST-eps-converted-to.pdf Gra
 phic file (type pdf)
 
 <use histogrammi/histogram_rovers_ALL_PERCENTAGE_COST-eps-converted-to.pdf>
 Package pdftex.def Info: histogrammi/histogram_rovers_ALL_PERCENTAGE_COST-eps-c
-onverted-to.pdf used on input line 341.
+onverted-to.pdf used on input line 456.
 (pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 341--342
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 456--457
 [][] 
  []
 
@@ -1004,20 +458,20 @@ OST-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_tpp_
 ALL_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram_tpp_ALL_PERCENTA
 GE_COST.eps>
-(epstopdf)             \includegraphics on input line 349.
+(epstopdf)             \includegraphics on input line 464.
 Package epstopdf Info: Output file is already uptodate.
 
-<histogrammi/histogram_tpp_ALL_PERCENTAGE_COST-eps-converted-to.pdf, id=22, 361
+<histogrammi/histogram_tpp_ALL_PERCENTAGE_COST-eps-converted-to.pdf, id=27, 361
 .35pt x 216.81pt>
 File: histogrammi/histogram_tpp_ALL_PERCENTAGE_COST-eps-converted-to.pdf Graphi
 c file (type pdf)
 
 <use histogrammi/histogram_tpp_ALL_PERCENTAGE_COST-eps-converted-to.pdf>
 Package pdftex.def Info: histogrammi/histogram_tpp_ALL_PERCENTAGE_COST-eps-conv
-erted-to.pdf used on input line 349.
+erted-to.pdf used on input line 464.
 (pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 349--350
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 464--465
 [][] 
  []
 
@@ -1032,20 +486,20 @@ E_COST-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_truc
 ks_ALL_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram_trucks_ALL_PE
 RCENTAGE_COST.eps>
-(epstopdf)             \includegraphics on input line 355.
+(epstopdf)             \includegraphics on input line 470.
 Package epstopdf Info: Output file is already uptodate.
 
-<histogrammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-converted-to.pdf, id=23, 
+<histogrammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-converted-to.pdf, id=28, 
 361.35pt x 216.81pt>
 File: histogrammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-converted-to.pdf Gra
 phic file (type pdf)
 
 <use histogrammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-converted-to.pdf>
 Package pdftex.def Info: histogrammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-c
-onverted-to.pdf used on input line 355.
+onverted-to.pdf used on input line 470.
 (pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 355--356
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 470--471
 [][] 
  []
 
@@ -1060,20 +514,20 @@ NTAGE_COST-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_open
 stacks_ALL_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram_openstack
 s_ALL_PERCENTAGE_COST.eps>
-(epstopdf)             \includegraphics on input line 365.
+(epstopdf)             \includegraphics on input line 480.
 Package epstopdf Info: Output file is already uptodate.
 
 <histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST-eps-converted-to.pdf, id=
-24, 361.35pt x 216.81pt>
+29, 361.35pt x 216.81pt>
 File: histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST-eps-converted-to.pdf
  Graphic file (type pdf)
 
 <use histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST-eps-converted-to.pdf>
 Package pdftex.def Info: histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST-e
-ps-converted-to.pdf used on input line 365.
+ps-converted-to.pdf used on input line 480.
 (pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 365--366
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 480--481
 [][] 
  []
 
@@ -1088,45 +542,57 @@ _ALL_PERCENTAGE_COST-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_prep
 rocessed-storage_ALL_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram
 _preprocessed-storage_ALL_PERCENTAGE_COST.eps>
-(epstopdf)             \includegraphics on input line 374.
+(epstopdf)             \includegraphics on input line 489.
 Package epstopdf Info: Output file is already uptodate.
 
 <histogrammi/histogram_preprocessed-storage_ALL_PERCENTAGE_COST-eps-converted-t
-o.pdf, id=25, 361.35pt x 216.81pt>
+o.pdf, id=30, 361.35pt x 216.81pt>
 File: histogrammi/histogram_preprocessed-storage_ALL_PERCENTAGE_COST-eps-conver
 ted-to.pdf Graphic file (type pdf)
 
 <use histogrammi/histogram_preprocessed-storage_ALL_PERCENTAGE_COST-eps-convert
 ed-to.pdf>
 Package pdftex.def Info: histogrammi/histogram_preprocessed-storage_ALL_PERCENT
-AGE_COST-eps-converted-to.pdf used on input line 374.
+AGE_COST-eps-converted-to.pdf used on input line 489.
 (pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 374--375
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 489--490
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 364--379
+Underfull \hbox (badness 10000) in paragraph at lines 479--494
 
  []
 
-
-Package natbib Warning: Citation `nebel2018' on page 3 undefined on input line 
-643.
-
-[3 <./histogrammi/histogram_rovers_ALL_PERCENTAGE_COST-eps-converted-to.pdf> <.
+[4 <./histogrammi/histogram_rovers_ALL_PERCENTAGE_COST-eps-converted-to.pdf> <.
 /histogrammi/histogram_tpp_ALL_PERCENTAGE_COST-eps-converted-to.pdf> <./histogr
 ammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-converted-to.pdf>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 657.
+               Default added (so using `tbp') on input line 772.
 
-No file main.bbl.
+(./main.bbl
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 5.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 1264) in paragraph at lines 4--7
+[]\OT1/ptm/m/n/10 The 2018 in-ter-na-tional plan-ning com-pe-ti-tion clas-
+ []
+
+
+Underfull \hbox (badness 1107) in paragraph at lines 47--51
+[]\OT1/ptm/m/n/10 S. Richter and M. West-phal.  The LAMA plan-
+ []
+
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no ¼ in font ptmr7t!
+)
 
 Package natbib Warning: There were undefined citations.
 
-[4 <./histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST-eps-converted-to.pdf
+[5 <./histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST-eps-converted-to.pdf
 > <./histogrammi/histogram_preprocessed-storage_ALL_PERCENTAGE_COST-eps-convert
 ed-to.pdf>] (./main.aux)
 
@@ -1134,31 +600,33 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5191 strings out of 493304
- 77405 string characters out of 6139871
- 174757 words of memory out of 5000000
- 8563 multiletter control sequences out of 15000+600000
- 26325 words of font info for 52 fonts, out of 8000000 for 9000
+ 5302 strings out of 493304
+ 78949 string characters out of 6139871
+ 169130 words of memory out of 5000000
+ 8658 multiletter control sequences out of 15000+600000
+ 32846 words of font info for 67 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,13n,38p,517b,410s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,13n,38p,736b,410s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs5.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/rsfs/rsfs7.pfb></usr/share/texlive/texmf-dist/font
-s/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/tim
-es/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-
-Output written on main.pdf (4 pages, 194896 bytes).
+sfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/rsfs/rsfs5.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/rsfs/rsfs7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (5 pages, 240371 bytes).
 PDF statistics:
- 149 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
+ 164 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

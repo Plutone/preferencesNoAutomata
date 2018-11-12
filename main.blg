@@ -1,0 +1,76 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: plain.bst
+Database file #1: biblio.bib.bib
+I was expecting a `,' or a `}'---line 36 of file biblio.bib.bib
+ :  
+ :  pages={474-482}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 60 of file biblio.bib.bib
+ : 
+ : @inproceedings{nunez2014miplan,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "do-kambhampati04"
+Warning--I didn't find a database entry for "smith04"
+Warning--I didn't find a database entry for "Weld:94AA"
+Warning--I didn't find a database entry for "bacKab"
+Warning--I didn't find a database entry for "Hplanp:aij09"
+Warning--I didn't find a database entry for "kn:geffner09"
+Warning--I didn't find a database entry for "BM:AAAI06"
+Warning--I didn't find a database entry for "Edelk06"
+Warning--I didn't find a database entry for "Edelk"
+Warning--I didn't find a database entry for "LPRPGP-P:icaps11"
+Warning--I didn't find a database entry for "coles2013searching"
+Warning--I didn't find a database entry for "CC:ECAI04"
+Warning--I didn't find a database entry for "Rintanen:ECAI00"
+Warning--I didn't find a database entry for "Rintanen:personal2015"
+Warning--I didn't find a database entry for "nebelCompiling"
+Warning--I didn't find a database entry for "fdss2018"
+Warning--I didn't find a database entry for "fdremix"
+Warning--I didn't find a database entry for "IPC6"
+Warning--to sort, need author or key in ipc9website
+You've used 10 entries,
+            2118 wiz_defined-function locations,
+            587 strings with 6188 characters,
+and the built_in function-call counts, 3689 in all, are:
+= -- 349
+> -- 178
+< -- 4
++ -- 73
+- -- 60
+* -- 242
+:= -- 580
+add.period$ -- 30
+call.type$ -- 10
+change.case$ -- 60
+chr.to.int$ -- 0
+cite$ -- 11
+duplicate$ -- 153
+empty$ -- 305
+format.name$ -- 60
+if$ -- 797
+int.to.chr$ -- 0
+int.to.str$ -- 10
+missing$ -- 9
+newline$ -- 53
+num.names$ -- 18
+pop$ -- 81
+preamble$ -- 1
+purify$ -- 50
+quote$ -- 0
+skip$ -- 114
+stack$ -- 0
+substring$ -- 197
+swap$ -- 46
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 40
+warning$ -- 1
+while$ -- 33
+width$ -- 12
+write$ -- 108
+(There were 2 error messages)
