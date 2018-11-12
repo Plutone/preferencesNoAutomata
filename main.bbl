@@ -1,7 +1,7 @@
 \begin{thebibliography}{10}
 
 \bibitem{ipc9website}
-The 2018 international planning competition classical tracks.
+The 2018 international planning competition ({IPC}) classical tracks.
 \newblock \url{https://ipc2018-classical.bitbucket.io}.
 \newblock Accessed: 2018-10-12.
 
@@ -9,14 +9,27 @@ The 2018 international planning competition classical tracks.
 M.~Briel, R.~Sanchez, M.~Do, and S.~Kambhampati.
 \newblock Effective approaches for partial satisfaction (over-subscription)
   planning.
-\newblock In {\em Proceedings of 19th National Conference on Artificial
-  Intelligence ({AAAI}'04)}, 2004.
+\newblock In {\em Proceedings of Nineteenth National Conference on Artificial
+  Intelligence ({AAAI}04)}, pages 562--569, 2004.
 
 \bibitem{cenamor2014ibacop}
 I.~Cenamor, T.~De~La~Rosa, and F.~Fern{\'a}ndez.
 \newblock {IB}a{C}o{P} and {IB}a{C}o{P} planner.
-\newblock In {\em In 8th International Planning Competition Booklet
+\newblock In {\em In Eighth International Planning Competition Booklet
   (ICAPS-14)}, pages 35--38, 2014.
+
+\bibitem{coles2011lprpg}
+Amanda~Jane Coles and Andrew Coles.
+\newblock Lprpg-p: Relaxed plan heuristics for planning with preferences.
+\newblock In {\em Proceedings of the Twenty-First International Conference on
+  Automated Planning and Scheduling (ICAPS 2011)}, pages 26--33, 2011.
+
+\bibitem{do-kambhampati04}
+M.B. Do and S.~Kambhampati.
+\newblock Partial satisfaction (over-subscription) planning as heuristic
+  search.
+\newblock In {\em Proceedings of Fifth International Conference on Knowledge
+  Based Computer Systems {(KBCS04)}}, page mancanti, 2004.
 
 \bibitem{GHLS+09}
 A.~Gerevini, P.~Haslum, D.~Long, A.~Saetti, and Y.~Dimopoulos.
@@ -27,13 +40,13 @@ A.~Gerevini, P.~Haslum, D.~Long, A.~Saetti, and Y.~Dimopoulos.
 \bibitem{MercuryIPC8}
 M.~Katz and J.~Hoffmann.
 \newblock Mercury planner: Pushing the limits of partial delete relaxation.
-\newblock In {\em In 8th International Planning Competition Booklet
+\newblock In {\em In Eighth International Planning Competition Booklet
   (ICAPS-14)}, pages 43--47, 2014.
 
 \bibitem{nunez2014miplan}
 S.~N{\'u}nez, D.~Borrajo, and C.~Linares~L{\'o}pez.
 \newblock {MIPlan} and {DPMPlan}.
-\newblock In {\em In 8th International Planning Competition Booklet
+\newblock In {\em In Eighth International Planning Competition Booklet
   (ICAPS-14)}, pages 13--16, 2014.
 
 \bibitem{percassi2017improving}
