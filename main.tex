@@ -392,7 +392,871 @@ of considered preference providing for each of them a formal definition.
 
 In the following definitions of operators classes we will assume that $\phi$ (and $\psi$ in the case of dual preferences) are arbitrary CNF formulae $\phi = \phi_{1} \land ... \land \phi_{n}$ where each clause $\phi_{i} = l_{1} \lor ... \lor l_{m_{i}}$ for each $i \in \{1 \ldots n\}$.
 
+
+\subsection{Operators Affecting Always Preferences} \label{subsection:always_operators}
+An always preference has the following {\pddl} syntax 
+$$
+(preference\text{ }P\text{ }({\textit{always}}\text{ }\phi))
+$$
+where the formula $\phi$ has to hold in each reached state of the plan.
+In the following we will abbreviate it with $P = \sf{A}_{\phi}$. According to
+the semantic provided in Figure \ref{fig:semantics} a 
+violation of $P = \sf{A}_{\phi}$ is irreversible, when a state $s$ such that
+$s \not \models \phi$ occurs then it is no longer possible to satisfy $P$.
+
+% ----------
+% VIOLAZIONE
+% ----------
+\begin{mydef}\label{violation_formula}
+Given an operator $o$ and an always preference $P = \sf{A}_{\phi}$ of a {\stripspp} problem, $o$ is a \textbf{violation} of $P$ if there is a clause $\phi_i$ of $\phi$ such that:
+\begin{enumerate}
+\item $\overline{L}(\phi_i) \subseteq Z(o)$;
+\item $\overline{L}(\phi_i) \not\subseteq \textit{Pre}(o)$.
+
+\end{enumerate}
+
+\end{mydef}
+
+The conditions of Definition \ref{violation_formula} require that
+there exists at least a clause of $\phi$ (1) whose literals are falsified after the execution of $o$ (2)
+which is not already false in the state where $o$ is applied.
+
+If an operator violates a preference, the preference is unsatisfied in any state resulting
+from the application of the operator. The set of always preferences that
+are violated by an operator $o$ is denoted with $\violA$.
+
+% --------
+% MINACCIA
+% --------
+\begin{mydef}\label{threat_formula}
+Given an operator $o$ and an always preference $P = \sf{A}_{\phi}$ of a {\stripspp} problem, $o$ is a \textbf{threat} of $P$ if it is not a violation and there exists a clause $\phi_i$ of $\phi$ such that:
+\begin{enumerate}
+% \item $\overline{L}(\phi_i) \cap Z(o) \not = \O $
+\item $|\overline{L}(\phi_i) \cap Z(o)| > 0 $
+% \item $L(\phi_i) \cap Z(o) = \O $
+\item $|L(\phi_i) \cap Z(o)| = 0 $
+\item $\overline{L}(\phi_i) \not \subseteq \textit{Pre}(o)$.
+% \end{gather}
+\end{enumerate}
+\end{mydef}
+
+The conditions of Definitin \ref{threat_formula} require that there exist at least a clause of $\phi$ that
+(1) has some (but not all) literals which are falsified after the execution of $o$,
+(2) has not literals which are true in the resulting state from the application of $o$ and (3)
+this clause is not already false in the state where $o$ is applied. The expression 
+$\overline{L}(\phi_i) \not \subseteq \textit{Pre}(o)$ in Definition \ref{violation_formula}-\ref{threat_formula}
+is necessary to avoids that an operator $o$ is considered a violation/threat when its precondition is
+already violated in the state where it is applied.
+
+A clause $\phi_i$ of $P = \sf{A}_{\phi}$ satisfying these conditions
+is a \textit{threatened clause} of $P$. A threatened preference (clause) may be falsified by an operator depending on the state where the operator is applied. The set of always preferences threatened by an operator $o$ is denoted with $\threatA$; the set of clauses of an always preference $P$ threatened by $o$ is denoted with $T_{{\mathcal{A}}}(o, P)$.
+% --------
+% NEUTRALE
+% --------
+\begin{mydef}
+Given an operator $o$ and an always preference $P = \sf{A}_{\phi}$ of a {\stripspp} problem, $o$ is a \textbf{neutral} operator for $P$ if:
+\begin{enumerate}
+    % \item for all clauses $\phi_i$ of $P$, $L(\phi_i) \cap Z(o) \not = \O $ or $ \overline{L}(\phi_i) \cap Z(o) = \O$ holds;
+    \item for all clauses $\phi_i$ of $P$, $|L(\phi_i) \cap Z(o)| > 0 $ or $ |\overline{L}(\phi_i) \cap Z(o)| = 0$ holds;
+
+    \item there exists a clause $\phi_i$ such that $\overline{L}(\phi_i) \subseteq \textit{Pre}(o)$.
+\end{enumerate}
+\end{mydef}
+
+For example an operator $o$ such that $\textit{Pre}(o) = \{\lnot a\}$ and $\textit{Eff}(o) = \{\lnot b\}$ 
+is a threat for $P1 = \mathsf{A}_{\phi^{P1}}$, a violation for $P2 = \mathsf{A}_{\phi^{P2}}$ and neutral for
+$P3 = \mathsf{A}_{\phi^{P3}}$ where 
+$\phi^{P1} = c \lor b$, $\phi^{P2} = a \lor b$
+and $\phi^{P3} = d$.
+
+
+% ----------------------------------------------
+% CLASSI DI OPERATORI PER LA PREFERENZA SOMETIME
+% ----------------------------------------------
+\subsection{Operators Affecting Sometime Preferences} \label{subsection:sometime_operators}
+A sometime preference has the following {\pddl} syntax 
+$$(preference\text{ }P\text{ }(sometime\text{ }\phi))$$
+where the formula $\phi$ has to become true at least once state in the plan state trajectory. In the following we abbreviate with $P = \sf{ST}_{\phi}$. According to
+the semantic provided in Figure \ref{fig:semantics}
+it is not possible to deliberate if a preference $P = \sf{ST}_{\phi}$ is violated
+until the end of the planning but the preference can be satisfied at any time during planning 
+if an operator makes $\phi$ true.
+
+\begin{mydef} \label{sometime_definition}
+Given an operator $o$ and a sometime preference $P = \sf{ST}_{\phi}$ of a {\stripspp} problem, $o$ is a \textbf{potential support} for $P$ if $o$ can make true $\phi$ otherwise the operator is \textbf{neutral} for $P$.
+\end{mydef}
+
+The set of sometime preferences of $\Pi$ which are potentially supported by the operator $o$ are denoted with $S_{\mathcal{ST}}(o)$.
+
+For example an operator $o$ such that $\textit{Pre}(o) = \O$ and $\textit{Eff}(o) = \{\lnot b\}$ 
+is a potential support for $P1 = \mathsf{ST}_{\phi^{P1}}$ where $\phi^{P1} = c \lor \lnot b$.
+
+
+% -----------------------------------------------------
+% CLASSI DI OPERATORI PER LA PREFERENZA SOMETIME BEFORE
+% -----------------------------------------------------
+\subsection{Operators Affecting Sometime-before Preferences}
+A sometime-before preference has the following {\pddl} syntax and its semantic requires that,
+$$(preferences\text{ }P\text{ }(sometime\text{-}before\text{ }\phi\text{ }\psi))$$
+whenever $\phi$ is true in a state $s$ then $\psi$ must have been true in a state before $s$.
+In the following we will abbreviate it with $P = \sf{SB}_{\phi, \psi}$. Likewise to what exposed for the
+always preferences a 
+violation of $P = \sf{SB}_{\phi, \psi}$ is irreversible, when a state $s$ such that
+$s \not \models \phi$ occurs 
+without having been made $\psi$ true in a previous state
+then it is no longer possible to satisfy $P$.
+
+Speaking informally, if an operator $o$, applied in a state where $\phi$ has never been made true before, 
+makes $\psi$ true in the resulting state, 
+then we consider it a \textit{support} for $P$. Once a support is
+applied then preference can no longer be violated.
+
+% POTENTIAL SUPPORT
+\begin{mydef}\label{sup_sb}
+Given an operator $o$ and a sometime-before preference $P = \sf{SB}_{\phi, \psi}$ of a {\stripspp} problem, $o$ is a \textbf{potential support} for $P$ if $o$ can make $\psi$ true.\\
+\end{mydef}
+An operator $o$ that satisfied Definition \ref{sup_sb} is a \textit{potential} support for $P$ because it can act as an \textit{actual} support only under certain preconditions which depend by the stare where it is applied. If
+a potential support $o$ is applied we can distinguish two possible behaviors:
+\begin{itemize}
+    \item if $\psi$ does not become true in the resulting state, then $o$ is \textit{neutral} for $P$;
+    
+    \item if $\psi$ becomes true in the resulting state and $P$ has not been violated,
+    then $o$ is a \textit{support} for $P$. 
+    % $o$ is a \textit{real support} operator.
+\end{itemize}
+% The compilation scheme must take account of both these possibilities introducing two compiled operators.
+
+% THREAT
+\begin{mydef}
+Given an operator $o$ and a sometime-before preference $P = \sf{SB}_{\phi, \psi}$ of a {\stripspp} problem, $o$ is a \textbf{threat} for $P$ if $o$ can make true $\phi$.
+\end{mydef}
+Similarly to Definition \ref{sup_sb} also in this case the behavior of a
+threat when it is applied depends by the context. We distinguish the following situations
+\begin{itemize}
+    \item if $\psi$ does not become true in the resulting state, then $o$ is \textit{neutral} for $P$;
+    \item if $\psi$ becomes true in the resulting state and the formula $\phi$ has become true at least once in a earlier state, than $s$ is \textit{neutral} for $P$ otherwise if the formula $\phi$ has never become true in previous states,
+    then $o$ is a \textit{violation} for $P$.
+\end{itemize}
+
+The set of sometime-before preferences of $\Pi$ which are threatened and potentially supported by the operator $o$ are denoted respectively with $T_{\mathcal{SB}}(o)$ and $S_{\mathcal{SB}}(o)$.
+
+\begin{mydef}
+Given an operator $o$ and a sometime-before preference $P = \langle \phi, \psi \rangle$ of a {\stripspp} problem, $o$ is a \textbf{neutral} for $P$ if $o$ is not a support or a threat.
+\end{mydef}
+
+For example an operator $o$ such that $\textit{Pre}(o) = \O$ and $\textit{Eff}(o) = \{ b\}$ 
+is a potential support for $P1 = \mathsf{SB}_{\phi^{P1}, \psi^{P1}}$, a threat for $P2 = \mathsf{SB}_{\phi^{P2}, \psi^{P2}}$ and neutral for
+$P3 = \mathsf{SB}_{\phi^{P3}, \psi^{P3}}$ where 
+$\phi^{P1} = c $ and $\psi^{P1} = a \lor b$
+$\phi^{P2} = c \lor b$ and $\psi^{P2} = d$
+and $\phi^{P3} = d$ and $\psi^{P3} = e$.
+
+
+\subsection{Operators Affecting At-most-once Preferences}\label{subsectionAMO}
+
+An at-most-once preference has the following {\pddl} syntax 
+$$(preference\text{ }P\text{ }(at\textit{-}most\textit{-}once\text{ }\phi)$$
+where the formula $\phi$ has to become true at most once in the plan state trajectory. In the following we will abbreviate it with $P = \sf{AO}_{\phi}$. 
+
+% Definizione di minaccia
+\begin{mydef}\label{threat_amo}
+Given an operator $o$ and an at-most-once preference $P = \sf{AO}_{\phi}$ of a {\stripspp} problem, $o$ is a \textbf{threat} operator for $P$ if $o$ can make true $\phi$.
+\end{mydef}
+
+We distinguish the following situations:
+\begin{itemize}
+    % \item if $\Phi$ has never become true in states earlier than the state $s$ where $o$ is applied and $\Phi$ becomes true in the state resulting from the application of $o$ in $s$, then the corrispondent compiled operator $o'$ has to take account this fact, otherwise, if $\Phi$ has become true in a earlier state, then $o$ is a \textit{violation};
+    % state resulting from the application of $o$
+
+    \item if $\phi$ has never become true in all the states earlier than the state $s$ where $o$ is applied and becomes true in the resulting state from the application of $o$ then the operator behaves as \textit{neutral} for $P$;
+
+    \item if $\phi$ does not become true in the state resulting state from the application of $o$, then $o$ behaves as \textit{neutral} for $P$;
+
+    \item if $\phi$ has become true in a earlier state and will become true in the resulting state from the application of $o$, the $o$ behaves as a \textit{violation} for $P$.
+\end{itemize}
+
+The set of at-most-once preferences of $\Pi$ which are threatened by the operator $o$ are denoted with $T_{\mathcal{AO}}(o)$.
+
+For example an operator $o$ such that $\textit{Pre}(o) = \O$ and $\textit{Eff}(o) = \{\lnot b\}$ 
+is a potential support for $P1 = \mathsf{AO}_{\phi^{P1}}$ where $\phi^{P1} = c \lor \lnot b$.
+
 \section{Compilation of Qualitative Preferences}
+
+Before describing the general compilation scheme, some further definitions should be provided.
+
+% ------------------
+% OPERATORE NEUTRALE
+% ------------------
+\begin{mydef} \label{def:neutral-operators}
+
+Given a {\stripspp} problem $\Pi$ if an operator $o$ of $\Pi$ is neutral for every given preference of $\Pi$ over
+$\mathcal{A}$, $\mathcal{SB}$, $\mathcal{ST}$, $\mathcal{AO}$ and $\mathcal{SG}$
+then we say that $o$ is \textbf{neutral} for $\Pi$.
+The set of all the neutral operators for $\Pi$ is denoted by $O_{\textit{neutral}}$.
+\end{mydef}
+
+% ------------------
+% AFFECTED OPERATORS
+% ------------------
+\begin{mydef}
+Given an operator $o$ of a {\stripspp} $\Pi$ problem the set $P_{\textit{affected}(o)}$ of prefereces affected by $o$ is defined as:
+$$
+P_{\textit{affected}(o)} =
+\threatA \cup \threatSB \cup \supportSB \cup \threatAMO \cup \supportST.
+$$
+\end{mydef}
+
+Given a {\stripspp} problem, an equivalent {\stripsp} problem can be derived by translation which has some similarities to what proposed by Keyder and Geffner for soft goals but also significant difference. The scheme proposed by Keyder and Geffner is considerable simpler than ours because it does not to consider the interaction between actions and preferences such as threats, supports and violations. In order to simplify the compilation scheme we don't consider the compilation of soft goals because it can be easily added using the same method of Keyder and Geffner.
+
+Moreover we assume that every always and sometime-before preference are not violated and every sometime preference are not satisfied in the problem initial state $I$. Before starting the compilation, we carry out the following checks
+in order to exclude some preferences from the process:
+\begin{itemize}
+
+\item for each $P = {\mathsf{A}_{\phi} \in \mathscr{P}_{\mathcal{A}}}$ we check that $I \models \phi$, if the condition
+does not hold
+we exclude $P$ from the compilation increasing the cost of the plan by $u(P)$ because it is already violated in $I$;
+
+\item for each $P = {\mathsf{SB}_{\phi, \psi}} \in \mathscr{P}_{\mathcal{SB}}$ we check that $I \not \models \phi$, if the condition
+does not hold
+we exclude $P$ from the compilation increasing the cost of the plan by $u(P)$
+because it is already violated in $I$; after that we check that 
+$I \not \models \phi \land I \models \psi$, if the condition hold we exclude $P$ because it is already satisfied in $I$;
+
+\item for each $P = {\mathsf{ST}_{\phi} \in \mathscr{P}_{\mathcal{ST}}}$ we check that $I \models \phi$, if the conditiom holds
+we exclude $P$ because it is already satisfied in $I$;
+
+\end{itemize}
+
+
+
+Given a {\stripspp} problem $\Pi = \langle F,I,O,G,\mathscr{P},c,u \rangle$, the compiled \strips+ problem of $\Pi$ is $\Pi' = \langle F,'I',O',G',c' \rangle$ where:
+
+\begin{itemize}
+    \item {$F' = F \cup V \cup D \cup C \cup \overline{C'} \cup \{\textit{\it normal-mode}, \text{\it end-mode}\}$};
+
+    \item $I' = I \cup \overline{C'} \cup V_{\mathcal{ST}} \cup $ $S_{\mathcal{AO}}$  $ \cup \{\text{\it normal-mode}\}$;
+
+    \item $G' = G \cup C'$;
+
+    \item $O' = \{\text{\it collect}(P_i), \text{\it forgo}(P_i) \mid P_i \in \mathscr{P}\} \cup \{end\} \cup 
+    \{{comp}(o, \mathscr{P}) \;\mid\; o \in O\}$
+
+
+
+    \item 
+$ c'(o') =
+\left\{
+    \begin{array}{ll}
+        u(P)  & \mbox{if } o' = \text{\it forgo}(P) \\
+        % c(o) & \mbox{if } o \in O_{{comp}} \\
+        c(o') & \mbox{if } o' = \textit{comp}(o , \mathscr{P}) \\
+        0 & \mbox{otherwise}
+
+    \end{array}
+\right.
+$
+\end{itemize}
+
+\noindent where:
+
+\begin{itemize}
+    % CAMBIO DELL'INDICE
+    % \item$PV = \cup_{i=1}^{k} \{P_i\text{\it-violated}\}, k = |P|$; 
+
+    \item$V = \cup_{i=1}^{|\mathscr{P}|} \{P_i\text{\it-violated}\}$;
+
+    \item$V_{\mathcal{ST}} = \cup_{i=1}^{|\mathscr{P}_\mathcal{ST}|} \{P_i\text{\it-violated}\}$, $\mathscr{P}_\mathcal{ST} \subseteq \mathscr{P}$; this is the set of the violation predicates restricted to the subset of the sometime preferences of all preferences $\mathscr{P}$;
+
+    \item {
+    $S_{\mathcal{AO}} = \cup_{i=1}^{|\mathscr{P}_{\mathcal{AO}}(I)|}\{P_i\text{-}seen\}$, $\mathscr{P}_\mathcal{AO}(I) 
+    = \{P_i = \mathsf{AO}_{\phi} \mid P_i \in {\mathscr{P}}_{\mathcal{AO}}, I \models \phi\} $; this is the set of \textit{seen} predicates (see Section \ref{subsect:amo_comp}) for those at-most-once preferences such that $I \models \phi$;}
+
+    % NON PIU' NECESSARIO CON GLI EFFETTI CONDIZIONALI
+    % \item$D = \cup_{i=1}^n\{P_i\text{-}done\}$ where $n = |\mathscr{P}|$;
+
+    \item$C'_{} = \{P' \mid P \in \mathscr{P}\}$ and $\overline{C'}_{} = \{\overline{P'} \mid P \in \mathscr{P}\}$;
+
+    \item$\text{\it forgo}(P_i) = \langle \{\text{\it end-mode}, P_i\text{\it-violated}, \overline{P_i'}\}, \{{P}', \lnot \overline{{P}'}\} \rangle$;
+
+    \item$\textit{end} = \langle \{ \text{\it normal-mode} \}, \{\text{\it end-mode}, \text{\it normal-mode}\} \rangle$;
+
+    % NON PIU' NECESSARIO - VERSIONE SENZA EFFETTI CONDIZIONALI
+    % \item $O_{comp} = O_{{\it neutral}} \cup O_{chained} \cup O_{violation}$
+
+    % \item $O_{comp} = O_{\mathcal{N}} \cup O_{\overline{\mathcal{N}}}$;
+    % \item $O_{\mathit{comp}} = O_{\mathit{comp}}^{N} \cup O_{\mathit{comp}}^{\overline{N}}$;
+
+    % ALTERNATIVA O_{neutral/safe}
+    % \item $O_{\mathit{comp}}^{{N}} = \{\langle \textit{Pre}(o) \cup \{\text{\it normal-mode}\}, \textit{Eff}(o)$\}$\rangle \mid o \in O_{\textit{neutral}}$;
+
+    % NON PIU' NECESSARIO - VERSIONE SENZA EFFETTI CONDIZIONALI
+    % \item $O_{chained}$ and $O_{violation}$ are the operator sets generated by the operator transformation schema applied to the operators of $\Pi$ that affect at least one preference of $\Pi$. An operator $o \in O$ is compiled through the compilation schema if $|I(o)| > 0$ otherwise it is considered neutral. Such set will be defined after presenting the general idea for compiling an operator affecting a preference.
+
+    % \item  $O_{\mathit{comp}}^{\overline{N}}$ is the set of the compiled not neutral operator; the description of how these operators are compiled is shown in Definition \ref{compiledOcondeff}.
+
+    % \item  $c_{\overline{\mathcal{N}}}$ \textbf{TODO}
+
+    % \item the compiled operators $o_{chained}$ of the non-neutral operators are defined as:
+    % $$
+    % o_{chained} =\bigcup\limits_{o \in \mathit{NN}(\Pi)} chain(o, SI(o))
+    % $$
+    % where $SI(o)$ an arbitrary ordering of affected preferences by $o$ and $chain(o, SI(o))$ is a set of new compiled operators defined further down in following section \ref{comp_sect};
+
+    % \item $c_{tv}(o)$ is the cost of an operator $o \not \in N(\Pi)$, or equivalently that $o \in O_{chained} \cup O_{violation}$ that we define after describing how exactly these sets are formed.
+
+
+    % VERSIONE FINALE
+    \item $\textit{comp}(o , \mathscr{P})$, which definition is provided in Definition \ref{compiledOcondeff};
+
+
+% $\textit{comp}(o , \mathscr{P}) = \\
+%     \left\{
+%     \begin{array}{ll}
+%         \langle \textit{Pre}(o) \cup \{\text{\it normal-mode}\}, \textit{Eff}(o) \rangle & \mbox{if } o \in O_{{\it neutral}}\\
+%         \langle \textit{Pre}(o) \cup \{\text{\it normal-mode}\}, \textit{Eff}(o) \cup 
+%         {\displaystyle \bigcup_{P_i \in P_{\textit{affected}}(o)}{\mathcal{W}(o, P_i)}} \rangle & \mbox{if } o \in O - O_{{\it neutral}}\\
+%     \end{array}
+% \right.
+% $
+
+
+
+\end{itemize}
+
+% The specific definition of $\mathcal{W}(o, P_i)$ for an operator that is not neutral for $\mathscr{P}$
+% depends on the type of prefrence $P_i$ as specified in the following by Definition \ref{when_always}--\ref{when_atmostonce}
+
+% \text{\it forgo} & \text{\it collect}
+\paragraph{{Forgo} and {Collect} Actions}
+For each preference $P$ the transformation of $\Pi$ into $\Pi'$ adds a dummy hard goal $P'$ to $\Pi'$ which can be achieved by two ways: with action $\text{\it collect}(P)$, that has cost 0 but requires $P$ to be satisfied (i.e. $\pviol$ is false in the goal state for all kinds of preferences except for sometime), or with action $\text{\it forgo}(P)$, that has cost equal to the utility of $P$ and can be performed only if $P$ is false ($\pviol$ is true in the goal state). For each preference, exactly one of $\text{\it collect}(P)$ and $\text{\it forgo}(P)$ appears in the plan. 
+
+\paragraph{Operator Compilation Function}
+The function $ \textit{comp}(o , \mathscr{P}) $ which transforms an original operator $o$
+into the equivalent compiled one is splitted in two parts. If the operator is neutral 
+($o \in O_{{\it neutral}}$) then the function just extends $\textit{Pre}(o)$
+with the predicate $\text{\it normal-mode}$ in order to scorporate the execution of the domain operators and
+the evaluationof $\text{\it forgo}$ and $\text{\it collect}$ actions at the end of the planning.
+
+If the operator $o$ is not neutral ($o \in O - O_{{\it neutral}}$) where $|P_{\textit{affected}}(o)| = n$,
+then the compilation function $\textit{comp}(o , \mathscr{P})$ extends its effects,
+for each affected preference $P_i$, by adding a set of conditional effects denoted with 
+$ \mathcal{W}(o, P_i) $ whose definition depends by $o$,
+the class of preference $P_i$ belongs to and the way how $o$
+interacts with $P_i$. In Subsections \ref{compilation_always}--\ref{subsect:amo_comp}
+we will detail the definition of $ \mathcal{W}(o, P_i) $ for each class of preference.
+
+But we want a compiling problem which belongs to {\strips+} class and so
+we have to compile away the conditional effects (see Section \ref{subsection:conditional-effect}).
+
+% COPIA FORMA GENERICA conditional effects capitolo introduttivo!
+%     It will be explained in the next section because $n$, the number of affected preferences, can differ to $n'$ the number of additional conditional effects.
+% }, where $c_i$ is a formula that, when satisfied in the state where $o$ is applied, makes the formula $e_i$ an effect of $o$. 
+% If the operator is not neutral ($o \in O - O_{{\it neutral}}$), 
+% which means that $o$ affects $n$ preferences $P_{\textit{affected}}(o) = \{ P_1, ..., P_n\}$, then
+% it can be compiled by adding a number of conditional effects \textit{(when $c_i(o, P_i)$\, $e_i(o, P_i)$)}, for $i = 1\dots n'$\footnote{
+%     It will be explained in the next section because $n$, the number of affected preferences, can differ to $n'$ the number of additional conditional effects.
+% }, where $c_i$ is a formula that, when satisfied in the state where $o$ is applied, makes the formula $e_i$ an effect of $o$. 
+% % The exact Definition of $c_i$ and $e_i$
+% % depend on the class of preference $P_i$ belongs to which
+% % are specified below.
+
+% In detail the compilation function $\textit{comp}(o , \mathscr{P})$ extends,
+% for each affected preference by the execution of $o$, 
+% with a set of conditional effects $ \mathcal{W}(o, P_i) $
+% whose definition depends on $o$, the type of affected preference and the way
+% in which $o$ interacts with the preference. In the following subsections we will detail,
+% for each type of preference, the definition of function $ \mathcal{W}(o, P_i) $. 
+
+% \textit{comp}(o , P)
+
+% ESTENSIONE STATO INIZIALE
+\paragraph{Extension of the initial state}
+Note that the original initial state $I$ is extended to $I'$ with the set of literals $V_{\mathcal{ST}}$, which contains the literal $P_i\textit{-violated}$ for each sometime preference of the problem. The literal $P_i\textit{-violated}$ states that the related preference $P_i$ is (temporarily) violated in $I$ until a support operator for $P$ is applied.
+
+Furthermore the original initial state $I$ is extended with the set of literals $S_{\mathcal{AO}}$
+which contains, for each at-most-once preference $P_i = {\sf AO}_{\phi_i}$ of the problem such that
+$I \models \phi_i$, the literal $\textit{seen-}P_i$. This additional fluent
+$\textit{seen-}P_i$ states that the formula $\phi_i$, involved in $P_i$, is satisfied in $I$. This precaution is necessary to correctly capture any possible violations of at-most-once preferences.
+
+% We now present the transformation of not neutral operators that affects a set of preferences i.e. the operators in
+% $O - O_{{neutral}}$.
+
+% and the will specified in the following section.
+% Condition $c_i$ can be derived by regression of $P_i$ over $o$ (it is analogous to precondition $l_1 \wedge \ldots \wedge l_q$ in the $\overline{o}$-operators of Definition \ref{def:operatorcomp}).
+% There are two alternatives to do this,
+% one leads to an exponential blow up of the operators 
+% {(in our case $O(2^n)$ for each operator affecting $n$ preferences)} \cite{gazen97:ecp} and the other generates a linear number of operators but increase
+% polynomially the plan lenght \cite{compilationnebel}.\\
+% \redtext{\textbf{NOTA}: non e' proprio $O(2^n)$, sarebbe piu' preciso $O(2^m)$ dove $m$ dipende dal numero e dal tipo di preferenze influenzate da $o$.}
+% We use a variant of the linear compilation optimized in attempt to make it more efficient for the planner 
+% Our compilation scheme is based on the use of conditional effects but since an original operator can affects many preferences (e.g., $k=20$), we used a slight different of what proposed by Nebel to transform conditional effects generating only a linear number of operators ($2k$ instead of $2^k$). We describe in detail our compilation of conditional effects in section [...].
+% In definition \ref{compiledOcondeff} we describe how a not neutral operator $o$ is compiled. 
+
+% --------------------------------------------------------
+% DEFINIZIONE OPERATORE COMPILATO CON EFFETTI CONDIZIONALI
+% --------------------------------------------------------
+\begin{mydef} \label{compiledOcondeff}
+Given an operator $o$ the corresponding compiled operator is defined using the following function:\\
+
+% whose execution affects the set of preferences indicated as $\affectedd = \{P_1, P_2, ..., P_N \}$, the corresponding compiled operator is defined as
+
+% $\textit{comp}(o , \mathscr{P}) = \\
+%     \left\{
+%     \begin{array}{ll}
+%         \langle \textit{Pre}(o) \cup \{\text{\it normal-mode}\}, \textit{Eff}(o) \rangle & \mbox{if } o \in O_{{\textit neutral}}\\
+%         \langle \textit{Pre}(o) \cup \{\text{\it normal-mode}\}, \textit{Eff}(o) \cup 
+%         {\displaystyle \bigcup_{P_i \in P_{\textit{affected}}(o)}{\mathcal{W}(o, P_i)}} \rangle & \mbox{if } o \in O - O_{{\textit neutral}}\\
+%     \end{array}
+% \right.
+% $
+
+$ 
+{\textit{Pre}}(o') = {\textit{Pre}}(o) \cup \{\text{\it normal-mode}\}
+$
+
+$
+{\textit{Eff}}(o') = {\textit{Eff}}(o) \cup 
+{\displaystyle 
+\bigcup_{P_i \in P_{\textit{affected}}(o)}{ \mathcal{W}(o, P_i)}
+}
+$
+
+\noindent where
+$\mathcal{W}(o, P_i)$ is the set of conditional effects concerning the affected preference $P_i$. If $o \in O_\text{neutral}$ then $\textit{Eff}(o') = {\textit{Eff}(o)}$.
+
+\end{mydef}
+
+% Hereafter, given an operator $o$, we will denote with $o'$ the compiled operator, with $s$ the state where $o'$ is applied and with $s'$ the state resulting from the application of $o'$.
+
+
+
+
+% -------------------
+% COMPILAZIONE ALWAYS
+% -------------------
+\subsection{Compilation of an Always Preference} \label{compilation_always}
+We now present the transformation of operators that threaten or violate a preference in class $\mathcal{A}$. 
+
+Before defining the extending effects used to compile an operator $o$ which affects an always preference, we introduce some useful notation in order to simplify the formalisation. For an operator $o$ and a preference clause $\phi_i$:
+\begin{itemize}
+\item  $\mathit{NA}(o)_{\phi_i}= \{l_j \in L(\phi_i) \mid \neg{\l_j} \in ({\textit{Eff}}(o)^+ \cup {\textit{Eff}}(o)^-) \}$ is the set of literals in $L(\phi_i)$ falsified by the effects of o; 
+\item  $AA(o)_{\phi_i} = L(\phi_i) \setminus \mathit{NA}(o)_{\phi_i}$ is the set of literals in $L(\phi_i)$ \emph{not} falsified by the effects of o;
+\item  $\overline{AA}(o)_{\phi_i}$ is the literal-complement set of $AA(o)_{\phi_i}$.
+\end{itemize}
+
+
+% \textbf{alternativa?} \texttt{true}
+
+\begin{mydef} \label{when_always}
+Given an always preference $P = \sf{A}_{\phi}$ and an operator $o$ which affects $P$,
+the conditional effect set $\mathcal{W}(o, P)$ in the compiled version $o'$ of $o$
+(according to Definition \ref{compiledOcondeff}) is defined as:
+$$\mathcal{W}(o, P) = 
+\begin{cases}
+
+\{\textit{when} \; (\textit{cond}(o, P)) \; (\pviol)\}\\
+\;\;\;\;\;\;\text{if}\;o\;\text{is a threat for }P\\
+\{\textit{when} \; (\textsc{true}) \; (\pviol)\}\\
+\;\;\;\;\;\;\text{if}\;o\;\text{is a violation for }P\\
+
+
+\end{cases}$$
+\\where:
+
+\begin{itemize}
+\item  $cond(o, P) = \;\;\;\bigvee_{\phi_i\,\in\,T_{\mathcal{A}}(o, P)}(l_1 \wedge \ldots \wedge l_q), \; \{l_1, \ldots, l_q\}=\overline{AA}(o)_{\phi_i}$.\\
+
+\end{itemize}
+\end{mydef}
+
+For each preference $P \in P_\mathcal{A}$ affected by an operator $o$,
+the compiled operator $o'$ contains a conditional effect whose effect $\pviol$ and conditions depends on how
+$o$ affects $P$. If $o$ is a violation for $P$, then the condition is always true (i.e. it is the special literal
+{\truettt} that holds in every state). Instead, if $o$ is a \textit{threat} to $P$, the effects are extended
+with a conditional described below.
+
+If $o$ is a threat for $P$ the condition ($\textit{cond}(o, P)$) requires
+$\overline{AA}(o)_{\phi_i}$ to hold 
+% in the state where $o'$ is applied 
+for at least one 
+$\phi_{i} \in T_{\mathcal{A}}(o, P)$,
+which implies that $\phi$ is false in the state generated by $o'$.
+
+% If this happens, then the predicate $P\text{-violated}$ in $\textit{Eff}(o, P)$ is made true and the preference $P$ will be violated in $s'$.
+% After the \emph{end} action is applied, $P{\textit{-}violated}$ serves as a precondition of the operator ${\text{\it forgo}}(P)$ that has cost equal to the utility of $P$. \\
+
+
+
+% ---------------------
+% COMPILAZIONE SOMETIME
+% ---------------------
+
+\subsection{Compilation of a Sometime Preference}
+We now present the transformation of an operator that is a potential supports for a preference $P$ in class $\mathsf{ST}$. 
+\begin{mydef} \label{when_sometime}
+
+Given a sometime preference $P = \sf{ST}_{\phi}$ and an operator $o$ which potentially supports $P$,
+the conditional effect set $\mathcal{W}(o, P)$ in the compiled version $o'$ of $o$
+(according to Definition \ref{compiledOcondeff}) is defined as:
+
+$$
+\mathcal{W}(o, P) = \{
+\text{when} (\text{cond}_{\mathcal{S}}(o, P))\text{ } (\lnot \pviol )\}$$
+where:
+\begin{itemize}
+\item  $\textit{cond}_{\mathcal{S}}(o, P) = 
+\{{\phi_i}{ \; \mid \; \phi_i \in \overline{C}_{\phi}(o)}\}
+$.
+
+% \item  $\textit{eff}_{\mathcal{S}}(o, P) = $ 
+\end{itemize}
+
+
+\end{mydef}
+
+% SCRITTURA IN CORSO
+As specified above, the general compilation scheme introduces for each problem preference $P = \sf{ST}_{\phi}$
+$P \in \mathscr{P}_{\mathcal{ST}}$ a predicate $\pviol$ in the compiled initial state $I'$
+if $\phi$ does not hold in the original problem initial state
+(otherwise the preference is considered satisfied and therefore not compiled).
+
+This is necessary because, according to the semantics of the preference in class $\mathsf{ST}$,
+a plan $\pi'$ in the compiled problem satisfies $\sf{ST}_{\phi}$ iif $\phi$ is
+true at least once in the state trajectory of $\pi'$.
+
+These $\pviol$ predicates are falsified
+by the operators that could make $\phi$ true in the state $s'$
+resulting from this application. Such operators are potential support that we have
+defined in Section \ref{subsection:sometime_operators}.
+
+An operator $o$ could make a formula $\phi$ true 
+when there are some clauses of $\phi$ that will surely be true in the state $s'$ resulting
+from the application of $o$. So, if all $ { \phi_i \in \overline{C}_{\phi}(o)} $ hold in $s$ 
+(where $\overline{C}_{\phi}(o)$ is the set of clauses of $\phi$ that
+are not surely true in $s'$ - see Definition \ref{def:trueclauses}),
+i.e. $\textit{cond}_{}(o, P)$ holds in $s$,
+then $\phi$ will be true in $s'$, and $\pviol$ should be falsified
+by the effects of $o'$.
+
+In order to satisfy a given preference $\sf{ST}_{\phi}$, which is temporarily violated in $I'$,
+a potential support $o$ for $P$ has to be inserted in the plan
+and applied in a state where ${(cond}_{\mathcal{S}}(o, P))$ holds,
+making an actual support for $P$.
+Otherwise, operator $o$ 
+behaves as a neutral operator for $P$, leaving the preference violated in $s'$.
+
+
+
+
+
+% ----------------------------
+% COMPILAZIONE SOMETIME-BEFORE
+% ----------------------------
+\subsection{Compilation of a Sometime-before Preference} \label{subsection:sometime_before_compilation}
+We now present the transformation of operators that potentially support or threat a preference in $\mathcal{SB}$. 
+
+\begin{mydef} \label{when_sometimebefore}
+Given a sometime-before preference $P = \sf{SB}_{\phi, \psi}$ and an operator $o$ which affects $P$,
+the conditional effect set $\mathcal{W}(o, P)$ in the compiled version $o'$ of $o$
+(according to Definition \ref{compiledOcondeff}) is defined as:
+$$
+\mathcal{W}(o, P) = 
+\begin{cases}
+\{\textit{when} \; (\textit{cond}_{\mathcal{S}}(o, P)) \; (\textit{seen-}\psi)\} \;
+\\\;\;\;\;\;\;\text{if}\;o\;\text{is a potential support for }P\\
+\{\textit{when} \; (\textit{cond}_{\mathcal{T}}(o, P)) \; (\pviol)\} \;
+\\\;\;\;\;\;\;\text{if}\;o\;\text{is a threat for }P\\
+\{
+\textit{when} \; (\textit{cond}_{\mathcal{S}}(o, P)) \; (\textit{seen-}\psi),\\
+\ \ \textit{when} \; (\textit{cond}_{\mathcal{S}}(o, P)) \; (\pviol)
+\} 
+\\\;\;\;\;\;\;\text{if}\;o\;\text{is a both a threat and support for }P\\
+\end{cases}$$
+\\where:
+\begin{itemize}
+\item  $\textit{cond}_{\mathcal{S}}(o, P) = 
+% \{\bigcup_{\psi_i \in \overline{C}_{\psi}(o)} \psi_i\} = \{ { \psi_i \in \overline{C}_{\psi}(o)} \}
+\{
+\psi_i \;\mid\; \psi_i \in \overline{C}_{\psi}(o)    
+\}
+$
+
+% \item  $\textit{eff}_{\mathcal{S}}(o, P) = \textit{seen-}\psi$ 
+% \end{itemize}
+% and:
+% \begin{itemize}
+\item  $\textit{cond}_{\mathcal{T}}(o, P) = 
+\{\lnot \textit{seen-}\psi\} \cup \{
+\phi_i \;\mid\; \phi_i \in \overline{C}_{\phi}(o) \}    
+% \{\lnot \textit{seen-}\psi\} \cup \{ { \phi_i \in \overline{C}_{\phi}(o)} \}
+$.
+% \item  $\textit{eff}_{\mathcal{T}}(o, P) = \pviol$ 
+\end{itemize}
+
+% -------
+% RIMOSSO
+% -------
+% and:
+% \begin{align*}
+% W_{\mathcal{ST}}(o, & P) = \{  \\
+% & \text{when (cond}_{\mathcal{S}}(o, P))\text{ (eff}_{\mathcal{S}}(o, P))\\
+% & \text{when }\text{ (cond}_{\mathcal{T}}(o, P))) \text{ (eff}_{\mathcal{T}}(o, P))
+% \}
+% \end{align*}
+
+\end{mydef}
+
+
+The definition of the effects used to extend the effect of an operator $o$ which affects a sometime-before preference $P$ in 
+Definition \ref{when_sometimebefore} depends on the class of operators which $o$ belongs. We have to distinguish 
+if $o$ is a potential support, a threat or both for $P$. Remember that the semantics of the 
+preferences belonging to $\mathcal{SB}$
+requires that a preference $\sf{SB}_{\phi, \psi}$ is satisfied by a state-trajectory if,
+whenever $\psi$ becomes true in a state then $\phi$ must have become true in a previous state.
+
+If $o$ is a {potential support} for $P$ then this operator can behave in two different
+ways when it is executed.
+Recalling Definition \ref{def:becometrue}, an operator $o$ could make true a formula $\phi$
+when there exists some clauses of $\phi$ that will surely be true in the state resulting
+from the application of $o$. So, if all $ { \psi_i \in \overline{C}_{\psi}(o)} $ hold in $s$ 
+(where $\overline{C}_{\psi}(o)$ is the set of clauses of $\psi$ that
+are not surely true in $s'$ - see Definition \ref{def:trueclauses})
+, i.e. $\textit{cond}_{\mathcal{S}}(o, P)$ holds in $s$,
+then $\psi$ will be true in $s'$ and then we have to keep track of this fact by
+making the predicate $\textit{seen-}\psi$ true in the effects $\textit{Eff}_{\mathcal{T}}(o, P)$ of $o'$.
+
+% RIDONDANTE
+% In order to check if $\psi$ will be true in the resulting state $s'$, we have to check
+% the preconditions of the compiled operator to verify that the clauses, which do not belong to
+% the set of clauses $C_{\psi}(o)$ certainly true in $s'$, are already true in $s$. This
+% condition is specified in $\textit{cond}_{\mathcal{S}}(o, P)$ with the expression
+% $\{ { \psi_i \in \overline{C}_{\psi}(o)} \}$. If this condition holds then the effect 
+% $\textit{eff}_{\mathcal{S}}(o, P) = \{\textit{seen-}\psi\}$ is made true is $s'$.
+
+If $o$ is a threat for $P$ its compilation is similar. A threat for $\mathsf{SB}_{\phi, \psi}$
+behaves as violation 
+in the case that the operator makes $\phi$ true in $s'$
+% specifing in $\textit{cond}_{\mathcal{T}}(o, P)$ the expression $\{ { \phi_i \in \overline{C1}_{\phi}(o)} \}$)
+(i.e., when all $\phi_i \in \overline{C}_{\phi}(o)$ holds in $s$,
+which is the condition of $\textit{cond}_{\mathcal{T}(o, P)}$), and
+that the $\psi$ has never been made true in the states preceeding $s$. If 
+both these
+conditions, specified in $\textit{cond}_{\mathcal{T}}(o, P)$, hold in $s$ then predicate
+$P{\it-violated}$ is included in the effects of $o'$.
+
+We have also to consider the case in which an operator $o$ is both a threat and a support for $P$. In this 
+case $o$ can behaves in the following ways: making $\phi$ true in $s'$, making $\psi$ true in $s'$
+and making both $\phi$ and $\psi$ true in $s'$. In order to handle these situations,
+the compiled operator $o'$ contains both conditional effects of $o$ as threat of $P$ and
+as support of $P$. Note that this correctly captures the violation of $P$ determined by $\phi$
+and $\psi$ becoming simultaneously true by execution of $o$.
+
+
+% DA FARE PROX
+% \subsection{Compilation of a Sometime-After Preference}
+
+
+
+% -------------------------
+% COMPILAZIONE AT-MOST-ONCE
+% -------------------------
+\subsection{Compilation of an At-Most-Once Preference} \label{subsect:amo_comp}
+
+We now present the transformation of an operator that threats a preference in $\mathcal{AO}$. 
+
+\begin{mydef} \label{when_atmostonce}
+
+Given an at-most-once preference $P = \sf{AO}_{\phi}$ and an operator $o$ which affects $P$,
+the conditional effect set $\mathcal{W}(o, P)$ in the compiled version $o'$ of $o$
+(according to Definition \ref{compiledOcondeff}) is defined as:
+
+
+\begin{align*}
+\mathcal{W}(o,&P) = \{  \\
+& \text{when } (\text{cond}_{{N}}(o, P))\text{ }(\textit{seen-}\phi))\\
+& \text{when } (\text{cond}_{{T}}(o, P)))\text{ }(\pviol )
+\}
+\end{align*}
+\\
+where:
+
+\begin{itemize}
+
+\item  $\text{cond}_{{N}}(o, P) = \{\lnot \textit{seen-}\phi\} \cup \{ { \phi_i \mid \phi_i \in \overline{C}_{\phi}(o)} \}$
+
+% \item  $\text{eff}_{\mathcal{N}}(o, P) =  $
+
+\item  
+% \begin{align*}
+$
+\text{cond}_{{T}}(o, P) = \{\textit{seen-}\phi\} \cup \{ { \phi_i \mid \phi_i \in \overline{C}_{\phi}(o)} \} \cup $
+
+$
+\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;
+\{ \bigvee_{ \phi_i \in {C}_{\phi}(o)} (\lnot l_1 \land ... \land \lnot l_q) \mid  \{l_1, ..., l_q\} = {L}(\phi_i)\}
+$.
+% \end{align*}
+
+% \item  $\text{eff}_{\mathcal{V}}(o, P) = \pviol $
+
+% \item  $\mathcal{R}_{\phi}(o, P) = $
+
+\end{itemize}
+\end{mydef}
+
+The semantic of a preference in class $\mathcal{AO}$ (Figure \ref{fig:semantics}) requires that a preference
+$P = \sf{AO}_{\phi}$ is satisfied by the state-trajectory generated by a 
+plan $\pi$ if $\phi$ \textit{becomes} true in a state $s'$ at most once during the execution of the plan. A
+formula $\phi$ becomes true in a state $s'$ due to the execution of an operator $o$ applied in a state $s$ iif 
+$s \models \lnot \phi$ and $s' \models \phi$.
+
+If $\phi$ holds in the problem initial state $I$, then it is required that
+either it stay true until the end of the plan. or it becomes false at some
+successor state of $I$ in the state-trajectory generated by the plan and it then stays
+always false.
+
+% If $I \models \lnot \phi$ then an operator 
+% $o$ can make $\phi$ true in the resulting state for the first time in the state-trajectory,
+% leaving the preference satisfied. In this case $o$ behaves as a neutral operator for $P$
+% but if in a succeeding state another operator $o'$ make $\phi$ false then $o$ could behave as
+% a violation for $P$ if it applied again. So, an operator that can make true $\phi$ is
+% generally considered as a threat to $P$ because,
+% as we have described, under certain conditions it could act as a violation.
+If an operator $o$ can make $\phi$ true for the first time in the plan  trajectory
+of a plan, then it behaves as a neutral operator for $P$. On the other hand, if $o$
+can make $\phi$ true after having been true and become false in past states of the trajectory,
+then $o$ behaves as a threat for $P$.
+
+In order to correctly capture the possible violation of $P$,
+the set of effects extending $o$ $\mathcal{W}(o,P)$ has two conditional effects. The
+first one is a neutral effect that is used to catch the behavior
+of $o$ as neutral operator for $P$. Condition 
+$\text{cond}_{{N}}(o, P)$ requires that $\phi$ has been never changed truth value
+from true to false in preceeding state using the negated predicate
+$\lnot \textit{seen-}\phi$ and that $\phi$
+will be true in $s'$ using the condition $\{ { \phi_i \mid \phi_i \in \overline{C}_{\phi}(o)} \}$
+similarly to what done in the compilation schemes previously presented. If the conditions 
+specified in $\text{cond}_{{N}}(o, P)$ hold in 
+the state $s$ where $o$ is applied,
+then we take into account that $\phi$ becomes true in $s'$ for the first time stating in the effects of 
+the neutral conditional effect predicate $\textit{seen-}\phi$.
+
+% \bluetext{
+    The second conditional effect is a violating effect that 
+    is used to catch the the behavior of of $o$ as a threat for $P$. This
+    happens when the following conditions, specified in $\text{cond}_{{T}(o, P)}$ hold:
+    (specified in $\text{cond}_{\mathcal{V}(o, P)}$):
+    \begin{itemize}
+        \item  $\phi$ has alreay been made true in a state preceding s; this is
+        expressed by the predicate $\textit{seen-}\phi$ when $o$ is applied;
+        \item  $\phi$ is made true in the resulting state $s'$; this is guaranteed by the conditions
+        $\{ { \phi_i \mid \phi_i \in \overline{C}_{\phi}(o)} \}$;
+        \item  $\phi$ is false in the state $s$ where $o$ is applied; this is specified by requiring that at least
+        a clause in $C_{\phi}(o)$ is false in $s$. 
+    \end{itemize}
+% }
+
+
+% \bluetext{
+    If all these conditions hold in the state where $o$ is applied then $P$ will be violated in the state resulting from
+    the application of $o$.
+% }
+
+
+
+
+
+% ----------------------------
+% SEZIONE EFFETTI CONDIZIONALI
+% ----------------------------
+\subsection{Compilation of Conditional Effects} \label{subsection:conditional-effect}
+
+As described before, given an operator $o$ of a {\stripspp} problem which affects a set of
+$n$ preferences, the corresponding compiled operator should have in its effects
+a set \textit{$\{$(when $c_i$\, $e_i$) $|$ $i = 1 \dots m\}$} of $m \leq 2n$ conditional effects,
+which are built using the compilation schema described in the previous subsections.
+
+In order to keep the compiled problem in the {\strips+} class, the conditional effects of $o'$ 
+should be compiled away by replacing $o'$ with an equivalent set of operators without 
+conditional effects. In the literature, there are two main 
+general methods for generating this equivalent set of unconditional operators.
+
+% PRIMO METODO GAZEN AND KNOBLOCK
+The first method, introduced by Gazen and Knoblock \cite{gazen97:ecp}, works by recursively splitting $o'$
+for each conditional effect \textit{(when $c_i$\, $e_i$)}
+into a couple of new operator, $o''$ and $\overline{o}''$, such that:
+\begin{align*}
+& pre(o'') = pre(o') \cup \{c_i\} \\
+& \textit{eff}(o'') = \textit{eff}(o') \cup {e_i} \\
+& pre(\overline{o}'') = pre(o') \cup \{\lnot c_i\} \\
+& \textit{eff}(\overline{o}'') = \textit{eff}(o').
+\end{align*}
+
+This method is not practicable because it leads to an exponential blow up of operators 
+(in our case $O(2^m)$ for each operator affecting $n$ preferences), but
+the compiled plan preserves exactly the length of the original plan.
+
+% METODO NEBEL
+The second method, proposed by Nebel \cite[see proof of Theorem 20]{nebel2000compilability}, generates a polynomial number of new operators, but it increases polynomially the plan length. 
+The main idea is to simulate the parallel behaviour of the conditional effects of an operator by a replacing it with an equivalent sequence of unconditional operators.
+For each operator $o'$ with $m$ conditional effects, Nebel's schema introduces $m$ pairs of new operators, that separately evaluate the condition $c_i$ of each conditional effect \textit{(when $c_i$\, $e_i$)} and possibly ``activates'' the corresponding effect $e_i$. One of the operators in the pair for \textit{(when $c_i$\, $e_i$)} contains precondition $c_i$ and an effect indicating that $e_i$ is activated, while the other, that is mutex with the first, contains precondition $\neg c_i$ and does not activate $e_i$. In order to avoid possible (positive or negative) interference in the sequentialisation of the conditional effects through the new operators (e.g.,  if
+\textit{(when $c_1$\, $e_1$)}  and \textit{(when $c_2$\, $e_2$)} are conditional effects of $o'$ and $e_1 \models c_2$), the activated effects in the operator sequence are not made immediately true, but they are deferred to the end of the sequence (i.e., after all conditional effects conditions have been evaluated). This is done by using an additional set of operators, called ``copying operators'' in \cite{nebel2000compilability}, which copy the activated effects to the state description after all operators in the sequence have been executed (For more details the reader is referred to \cite{nebel2000compilability}.)
+
+% \textbf{NOTA SUI COSTI DELLA COMPILAZIONE DA INSERIRE QUI}
+
+% OTTIMIZZAZIONE
+In order to deal with the conditional effects generated by our compilation of {\pddlIII} preferences, we
+have implemented and used Nebel's compilation method because a compiled operator
+can in principle contain
+many conditional effects, which makes Gazen and Knoblock's method impractical given 
+its exponential complexity. Moreover, the conditional effects needed to compile {\pddlIII} preference have a particular structure that 
+allows us to simplify and optimize Nebel's general method. In particular we would like avoid the so-called ``copying operators'' operators
+maintaining the semantics of conditional effects (which requires that all conditions are 
+evaluated at the same time). First of all, note that the conditional effects 
+that refer to different affected preferences can not interfere with each other because
+they involve different fluents.
+
+After that we have to pay attention to those class of preferences whose compilation
+introduces more than one conditional effect,
+because, affecting the same fluents, they can generate interference. In our previous discussion there are two 
+classes of preferences having this feature, i.e.
+sometime-before and at-most-once preferences (see Subsections \ref{subsection:sometime_before_compilation} and \ref{subsect:amo_comp}). In the first case, the set of problematic conditional effects 
+refers to those operators which threats and supports a sometime-before preference at the same time, in the second case to
+those operators that threats at-most-once preference.
+% By Definitions \ref{when_sometimebefore} and \ref{when_atmostonce}, the set of conditional effects that can interfere when sequentialised are those of the compiled operator $o'$ of an operator affecting an at-most-once and sometime-before preferences. 
+
+Concerning at-most-once preferences, an interference could arise through
+the predicate $seen$-$\phi$, that is both an effect of the first conditional 
+effect and a condition of the second. However, the conditional effect interference disappears, if in the compilation, the pair of unconditional operators
+for $(\textit{when } (\textit{cond}_{\mathcal{V}}(o, P))\textit{ }(P{\it-violated}))$
+is constrained to be ordered before the other pair. If we evaluated these conditional effects without following this order, 
+the execution would be equivalent to not evaluating all conditional effects
+of the same operator simultaneously,
+thus risking to recognize a violation even if this does not happen. Indeed,
+given a preference $P = \sf{AO}_{\phi}$ 
+and a threat operator $o$, if $\phi$ becomes true for the first time in $s'$
+after the application of $o$,
+an we check the condition $\textit{cond}_{\mathcal{N}}(o, P)$
+before $\textit{cond}_{\mathcal{V}}(o, P)$, then we could detect a violation
+that may not have happened.
+
+We can expose similar considerations for sometime-before preferences. In this case,
+if we do not check the condition $\textit{cond}_{\mathcal{V}}(o, P)$
+before $\textit{cond}_{\mathcal{T}}(o, P)$,
+we risk to not correctly identifying a possible violation if
+$\phi$ and $\psi$ become true at the same time.
+
+Consequently, starting from the previous observations which show that it is possible to eliminate any interferences within our context,
+Nebel's copying operators are not needed in the compilation of our conditional effects; furthermore, in the compiled problem, we can force an arbitrary total order of the unconditional operator pairs, paying attention that the ordering constraints dealing with the potential interference between the conditional effects arising from at-most-once and sometime-before preferences are satisfied.
+
+These changes to Nebel's schema simplify it, and have some beneficial consequences: (1) the compiled problem has smaller size in terms of number of operators, and (2) the search effort of a planner can be reduced because the solution plans are shorter without the coping actions,\footnote{
+Given a plan $\pi$ for a problem with conditional effects and 
+ the corresponding plan $\pi'$ for the compiled problem, we have $|\pi'| \leq |\pi| * m$ while with Nebel's general method this bound is $|\pi'| \leq |\pi| * (3 + m)$ \cite{nebel2000compilability}.
+}
+and because the sequence of the unconditional operators can be explicit in the compiled problem, 
+while with the original compilation it is built at search time by the planner. 
+
+Since our compilation of conditional effects can be easily derived from Nebel's method, instead of giving all the formal details of the translation, we illustrate the compilation with an example, referring the reader to \cite{nebel2000compilability} for a formal description. Moreover, in \cite{ceriani2015planning} we give a detailed description of the final (without conditional effects) compiled problem for any \strips+ problem with always preferences.
 
 
 
