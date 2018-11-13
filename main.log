@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.18)  13 NOV 2018 17:16
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.18)  13 NOV 2018 17:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -820,7 +820,7 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 1941.
 
 
-Overfull \hbox (23.23862pt too wide) in paragraph at lines 1944--1969
+Overfull \hbox (20.15878pt too wide) in paragraph at lines 1944--1969
  [][] 
  []
 
@@ -904,7 +904,7 @@ ts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
 times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (14 pages, 419949 bytes).
+Output written on main.pdf (14 pages, 419933 bytes).
 PDF statistics:
  262 PDF objects out of 1000 (max. 8388607)
  167 compressed objects within 2 object streams
