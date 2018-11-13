@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1542125540 "main.aux" "main.bbl" "main" 1542126150
+["bibtex main"] 1542132786 "main.aux" "main.bbl" "main" 1542132787
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "biblio.bib.bib" 0 -1 0 ""
-  "main.aux" 1542126149 3290 e43c184899cae61715ad34cfdd6a16d1 ""
+  "main.aux" 1542132787 3290 286f8a34b269666aade33c7f33a5eef5 ""
   "main.bcf" 0 -1 0 ""
   (generated)
-  "main.bbl"
   "main.blg"
-["pdflatex"] 1542126149 "main.tex" "main.pdf" "main" 1542126150
+  "main.bbl"
+["pdflatex"] 1542132786 "main.tex" "main.pdf" "main" 1542132787
   "/etc/texmf/web2c/texmf.cnf" 1455791705 1101 af7716885e081ab43982cab7b4672c1a ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -149,10 +149,10 @@
   "histogrammi/histogram_tpp_stg_PERCENTAGE_COST.eps" 1542025060 49739 2ebe7a5ab27df08baf760e236b97fe9d ""
   "histogrammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-converted-to.pdf" 1542033128 15269 1afe690f314bdc9582653e1e1f0290c4 ""
   "histogrammi/histogram_trucks_ALL_PERCENTAGE_COST.eps" 1542032996 49429 977a87e217973b2df9082681f697663f ""
-  "main.aux" 1542126149 3290 e43c184899cae61715ad34cfdd6a16d1 ""
+  "main.aux" 1542132787 3290 286f8a34b269666aade33c7f33a5eef5 ""
   "main.bbl" 1542018594 3067 9af5fea9c3a718263f7112088b3ec59a "bibtex main"
-  "main.tex" 1542126148 108811 923be3b522012b324390a9b69dfd9999 ""
+  "main.tex" 1542132782 122234 3c0750ba253539149788feaf3ae237bc ""
   (generated)
   "main.log"
-  "main.aux"
   "main.pdf"
+  "main.aux"

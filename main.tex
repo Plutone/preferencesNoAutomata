@@ -1258,6 +1258,297 @@ while with the original compilation it is built at search time by the planner.
 
 Since our compilation of conditional effects can be easily derived from Nebel's method, instead of giving all the formal details of the translation, we illustrate the compilation with an example, referring the reader to \cite{nebel2000compilability} for a formal description. Moreover, in \cite{ceriani2015planning} we give a detailed description of the final (without conditional effects) compiled problem for any \strips+ problem with always preferences.
 
+\subsection{Compilation Example} \
+
+Consider the following operator $o = \langle \textit{Pre}(o), \textit{Eff}(o) \rangle =\langle \O, \{a, \lnot c\} \rangle$
+with cost $\kappa$, which affects two preferences,
+$P1 \in \mathcal{A}$ and $P2 \in \mathcal{AO}$, where
+$P1 = (\textit{always}\text{ }\phi^{P1})$ and $P2 = ({\textit{at-most-once}}\text{ }\phi^{P2})$
+and $\phi^{P1} = \phi_{1}^{P1} \land \phi_{2}^{P1} = (a \lor b) \land (c \lor d) $
+and $\phi_{1}^{P2} \land \phi_{2}^{P2} =(\lnot c \lor e) \land (d \lor f)$.
+
+\paragraph{Compilation of P1} 
+Using the conditions specified in Definition \ref{threat_formula}, we can say that
+$o$ is a \textit{threat} for $P1$ because there exists a clause $\phi_{2}^{P1} = (c \lor d$) of $\phi^{P1}$ such that:
+
+\begin{enumerate}
+
+\item it contains at least a literal, which is $c$,
+that is negated by the effects of $o$:
+$|\overline{L}(\phi_{1}^{P2}) \cap Z(o)| = |\overline{L}(c \lor d) \cap Z(o)| = |\{\lnot c, \lnot d\} \cap \{a, \lnot c\}| = |\{\lnot c\}| > 0$;
+
+\item the other literal in the clause, which is $d$, is not made true in the resulting
+state from the application of $o$:
+$|{L}(\phi_{1}^{P2}) \cap Z(o)| = |L(c \lor d) \cap Z(o)| = |\{c, d\} \cap \{a, \lnot c\}| = 0$;
+
+\item (the clause) is not already negated in the state where $o$ is applied because its
+negation is not implied by the precondition of $o$:
+$\overline{L}(c \lor d) = \{\lnot c, \lnot d\} \not \subseteq \textit{Pre}(o)$.
+
+\end{enumerate}
+
+Operator $o$ threatens only one clause of $P1$, i.e. $T_{\mathcal{A}}(o, P1) = \{ \phi_2^{P1}\} = \{ c \lor d\}$
+(remember that $T_{\mathcal{A}}(o, P1)$ is the set of threatened clauses of $P1$ by $o$),
+which could be falsified if $o$ is applied.
+
+Using the preliminary definitions provided in Section \ref{compilation_always},
+we define the set $\overline{AA}(o)_{\phi_{2}^{P1}} = \{\lnot d\}$ which contain those literal of the threatened clause $\phi_2^{P1}$ that are not falsified by $o$.
+% that we have to check when $o$ is applied in order to capture 
+% the possibile violation of $P1$ in the resulting state.
+
+In this case $o$, denying the literal $c$, threatens a single clause 
+of $P1$, i.e. $\phi_2^{P1} = c \lor d$, and
+therefore we have to check 
+the literal $d$ is true in the precondition
+to capture the possible violation.
+
+Starting from these considerations and using Definition
+\ref{when_always} we define the conditional effect $\mathcal{W}(o, P1)$
+to add to $\textit{Eff}(o)$:
+\begin{gather*}
+\mathcal{W}(o, P1) = \{\textit{when} \; (\lnot d) \; (P1\textit{-violated})\}.
+\end{gather*}
+
+\paragraph{Compilation of P2} 
+According to Definition \ref{threat_amo}, $o$ is also a \textit{threat} for $P2$ because it
+could make true $\phi^{P2}$ in the resulting state $s'$ from
+its application; indeed there exists a clause of $\phi^{P2}$, i.e. $\phi_{1}^{P2} = c \lor e$, such that:
+
+\begin{itemize}
+
+    \item it contains at least a literal, i.e. $\lnot c$, that will be surely true in $s'$:
+        $|L(\phi_{1}^{P2}) \cap Z(o)| = |L(\lnot c \lor e) \cap Z(o)| = |\{\lnot c, e\} \cap \{a, \lnot c\}| = |\{\lnot c\}| > 0 $\\
+
+
+    \item the other clause, which is $\phi_{2}^{P2} = d \lor f$, is not negated by the execution of $o$:
+	$|\overline{L}(\phi_{2}^{P2}) \cap Z(o)| = |\overline{L}(d \lor f) \cap Z(o)| = |\{\lnot d, \lnot f\} \cap \{a, \lnot c\}| = 0 $
+
+\end{itemize}
+
+We denote with $C_{\phi^{P2}}(o) = \{\phi_{1}^{P2}\} = \{\lnot c \lor e\}$
+the set of clauses of $\phi^{P2}$ that will be surely true in the resulting state $s'$
+and with $\overline{C}_{\phi^{P2}}(o) = \{\phi_{2}^{P2}\} = \{d \lor f\}$
+the set of clauses of $\psi$
+the remaining ones. With
+reference to Section \ref{subsect:amo_comp}, we define
+the set of conditional effects related to the threatened at-most-once preference $P2$ as: \begin{align*}
+\mathcal{W}(o,&P_2) = \{  \\
+& \textit{when } (\textit{cond}_{{N}}(o, P_2))\text{ }(\textit{seen-}\phi^{P2}))\\
+& \textit{when } (\textit{cond}_{{T}}(o, P_2)))\text{ }(\pviol )
+\}
+\end{align*}
+\noindent where:
+
+\begin{itemize}
+
+\item  $\textit{cond}_{{N}}(o, P2) = \{\lnot \textit{seen-}\phi^{P2}\} \cup \{ { \phi_i \mid \phi_i \in \overline{C}_{\phi^{P2}}(o)} \} =$
+
+$\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\,\,\,\,\,= \{\lnot \textit{seen-}\phi^{P2}\} \cup \{ \phi_2^{P2} \} = \{\lnot \textit{seen-}\phi^{P2}, d \lor f\}$
+\item  
+$
+\textit{cond}_{{T}}(o, P2) = \{\textit{seen-}\phi^{P2}\} \cup \{ { \phi_i \mid \phi_i \in \overline{C}_{\phi^{P2}}(o)} \} \; \cup $
+
+$
+\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\,\,\,
+\{ \bigvee_{ \phi_i \in {C}_{\phi^{P2}}(o)} (\lnot l_1 \land ... \land \lnot l_q) \mid  \{l_1, ..., l_q\} = {L}(\phi_i)\} =
+$
+
+$
+\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\,\,\,
+= \{ \textit{seen-}\phi^{P2} \} \cup \{ \phi^{P2}_2 \} 
+\cup \{ \{ \lnot \lnot c \land \lnot e \} \mid \{\lnot c, e\} = L(\phi_1^{P2}) \}  =
+$
+
+$
+\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\
+= \{\textit{seen-}\phi^{P2}, d \lor f, c \land \lnot e\}
+$
+% \end{align*}
+
+% \item  $\text{eff}_{\mathcal{V}}(o, P) = \pviol $
+
+% \item  $\mathcal{R}_{\phi}(o, P) = $
+
+\end{itemize}
+
+The condition $\textit{cond}_{{N}}(o, P2)$ to activate the fluent $\textit{seen-}\phi^{P2}$
+requires that the following condition hold in the state where $o$ is applied:
+
+\begin{itemize}
+
+\item the fluent $\textit{seen-}\phi^{P2}$ has to be false and so $\phi^{P2}$
+never became true until then;
+
+\item those clauses of $P2$ which are not affected by $o$,
+i.e. $\phi^{P2}_2 = d \lor f$, have to be true
+making sure that $\phi^{P2}$ becomes true. 
+\end{itemize}
+
+The condition $\textit{cond}_{{T}}(o, P_2))$
+to activate the violation of $P2$ requires that:
+
+\begin{itemize}
+
+\item the fluent $\textit{seen-}\phi^{P2}$ has to be true and so $\phi^{P2}$
+has already been made true;
+\item those clauses of $P2$ which are not affected by $o$,
+i.e. $\phi^{P2}_2 = d \lor f$, have to be true and those clauses of $P2$
+which are affected by $o$, i.e. $\phi^{P2}_1 = \lnot c \lor e$, have to be false
+ensuring that  $\phi^{P2}$ passes from false to true.
+
+\end{itemize}
+
+
+\paragraph {Compilation of conditional effects} According to what described above we can say that $o$ it is simultaneously a threat to both $P1$ and $P2$
+and we denote the set of affected preference by $o$ as:
+$$\affectedd = \{P1, P2\}\text{.}$$
+
+The compiled operator $o'$ with conditional effects is defined, according to the compilation 
+scheme provided in Section \ref{compstrips} and using Definition
+\ref{compiledOcondeff}, as:\\
+
+% \cup \{\text{\it normal-mode}, \lnot pause\}
+$ 
+{\textit{Pre}}(o') = {\textit{Pre}}(o) \cup \{\text{\it normal-mode}\}
+$
+
+$
+{\textit{Eff}}(o') \,= {\textit{Eff}}(o) \cup \mathcal{W}(o, P1) \cup \mathcal{W}(o, P2) =
+$
+
+$
+\;\;\;\;\;\;\;\;\;\;\,\,={\textit{Eff}}(o) \cup \{\textit{when } (\lnot b)\text{ }(P1\textit{-violated})\} \cup
+$
+
+$
+\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\,
+\{\textit{when } (\lnot \textit{seen-}\phi^{P2} \land (d \lor f))\text{ }(\textit{seen-}\phi^{P2}),
+$
+
+$
+\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\,\,
+\textit{when } (\textit{seen-}\phi^{P2} \land (d \lor f) \land (c \land \lnot e))\text{ }(P2\textit{-violated})\}.
+$\\
+
+
+% \begin{align*}
+% { \textit{Pre}}(o') & = {\textit{Pre}}(o) \cup \{\text{\it normal-mode}\} \\
+% { \textit{Eff}}(o') & = {\textit{Eff}}(o) \cup \mathcal{W}(o, P1) \cup \mathcal{W}(o, P2) = \\
+%  ={\textit{Eff}}(o) \cup &\{\textit{when } (\lnot b)\text{ }(P1\textit{-violated})\} \cup \\
+% & \{\textit{when } (\lnot \textit{seen-}\phi^{P2} \land (d \lor f))\text{ }(\textit{seen-}\phi^{P2}), \\
+% & \textit{when } (\textit{seen-}\phi^{P2} \land (d \lor f) \land (c \land \lnot e))\text{ }(P2\textit{-violated})\}.
+% \end{align*}
+
+
+We compile away the three conditional effects
+replacing $o'$ with the set of operators defined as:
+$$
+O_{\affectedd} = \{o_{P1}, \overline{o}_{P1}, o_{P2}^{{V}}, \overline{o}_{P2}^{{V}}, o_{P2}^{{N}}, \overline{o}_{P2}^{{N}}\}\text{,}
+$$
+
+which contains, for each conditional effect specified in $\textit{Eff}(o')$,
+a pair of mutually exclusive unconditional operators. In particular:
+\begin{itemize}
+
+\item  $o_{P1}$ and $\overline{o}_{P1}$ refer to the first conditional effect of $o'$ introduced 
+by the compilation to handle the possible violation of $P_1$;
+
+\item  $o_{P2}^{{V}}$ and $\overline{o}_{P2}^{{V}}$
+refer to the second conditional effect of $o'$ introduced 
+by the compilation to handle the possible violation of $P_2$;
+
+\item  $o_{P2}^{{N}}$, $\overline{o}_{P2}^{{N}}$
+refer to the third conditional effect of $o'$ introduced in order to correctly updating the predicate $\textit{seen-}\phi^{P2}$
+when $\phi^{P2}$ becomes true.
+\end{itemize}
+
+% Each operator $o$ such that $T(o) \not=\O$ is compiled into a set of new operators (one for each threatened preference). If $T(o)=\{A_1, \ldots, A_{m}\}$, $o$ is compiled into a set of $2m$ operators $O_{T(o)}=\{o_{A_1}, \overline{o}_{A_1}, \ldots, o_{A_{m}}, \overline{o}_{A_{m}}\}$ such that, in any state $s$ where $o$ can be applied violating a set of preferences in $T(o)$, the \emph{sequence $\omega_{T(o)}$ of $m$ operators in $O_{T(o)}$} defined as follows can be applied:
+% %\begin{equation}
+% %\label{omega}
+% %\[ \omega_{T(o)}=\langle o'_{A_1}, \ldots, o'_{A_{m}}\rangle \]
+% $\omega_{T(o)}=\langle o'_{A_1}, \ldots, o'_{A_{m}}\rangle$,
+% %\end{equation}
+% %luca7: uguale %luca1 
+% where 
+% $o'_{A_i}$= $\overline{o}_{A_i}$ if $o$ violates $A_i$ when applied in $s$, $o'_{A_i}$= $o_{A_i}$ if $o$ does not violate $A_i$ when applied
+% The six unconditional operators are defined in order to,
+% in any state $s$ where $o'$ can be applied affecting the $P_1$ and $P_2$, the
+% \emph{sequence $\omega_{\affectedd}$ of $3$ operators in $O_{\affectedd}$} defined as follows can be applied: 
+
+These six operators are defined in order to guaratee that, in any state $s$ where $o$
+can be applied affecting $P1$ and $P2$, the sequence $\omega_{\affectedd}$ of three operators
+in $O_{\affectedd}$, defined as follows, can be applied:
+
+$$
+    \omega_{\affectedd} = \langle o'_{P1}, {o'}_{P2}^{{V}}, {o'}_{P2}^{{N}} \rangle
+$$
+
+\noindent where:
+
+\begin{itemize}
+    \item  $o'_{P1} = \overline{o}_{P1}$ if $o$ violates $P1$ when applied in $s$, $o'_{P1} = o_{P1}$ if $o$ does not violate $P1$ when applied in $s$;
+
+    \item  ${{o}'}_{P2}^{{V}} = \overline{o}_{P2}^{{V}}$ if $o$ violates $P2$ when applied in $s$, ${o'}_{P2}^{{V}} = o_{P2}^{{V}}$ if $o$ does not violate $P2$ when applied in $s$;
+
+    \item  ${o'}_{P2}^{{N}} = \overline{o}_{P2}^{{N}} $ if $o$ makes $\psi$ true when applied in $s$, ${o'}_{P2}^{{N}} = {o}_{P2}^{{N}} $ if $o$ does not make $\psi$ true when applied in $s$.
+\end{itemize}
+
+These operators are defined in the following way:
+\begin{itemize}
+
+\item  operators $o_{P1}$ and $o_{P2}$:
+
+$\textit{Pre}({o}_{P1}) = \textit{Pre}(o) \cup \{\neg{\textit{pause}}, b \}$
+
+$\textit{Eff}({o}_{P1}) = \{P1\text{-}done, \textit{pause} \}\\$
+
+$\textit{Pre}(\overline{o}_{P1}) = \textit{Pre}(o) \cup \{\neg{\textit{pause}}, \lnot b \}$
+
+$\textit{Eff}(\overline{o}_{P1}) = \{P1\text{-}done, P1\textit{-violated}, \textit{pause} \}$
+
+\item  operators ${o}_{P2}^{V}$ and ${\overline{o}}_{P2}^{V}$:
+
+$\textit{Pre}({o}_{P2}^{V}) = \{P1\text{-}done,\textit{pause}\} \cup \{\lnot ((\textit{seen-}\phi^{P2}) \land (\lnot c \lor e) \land (d \lor f))\}$
+
+$\textit{Eff}({o}_{P2}^{V}) = \{P2\text{-}done, \lnot P1\text{-}done \}\\$
+
+$\textit{Pre}({\overline{o}}_{P2}^{V}) = \{P1\text{-}done, pause, \textit{seen-}\phi^{P2}, \lnot c \lor e, d \lor f \}$
+
+$\textit{Eff}({\overline{o}}_{P2}^{V}) = \{P2\text{-}done, \lnot P1\text{-}done, P2\textit{-violated} \}$
+
+\item  operators ${o}_{P2}^{N}$ and ${\overline{o}}_{P2}^{N}$:
+
+$\textit{Pre}({o}_{P2}^{N}) = \{P2\text{-}done,\textit{pause}\} \cup \{\lnot (\lnot \textit{seen-}\phi^{P2} \land (d \lor f))\}$
+
+$\textit{Eff}({o}_{P2}^{N}) = \{\lnot P2\text{-}done, \lnot pause\}\\$
+
+$\textit{Pre}({\overline{o}}_{P2}^{N}) = \{P2\text{-}done, pause, \lnot \textit{seen-}\phi^{P2}, d \lor f \}$
+
+$\textit{Eff}({\overline{o}}_{P2}^{N}) = \{\lnot P2\text{-}done, \lnot pause, \textit{seen-}\phi^{P2}\}\\$
+\end{itemize}
+
+The operators of $O_{\affectedd}$ involve additional predicates that are used for
+two purposes: (1) evaluating the conditional effects of $o'$ in sequence and (2)
+avoiding that the domain state changes because of the execution of domain operator during the evaluation.
+
+The $P_{i}\text{-}done$ predicates force the planner to strictly follow a fixed
+order avoiding repetitions in $\omega_{\affectedd}$. Once the planner starts
+the sequence $\omega_{\affectedd}$, no other operator, except those in $O_{\affectedd}$,
+can be applied before the application of the sequence is completed.
+
+The order of execution may be arbitrary, except
+for those operators concerning the violation of $P2$, i.e. ${o}_{P2}^{V}$
+and $\overline{o}_{P2}^{V}$, 
+whose evaluation takes place before that of the operators
+${o}_{P2}^{N}$ and $\overline{o}_{P2}^{N}$, 
+appointed for the update the $\textit{seen-}\phi^{P2}$ predicate. As described previously,
+this expedient is necessary in order to correctly capture the violations 
+of at-most-once preference when they occour.
+% 
+
+Concerning the cost of the compiled operators of $O_{\affectedd}$ we have
+$c(o_{P1}) = c(\overline{o}_{P1}) = \textit{cost}(o) = \kappa$ and 
+$c(o_{P2}^{V}) = c(\overline{o}_{P2}^{V}) = c({o}_{P2}^{N}) = c(\overline{o}_{P2}^{N}) = 0$.
 
 
 % EXPERIMENTAL RESULTS
