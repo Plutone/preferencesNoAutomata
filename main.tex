@@ -1440,115 +1440,115 @@ $\\
 % \end{align*}
 
 
-We compile away the three conditional effects
-replacing $o'$ with the set of operators defined as:
-$$
-O_{\affectedd} = \{o_{P1}, \overline{o}_{P1}, o_{P2}^{{V}}, \overline{o}_{P2}^{{V}}, o_{P2}^{{N}}, \overline{o}_{P2}^{{N}}\}\text{,}
-$$
+% We compile away the three conditional effects
+% replacing $o'$ with the set of operators defined as:
+% $$
+% O_{\affectedd} = \{o_{P1}, \overline{o}_{P1}, o_{P2}^{{V}}, \overline{o}_{P2}^{{V}}, o_{P2}^{{N}}, \overline{o}_{P2}^{{N}}\}\text{,}
+% $$
 
-which contains, for each conditional effect specified in $\textit{Eff}(o')$,
-a pair of mutually exclusive unconditional operators. In particular:
-\begin{itemize}
+% which contains, for each conditional effect specified in $\textit{Eff}(o')$,
+% a pair of mutually exclusive unconditional operators. In particular:
+% \begin{itemize}
 
-\item  $o_{P1}$ and $\overline{o}_{P1}$ refer to the first conditional effect of $o'$ introduced 
-by the compilation to handle the possible violation of $P_1$;
+% \item  $o_{P1}$ and $\overline{o}_{P1}$ refer to the first conditional effect of $o'$ introduced 
+% by the compilation to handle the possible violation of $P_1$;
 
-\item  $o_{P2}^{{V}}$ and $\overline{o}_{P2}^{{V}}$
-refer to the second conditional effect of $o'$ introduced 
-by the compilation to handle the possible violation of $P_2$;
+% \item  $o_{P2}^{{V}}$ and $\overline{o}_{P2}^{{V}}$
+% refer to the second conditional effect of $o'$ introduced 
+% by the compilation to handle the possible violation of $P_2$;
 
-\item  $o_{P2}^{{N}}$, $\overline{o}_{P2}^{{N}}$
-refer to the third conditional effect of $o'$ introduced in order to correctly updating the predicate $\textit{seen-}\phi^{P2}$
-when $\phi^{P2}$ becomes true.
-\end{itemize}
+% \item  $o_{P2}^{{N}}$, $\overline{o}_{P2}^{{N}}$
+% refer to the third conditional effect of $o'$ introduced in order to correctly updating the predicate $\textit{seen-}\phi^{P2}$
+% when $\phi^{P2}$ becomes true.
+% \end{itemize}
 
-% Each operator $o$ such that $T(o) \not=\O$ is compiled into a set of new operators (one for each threatened preference). If $T(o)=\{A_1, \ldots, A_{m}\}$, $o$ is compiled into a set of $2m$ operators $O_{T(o)}=\{o_{A_1}, \overline{o}_{A_1}, \ldots, o_{A_{m}}, \overline{o}_{A_{m}}\}$ such that, in any state $s$ where $o$ can be applied violating a set of preferences in $T(o)$, the \emph{sequence $\omega_{T(o)}$ of $m$ operators in $O_{T(o)}$} defined as follows can be applied:
-% %\begin{equation}
-% %\label{omega}
-% %\[ \omega_{T(o)}=\langle o'_{A_1}, \ldots, o'_{A_{m}}\rangle \]
-% $\omega_{T(o)}=\langle o'_{A_1}, \ldots, o'_{A_{m}}\rangle$,
-% %\end{equation}
-% %luca7: uguale %luca1 
-% where 
-% $o'_{A_i}$= $\overline{o}_{A_i}$ if $o$ violates $A_i$ when applied in $s$, $o'_{A_i}$= $o_{A_i}$ if $o$ does not violate $A_i$ when applied
-% The six unconditional operators are defined in order to,
-% in any state $s$ where $o'$ can be applied affecting the $P_1$ and $P_2$, the
-% \emph{sequence $\omega_{\affectedd}$ of $3$ operators in $O_{\affectedd}$} defined as follows can be applied: 
+% % Each operator $o$ such that $T(o) \not=\O$ is compiled into a set of new operators (one for each threatened preference). If $T(o)=\{A_1, \ldots, A_{m}\}$, $o$ is compiled into a set of $2m$ operators $O_{T(o)}=\{o_{A_1}, \overline{o}_{A_1}, \ldots, o_{A_{m}}, \overline{o}_{A_{m}}\}$ such that, in any state $s$ where $o$ can be applied violating a set of preferences in $T(o)$, the \emph{sequence $\omega_{T(o)}$ of $m$ operators in $O_{T(o)}$} defined as follows can be applied:
+% % %\begin{equation}
+% % %\label{omega}
+% % %\[ \omega_{T(o)}=\langle o'_{A_1}, \ldots, o'_{A_{m}}\rangle \]
+% % $\omega_{T(o)}=\langle o'_{A_1}, \ldots, o'_{A_{m}}\rangle$,
+% % %\end{equation}
+% % %luca7: uguale %luca1 
+% % where 
+% % $o'_{A_i}$= $\overline{o}_{A_i}$ if $o$ violates $A_i$ when applied in $s$, $o'_{A_i}$= $o_{A_i}$ if $o$ does not violate $A_i$ when applied
+% % The six unconditional operators are defined in order to,
+% % in any state $s$ where $o'$ can be applied affecting the $P_1$ and $P_2$, the
+% % \emph{sequence $\omega_{\affectedd}$ of $3$ operators in $O_{\affectedd}$} defined as follows can be applied: 
 
-These six operators are defined in order to guaratee that, in any state $s$ where $o$
-can be applied affecting $P1$ and $P2$, the sequence $\omega_{\affectedd}$ of three operators
-in $O_{\affectedd}$, defined as follows, can be applied:
+% These six operators are defined in order to guaratee that, in any state $s$ where $o$
+% can be applied affecting $P1$ and $P2$, the sequence $\omega_{\affectedd}$ of three operators
+% in $O_{\affectedd}$, defined as follows, can be applied:
 
-$$
-    \omega_{\affectedd} = \langle o'_{P1}, {o'}_{P2}^{{V}}, {o'}_{P2}^{{N}} \rangle
-$$
+% $$
+%     \omega_{\affectedd} = \langle o'_{P1}, {o'}_{P2}^{{V}}, {o'}_{P2}^{{N}} \rangle
+% $$
 
-\noindent where:
+% \noindent where:
 
-\begin{itemize}
-    \item  $o'_{P1} = \overline{o}_{P1}$ if $o$ violates $P1$ when applied in $s$, $o'_{P1} = o_{P1}$ if $o$ does not violate $P1$ when applied in $s$;
+% \begin{itemize}
+%     \item  $o'_{P1} = \overline{o}_{P1}$ if $o$ violates $P1$ when applied in $s$, $o'_{P1} = o_{P1}$ if $o$ does not violate $P1$ when applied in $s$;
 
-    \item  ${{o}'}_{P2}^{{V}} = \overline{o}_{P2}^{{V}}$ if $o$ violates $P2$ when applied in $s$, ${o'}_{P2}^{{V}} = o_{P2}^{{V}}$ if $o$ does not violate $P2$ when applied in $s$;
+%     \item  ${{o}'}_{P2}^{{V}} = \overline{o}_{P2}^{{V}}$ if $o$ violates $P2$ when applied in $s$, ${o'}_{P2}^{{V}} = o_{P2}^{{V}}$ if $o$ does not violate $P2$ when applied in $s$;
 
-    \item  ${o'}_{P2}^{{N}} = \overline{o}_{P2}^{{N}} $ if $o$ makes $\psi$ true when applied in $s$, ${o'}_{P2}^{{N}} = {o}_{P2}^{{N}} $ if $o$ does not make $\psi$ true when applied in $s$.
-\end{itemize}
+%     \item  ${o'}_{P2}^{{N}} = \overline{o}_{P2}^{{N}} $ if $o$ makes $\psi$ true when applied in $s$, ${o'}_{P2}^{{N}} = {o}_{P2}^{{N}} $ if $o$ does not make $\psi$ true when applied in $s$.
+% \end{itemize}
 
-These operators are defined in the following way:
-\begin{itemize}
+% These operators are defined in the following way:
+% \begin{itemize}
 
-\item  operators $o_{P1}$ and $o_{P2}$:
+% \item  operators $o_{P1}$ and $o_{P2}$:
 
-$\textit{Pre}({o}_{P1}) = \textit{Pre}(o) \cup \{\neg{\textit{pause}}, b \}$
+% $\textit{Pre}({o}_{P1}) = \textit{Pre}(o) \cup \{\neg{\textit{pause}}, b \}$
 
-$\textit{Eff}({o}_{P1}) = \{P1\text{-}done, \textit{pause} \}\\$
+% $\textit{Eff}({o}_{P1}) = \{P1\text{-}done, \textit{pause} \}\\$
 
-$\textit{Pre}(\overline{o}_{P1}) = \textit{Pre}(o) \cup \{\neg{\textit{pause}}, \lnot b \}$
+% $\textit{Pre}(\overline{o}_{P1}) = \textit{Pre}(o) \cup \{\neg{\textit{pause}}, \lnot b \}$
 
-$\textit{Eff}(\overline{o}_{P1}) = \{P1\text{-}done, P1\textit{-violated}, \textit{pause} \}$
+% $\textit{Eff}(\overline{o}_{P1}) = \{P1\text{-}done, P1\textit{-violated}, \textit{pause} \}$
 
-\item  operators ${o}_{P2}^{V}$ and ${\overline{o}}_{P2}^{V}$:
+% \item  operators ${o}_{P2}^{V}$ and ${\overline{o}}_{P2}^{V}$:
 
-$\textit{Pre}({o}_{P2}^{V}) = \{P1\text{-}done,\textit{pause}\} \cup \{\lnot ((\textit{seen-}\phi^{P2}) \land (\lnot c \lor e) \land (d \lor f))\}$
+% $\textit{Pre}({o}_{P2}^{V}) = \{P1\text{-}done,\textit{pause}\} \cup \{\lnot ((\textit{seen-}\phi^{P2}) \land (\lnot c \lor e) \land (d \lor f))\}$
 
-$\textit{Eff}({o}_{P2}^{V}) = \{P2\text{-}done, \lnot P1\text{-}done \}\\$
+% $\textit{Eff}({o}_{P2}^{V}) = \{P2\text{-}done, \lnot P1\text{-}done \}\\$
 
-$\textit{Pre}({\overline{o}}_{P2}^{V}) = \{P1\text{-}done, pause, \textit{seen-}\phi^{P2}, \lnot c \lor e, d \lor f \}$
+% $\textit{Pre}({\overline{o}}_{P2}^{V}) = \{P1\text{-}done, pause, \textit{seen-}\phi^{P2}, \lnot c \lor e, d \lor f \}$
 
-$\textit{Eff}({\overline{o}}_{P2}^{V}) = \{P2\text{-}done, \lnot P1\text{-}done, P2\textit{-violated} \}$
+% $\textit{Eff}({\overline{o}}_{P2}^{V}) = \{P2\text{-}done, \lnot P1\text{-}done, P2\textit{-violated} \}$
 
-\item  operators ${o}_{P2}^{N}$ and ${\overline{o}}_{P2}^{N}$:
+% \item  operators ${o}_{P2}^{N}$ and ${\overline{o}}_{P2}^{N}$:
 
-$\textit{Pre}({o}_{P2}^{N}) = \{P2\text{-}done,\textit{pause}\} \cup \{\lnot (\lnot \textit{seen-}\phi^{P2} \land (d \lor f))\}$
+% $\textit{Pre}({o}_{P2}^{N}) = \{P2\text{-}done,\textit{pause}\} \cup \{\lnot (\lnot \textit{seen-}\phi^{P2} \land (d \lor f))\}$
 
-$\textit{Eff}({o}_{P2}^{N}) = \{\lnot P2\text{-}done, \lnot pause\}\\$
+% $\textit{Eff}({o}_{P2}^{N}) = \{\lnot P2\text{-}done, \lnot pause\}\\$
 
-$\textit{Pre}({\overline{o}}_{P2}^{N}) = \{P2\text{-}done, pause, \lnot \textit{seen-}\phi^{P2}, d \lor f \}$
+% $\textit{Pre}({\overline{o}}_{P2}^{N}) = \{P2\text{-}done, pause, \lnot \textit{seen-}\phi^{P2}, d \lor f \}$
 
-$\textit{Eff}({\overline{o}}_{P2}^{N}) = \{\lnot P2\text{-}done, \lnot pause, \textit{seen-}\phi^{P2}\}\\$
-\end{itemize}
+% $\textit{Eff}({\overline{o}}_{P2}^{N}) = \{\lnot P2\text{-}done, \lnot pause, \textit{seen-}\phi^{P2}\}\\$
+% \end{itemize}
 
-The operators of $O_{\affectedd}$ involve additional predicates that are used for
-two purposes: (1) evaluating the conditional effects of $o'$ in sequence and (2)
-avoiding that the domain state changes because of the execution of domain operator during the evaluation.
+% The operators of $O_{\affectedd}$ involve additional predicates that are used for
+% two purposes: (1) evaluating the conditional effects of $o'$ in sequence and (2)
+% avoiding that the domain state changes because of the execution of domain operator during the evaluation.
 
-The $P_{i}\text{-}done$ predicates force the planner to strictly follow a fixed
-order avoiding repetitions in $\omega_{\affectedd}$. Once the planner starts
-the sequence $\omega_{\affectedd}$, no other operator, except those in $O_{\affectedd}$,
-can be applied before the application of the sequence is completed.
+% The $P_{i}\text{-}done$ predicates force the planner to strictly follow a fixed
+% order avoiding repetitions in $\omega_{\affectedd}$. Once the planner starts
+% the sequence $\omega_{\affectedd}$, no other operator, except those in $O_{\affectedd}$,
+% can be applied before the application of the sequence is completed.
 
-The order of execution may be arbitrary, except
-for those operators concerning the violation of $P2$, i.e. ${o}_{P2}^{V}$
-and $\overline{o}_{P2}^{V}$, 
-whose evaluation takes place before that of the operators
-${o}_{P2}^{N}$ and $\overline{o}_{P2}^{N}$, 
-appointed for the update the $\textit{seen-}\phi^{P2}$ predicate. As described previously,
-this expedient is necessary in order to correctly capture the violations 
-of at-most-once preference when they occour.
-% 
+% The order of execution may be arbitrary, except
+% for those operators concerning the violation of $P2$, i.e. ${o}_{P2}^{V}$
+% and $\overline{o}_{P2}^{V}$, 
+% whose evaluation takes place before that of the operators
+% ${o}_{P2}^{N}$ and $\overline{o}_{P2}^{N}$, 
+% appointed for the update the $\textit{seen-}\phi^{P2}$ predicate. As described previously,
+% this expedient is necessary in order to correctly capture the violations 
+% of at-most-once preference when they occour.
+% % 
 
-Concerning the cost of the compiled operators of $O_{\affectedd}$ we have
-$c(o_{P1}) = c(\overline{o}_{P1}) = \textit{cost}(o) = \kappa$ and 
-$c(o_{P2}^{V}) = c(\overline{o}_{P2}^{V}) = c({o}_{P2}^{N}) = c(\overline{o}_{P2}^{N}) = 0$.
+% Concerning the cost of the compiled operators of $O_{\affectedd}$ we have
+% $c(o_{P1}) = c(\overline{o}_{P1}) = \textit{cost}(o) = \kappa$ and 
+% $c(o_{P2}^{V}) = c(\overline{o}_{P2}^{V}) = c({o}_{P2}^{N}) = c(\overline{o}_{P2}^{N}) = 0$.
 
 
 % EXPERIMENTAL RESULTS
