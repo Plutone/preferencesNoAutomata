@@ -1047,17 +1047,29 @@ Mercury & 12.78 & 4.0 & --- & --- & 12.0 & 28.78\\ \hline
 \subsection{Optimal Planning Results}
 
 Similarly to what to what has been done in \cite{nebel2018}, we have tested our scheme
-using some admissible heuristics which are $h^\text{blind}$, $h^\text{max}$ an $h^{\text{M\&S}}$ which guarantee us the optimality of the solution found. Starting from the IPC5 domains, we generated
+using some admissible heuristics which are $h^\text{blind}$, $h^\text{max}$ an $h^{\text{M\&S}}$,
+$h^{\text{cpdb}}$ \cite{{haslum2007domain}}.
+which guarantee us the optimality of the solution found. Starting from the IPC5 domains,
+we generated, similar to what was done \cite{nebel2018},
 simpler instances by randomly sampling subsets of the soft trajectory constraints. Starting
 from each instance we have generated five new instances with 1\%, 5\%, 10\%, 20\% and 40\% of
 the (grounded) soft trajectory constraints while the hard goals have remained unchanged.
 
 Since we do not have the instances that have been used in the aforementioned paper,
-we have generated, for each percentage of sampling preferences (excpet for 100 \%), five sampled
-instances in order to average the obtained results. The results about 
-this experiment are shown Table \ref{coverage_admissible_heuristics}. The results
+we have generated, for each percentage of sampling preferences (excpet for 100 \%), 3 sampled
+instances in order to average the obtained results and be able to compare with their
+results. 
+All our experiments
+were conducted on a 2.00GHz Core Intel(R) Xeon(R) CPU E5-2620 machine with CPU-time
+and memory limits of 30 minutes and 8GiB, respectively, while the experiments 
+reported in \cite{nebel2018} are conducted on a
+Intel(R) Xeon(R) E5-2650v2 2.60GHz processors with 64GiB with one hour of CPU-time
+for the search and then our approach is penalized.
+
+The results about this experiment and the comparison with the automata approach
+are shown Table \ref{coverage_admissible_heuristics}. The results
 inherent to Openstacks have been excluded because it was not possible to find optimal
-plans even for the simplest instances.
+plans even for the simplest instances. 
 
 
 \begin{table}[]
@@ -1069,10 +1081,10 @@ plans even for the simplest instances.
 & Nebel& Our & Nebel & Our& Nebel& Our& Nebel & Our \\ \hline
 % Storage & --- &  --- &  --- &  --- &  --- &  --- &  --- &  --- \hline
 % Domain & $h^{\text{blind}}$ & $h^{\text{max}}$ & $h^{\text{m\&s}}$ & $h^{\text{cpdb}}$\\ \hline 
-Storage & 24.78 & --- & 41.0 & --- & 32.50 & --- & 23.10 & --- \\ \hline
-Rovers & 17.4 & --- & 41.0 & --- & 16.67 & --- & 15.17 & --- \\ \hline
-Trucks & 18.84 & --- & 23.19 & --- & n/a & --- & n/a & --- \\ \hline
-TPP & --- & --- & --- & --- & --- & --- & -- & --- \\ \hline
+Storage & 24.78 & 57.0 & 29.2 & 45.0 & 32.50 & 24.0 & 23.10 & 57.0 \\ \hline
+Rovers & 17.4 & 24.0 & 41.0 & 25.0 & 16.67 & 26.0 & 15.17 & 23,0 \\ \hline
+Trucks & 18.84 & 24.0 & 23.19 & 26.0 & n/a & 24.0 & n/a & 25 \\ \hline
+TPP & --- & 47.0 & --- & 45.0 & --- & 47.0 & -- & 40.0 \\ \hline
 
 %  % & ---& ---& --- & ---\\ \hline
 % \multirow{2}{*}{Rovers} & 23.0& 23.0& 23.0 &\\  \cline{2-5} 

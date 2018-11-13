@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.18)  12 NOV 2018 20:01
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.18)  13 NOV 2018 10:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -699,11 +699,15 @@ Overfull \hbox (2.45404pt too wide) in paragraph at lines 887--888
  []
 
 
+Package natbib Warning: Citation `haslum2007domain' on page 6 undefined on inpu
+t line 1051.
+
+
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 1063.
+               Default added (so using `tbp') on input line 1075.
 
 
-Overfull \hbox (17.77835pt too wide) in paragraph at lines 1066--1091
+Overfull \hbox (23.23862pt too wide) in paragraph at lines 1078--1103
  [][] 
  []
 
@@ -722,14 +726,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--7
 \OT1/pcr/m/n/10 / / ipc2018-[]classical . bitbucket . io$\OT1/ptm/m/n/10 .
  []
 
-
+[6]
 Underfull \hbox (badness 1178) in paragraph at lines 28--33
 []\OT1/ptm/m/n/10 M.B. Do and S. Kamb-ham-pati.  Par-tial sat-is-fac-
- []
-
-[6]
-Underfull \hbox (badness 1107) in paragraph at lines 60--64
-[]\OT1/ptm/m/n/10 S. Richter and M. West-phal.  The LAMA plan-
  []
 
 [7 <./histogrammi/histogram_rovers_ALL_PERCENTAGE_COST-eps-converted-to.pdf> <.
@@ -737,6 +736,10 @@ Underfull \hbox (badness 1107) in paragraph at lines 60--64
 ammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-converted-to.pdf> <./histogrammi/
 histogram_openstacks_ALL_PERCENTAGE_COST-eps-converted-to.pdf> <./histogrammi/h
 istogram_preprocessed-storage_ALL_PERCENTAGE_COST-eps-converted-to.pdf>]
+Underfull \hbox (badness 1107) in paragraph at lines 60--64
+[]\OT1/ptm/m/n/10 S. Richter and M. West-phal.  The LAMA plan-
+ []
+
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¼ in font ptmr7t!
 )
@@ -753,10 +756,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5464 strings out of 493304
- 81895 string characters out of 6139871
+ 5465 strings out of 493304
+ 81913 string characters out of 6139871
  185453 words of memory out of 5000000
- 8790 multiletter control sequences out of 15000+600000
+ 8791 multiletter control sequences out of 15000+600000
  38688 words of font info for 83 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,13n,38p,736b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -781,7 +784,7 @@ r/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
 imes/utmri8a.pfb>
-Output written on main.pdf (8 pages, 324737 bytes).
+Output written on main.pdf (8 pages, 325280 bytes).
 PDF statistics:
  219 PDF objects out of 1000 (max. 8388607)
  136 compressed objects within 2 object streams
