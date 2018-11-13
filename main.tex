@@ -414,7 +414,7 @@ we have considered the following {\stripsp} planning system
 {\lama}\cite{RicLAMA}, {\mercury} \cite{MercuryIPC8},
 {\miplan} \cite{nunez2014miplan}, {\ibacop} \cite{cenamor2014ibacop}, which are some of the best
 performing planning system in IPC8 \cite{vallati20152014}, and
-\fdss \cite{fdss2018}, \\fdremixcomplete \cite{\fdremix} (abbreviated with \\fdremix),
+\fdss \cite{fdss2018}, \fdremixcomplete \cite{fdremix} (abbreviated with \fdremix),
 which are some of the best performing planning system in the last IPC9 \cite{ipc9website}
 which have been compared with {\lprpgp} \cite{coles2011lprpg}, which is one of the
 performing planner which supports PDDL3 preferences. Moreover have considered our 
@@ -474,12 +474,14 @@ header of each subtable).
 per alleggerire la tabella.}
 
 % Figures \ref{eps:histogram_histograms_ALL_PERCENTAGE_COST}---\ref{eps:histogram_histograms_storage.eps}
-Figures \ref{lst:file1}---\ref{lst:file5}
-show the qualitative comparison in a different detailed way. In these histograms
-we have reported, for each istance of each domain, another quality measure, which we have
-denoted with $\alpha_{\textit{cost}}$. Each figure is associated
-with one of the considered domains and involve the best performing planners\footnote{The best among the classic planners and LPRPGP which is the competitor.} ,
-according to the IPC results showed in Table \ref{tab:ipc_score} in the considered domain.
+Figures \ref{lst:file1}---\ref{lst:file5} and \ref{lst:tpp:ag}---\ref{lst:tpp:sg}
+show the qualitative comparison in a different and detailed way. In these histograms
+we have reported, for each istance of each domain, another quality measure denoted with
+$\alpha_{\textit{cost}}$. Each figure is associated
+with one of the considered domains and involve two planners, the best performing planner, in term of 
+IPC score and according to Table \ref{tab:ipc_score},
+among the classical planner and {\lprpgp} which is the competitor.
+% according to the IPC results showed in Table \ref{tab:ipc_score} in the considered domain.
 
 % In particular we have evaluated
 % the best performing planners according to the results showed in Table \ref{tab:ipc_score}
@@ -1047,16 +1049,16 @@ Mercury & 12.78 & 4.0 & --- & --- & 12.0 & 28.78\\ \hline
 \subsection{Optimal Planning Results}
 
 Similarly to what to what has been done in \cite{nebel2018}, we have tested our scheme
-using some admissible heuristics which are $h^\text{blind}$, $h^\text{max}$ an $h^{\text{M\&S}}$,
-$h^{\text{cpdb}}$ \cite{{haslum2007domain}}.
-which guarantee us the optimality of the solution found. Starting from the IPC5 domains,
+using some admissible heuristics which are $h^\text{blind}$, which assign 1 to all states except
+for goal states to which assign 0, the maximum heuristic $h^\text{max}$, the merge and shrink heuristic $h^{\text{M\&S}}$, and the canonical pattern database heuristic $h^{\text{cpdb}}$ \cite{{haslum2007domain}}.
+These heuristitcs guarantee the optimality of the solution found. Starting from the IPC5 domains,
 we generated, similar to what was done \cite{nebel2018},
 simpler instances by randomly sampling subsets of the soft trajectory constraints. Starting
 from each instance we have generated five new instances with 1\%, 5\%, 10\%, 20\% and 40\% of
 the (grounded) soft trajectory constraints while the hard goals have remained unchanged.
 
 Since we do not have the instances that have been used in the aforementioned paper,
-we have generated, for each percentage of sampling preferences (excpet for 100 \%), 3 sampled
+we have generated, for each percentage of sampling preferences (except for 100 \%), 3 sampled
 instances in order to average the obtained results and be able to compare with their
 results. 
 All our experiments
@@ -1082,8 +1084,8 @@ plans even for the simplest instances.
 % Storage & --- &  --- &  --- &  --- &  --- &  --- &  --- &  --- \hline
 % Domain & $h^{\text{blind}}$ & $h^{\text{max}}$ & $h^{\text{m\&s}}$ & $h^{\text{cpdb}}$\\ \hline 
 Storage & 24.78 & 57.0 & 29.2 & 45.0 & 32.50 & 24.0 & 23.10 & 57.0 \\ \hline
-Rovers & 17.4 & 24.0 & 41.0 & 25.0 & 16.67 & 26.0 & 15.17 & 23,0 \\ \hline
-Trucks & 18.84 & 24.0 & 23.19 & 26.0 & n/a & 24.0 & n/a & 25 \\ \hline
+Rovers & 17.4 & 24.0 & 41.0 & 25.0 & 16.67 & 26.0 & 15.17 & 23.0 \\ \hline
+Trucks & 18.84 & 24.0 & 23.19 & 25.0 & n/a & 25.0 & n/a & 25 \\ \hline
 TPP & --- & 47.0 & --- & 45.0 & --- & 47.0 & -- & 40.0 \\ \hline
 
 %  % & ---& ---& --- & ---\\ \hline
@@ -1098,9 +1100,10 @@ TPP & --- & 47.0 & --- & 45.0 & --- & 47.0 & -- & 40.0 \\ \hline
 
 
 \end{tabular}
-\caption{Coverage of our compilation scheme on the IPC5 benchmarks set with
+\caption{Coverage of our and Nebel compilation scheme on the IPC5 benchmarks set with
 additional instances with random sampled soft-trajectory constraints, A*
-search for optimal solution.}\label{coverage_admissible_heuristics}
+search for optimal solution. Our results concerning the sampled instances are averaged.}
+\label{coverage_admissible_heuristics}
 \end{table}
 
 
