@@ -74,38 +74,47 @@
 \setlength{\pdfpageheight}{11in}  %Required
 %PDF Info Is Required:
   \pdfinfo{
-/Title (Compiling PDDL3 Qualitative Preferences without Using Automata)
+/Title (On Compiling PDDL3 Qualitative Preferences without Using Automata)
 /Author (Anonymous)}
 \setcounter{secnumdepth}{0}  
  \begin{document}
 % The file aaai.sty is the style file for AAAI Press 
 % proceedings, working notes, and technical reports.
 %
-\title{Compiling PDDL3 Qualitative Preferences without Using Automata}
+\title{On Compiling Away PDDL3 Soft Trajectory Constraints without Using Automata}
+%\title{On Compiling Away PDDL3 Qualitative Preferences without Using Automata}
 \author{...
 }
 \maketitle
 \begin{abstract}
-We address the problem of planning with preferences in propositional 
-domains extended with the class of (preferred) temporally extended goals 
-supported in  {\pddlIII}, that is part of the standard planning language 
-{\pddl} since the 5th International Planning Competition (\fifthIPC). Such 
-preferences are useful to characterise plan quality by allowing the user
-to express certain soft constraints on the state trajectory of the desired
-solution plans.
-Starting from the work of Keyder and Geffner on compiling (reachability)
-soft goals, we propose a compilation scheme
-for translating a {\strips} problem enriched with qualitative  {\pddlIII}
-preferences  (and possibly also with soft goals) into an equivalent {\strips}
-problem with action costs. 
-The proposed compilation, which supports all types of preferences in the benchmarks
-from \fifthIPC, allows many existing {\strips} planners to immediately address
-planning with preferences. 
+We address the problem of propositional planning extended with the class of soft temporally extended goals supported in {\pddlIII}, also called qualitative preferences since IPC-5.
+%that is part of the standard planning language 
+% {\pddl} since the 5th International Planning Competition (\fifthIPC). 
+Such preferences are useful to characterise plan quality by allowing the user to express certain soft constraints on the state trajectory of the desired solution plans.
+We propose and evaluate a compilation approach that 
+extends previous work on compiling soft reachability goals and always goals to the full set of {\pddlIII} qualitative preferences.
+This approach directly compiles qualitative preferences into propositional planning without using automata to represent the trajectory constraints. Moreover, since no numerical fluent is used, it allows 
+many existing {\strips} planners to immediately address planning with preferences. 
+
+%While other existing approaches represent {\pddlIII} soft state-trajectory constraints as particular automata that are compiled into a planning problem with numerical fluents, our approach directly compile them into propositional planning with action costs. 
+
+%Our compilation extends previous work that was limited to soft reachability goals and state-invariant (always) goals to the full set of {\pddlIII} qualitative preferences.
+%
+%Starting from the work of Keyder and Geffner on compiling (reachability)
+%soft goals, we propose a compilation scheme
+%for translating a {\strips} problem enriched with qualitative  {\pddlIII}
+%preferences  (and possibly also with soft goals) into an equivalent {\strips}
+%problem with action costs. 
+%The proposed compilation, which supports all types of qualitative preferences in the benchmarks
+%from \fifthIPC, allows many existing {\strips} planners to immediately address
+%planning with preferences. 
 An experimental analysis presented in the paper evaluates the performance of
-state-of-the-art {\strips} planners supporting action costs using our compilation
-approach to deal with qualitative  {\pddlIII} preferences.  The results indicate
+state-of-the-art propositional planners supporting action costs using our compilation
+%approach to deal with 
+of
+{\pddlIII} qualitative   preferences.  The results indicate
 that our approach is highly competitive with respect to current planners that
-natively support the considered class of preferences.
+natively support the considered class of preference, as well as with a recent automata-based compilation approach.
 \end{abstract}
 
 
