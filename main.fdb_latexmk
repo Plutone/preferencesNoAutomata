@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1542133687 "main.aux" "main.bbl" "main" 1542133688
+["bibtex main"] 1542212941 "main.aux" "main.bbl" "main" 1542214259
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "biblio.bib.bib" 0 -1 0 ""
-  "main.aux" 1542133688 3290 1abb5b1992ae005c46ab869b744987b0 ""
+  "main.aux" 1542212941 3290 9464eb6ae59dfc3ece9d4f97c64f7646 ""
   "main.bcf" 0 -1 0 ""
   (generated)
-  "main.blg"
   "main.bbl"
-["pdflatex"] 1542133687 "main.tex" "main.pdf" "main" 1542133688
+  "main.blg"
+["pdflatex"] 1542212941 "main.tex" "main.pdf" "main" 1542214259
   "/etc/texmf/web2c/texmf.cnf" 1455791705 1101 af7716885e081ab43982cab7b4672c1a ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -89,6 +89,7 @@
   "/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty" 1335995445 14040 8de9f47fabc4ca3bd69b6d795e32751c ""
   "/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty" 1335995445 18425 775b341047ce304520cc7c11ca41392e ""
   "/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty" 1335995445 19987 01cb2f3c1d21e5f05711b7fd50b17f2a ""
+  "/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty" 1361575838 13294 f63af559496acbb4ffecc2de353745eb ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1359763108 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd" 1359763108 961 6518c6525a34feb5e8250ffa91731cff ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd" 1359763108 961 d02606146ba5601b5645f987c92e6193 ""
@@ -149,10 +150,10 @@
   "histogrammi/histogram_tpp_stg_PERCENTAGE_COST.eps" 1542025060 49739 2ebe7a5ab27df08baf760e236b97fe9d ""
   "histogrammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-converted-to.pdf" 1542033128 15269 1afe690f314bdc9582653e1e1f0290c4 ""
   "histogrammi/histogram_trucks_ALL_PERCENTAGE_COST.eps" 1542032996 49429 977a87e217973b2df9082681f697663f ""
-  "main.aux" 1542133688 3290 1abb5b1992ae005c46ab869b744987b0 ""
+  "main.aux" 1542212941 3290 9464eb6ae59dfc3ece9d4f97c64f7646 ""
   "main.bbl" 1542018594 3067 9af5fea9c3a718263f7112088b3ec59a "bibtex main"
-  "main.tex" 1542133678 122390 7f04200e50763ff4154bd501934703e0 ""
+  "main.tex" 1542212940 125393 4003c87b48678b50d8e4153a6e92254c ""
   (generated)
+  "main.log"
   "main.aux"
   "main.pdf"
-  "main.log"
