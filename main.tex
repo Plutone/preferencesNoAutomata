@@ -69,6 +69,9 @@
 \newcommand{\truettt}{\small \texttt{TRUE}}
 \newcommand{\pviol}{P\textit{-violated}}
 \newcommand{\affectedd}{P_{\textit{affected}}(o)}
+\newcommand{\lamap}{
+$\text{LAMA}_{\text{P}}(h_{\text{R}}$}
+
 
 \frenchspacing  %Required
 \setlength{\pdfpagewidth}{8.5in}  %Required
@@ -1566,21 +1569,53 @@ $\\
 \begin{prop}[Correspondence between plans]
 For an applicable action sequence $\pi$ for a {\stripspp} problem $P$, let $\pi'$ a compiled plan such that
 $|\pi| = |\pi'|$ where each action $o'$ in $\pi$ it is built by adding some
-conditional effects to $o \in \Pi$ according to Definition \ref{compiledOcondeff}, then:
+conditional effects to $o$ according to Definition \ref{compiledOcondeff},
+which definition depends by the operator itself and the class of affected preferences, then:
 $$\pi \text{ is a plan for P } \Longleftrightarrow  \pi' \text{ is a plan for P'}.$$
 
 
-\begin{proof} (andata) 
+\begin{proof} ($\Rightarrow$) \\
 % The original initial state $I$ is extendend with some additional predicates
 % so if $I \subseteq I'$ then $I' \models I$. 
-Using Definition \ref{compiledOcondeff} if:
+Using Definition \ref{compiledOcondeff}, if:
 \begin{itemize}
 	\item $o \in O_{\text{neutral}}$, which means that $o$ does not affect any preferences of $P$, then $o'$ is equal to $o$;
 	\item $o \not \in O_{\text{neutral}}$, which means that exists at least a preference of $P$ which is affected by the execution of the operator, then the preconditions of $o$ remain the same and its effects
 	are extended with a set of conditional effects which do not delete any fluent belonging to $F$,
 	but they only affect the compiled additional fluents, e.g. $P\textit{-violated}$.
 \end{itemize}
-So any hard goal achieved by $\pi$ will remain true in the final state reached by $\pi'$
+
+Starting from this fact we can assert that \textit{(i)}
+the sequence $\pi'$ is still applicable
+in the same order of $\pi$ because none
+of the compiled operator may affects any
+original predicates in $F$, which are the only
+ones that can be involved in the
+precondition of any $o' \in O'$.
+
+Having excluded from the demonstration
+the forgo and collect operators for soft goals and sometime preferences,
+whose correctness has already been demonstrated, 
+we can observe that \textit{(ii)} the compiled goal
+is equal to the original goal, so $G = G'$, and the compiled initial
+state is an extension of the original state with some additional predicates
+such that $I' \models I$.
+
+% % As said previously the compiled operator do not delete any fluent of the original problem,
+% % and affecting only additional predicates, the compiled plan $\pi'$ is still applicable.
+% \textit{(ii)} Having excluded from the demonstration
+% the forgo and collect operators for soft goals and sometime preferences,
+% whose correctness has already been demonstrated, we have that the compiled goal is equal to the
+% original goal and the compiled initial state is an extension of the original state such that
+% $I' \models I$.
+
+% Using \textit{(i)} we can assert that the sequence $\pi'$ is still appicable in the same
+% order, because none of the compiled operators that belongs to $\pi'$
+% affects any predicates of the original problem
+% which are the only ones involved
+% in the preconditions of any $o' \in O'$, and using \textit{(ii)} we can assert
+% that the execution of $\pi'$ achieves
+% So any hard goal achieved by $\pi$ will remain true in the final state reached by $\pi'$
 
 
 % The proof is similar to the one for Proposition 1 in \cite{kn:geffner09}. The main difference concerns the treatment of the
@@ -1601,12 +1636,11 @@ So any hard goal achieved by $\pi$ will remain true in the final state reached b
 \subsection{Experiments Description}
 
 
-We implemented the proposed compilation scheme and have evaluating it
+We implemented the proposed compilation scheme and we have evaluated it
 by two sets of experiments with different purposes. On the one hand we
 evaluated the scheme in a satisficing planning context in which we focused
 on the search for sub-optimal plans using different planning systems,
-while in the other we focuse on the
-search of optimal plans using admissible heuristics.
+while in the other we focuse on the search of optimal plans using admissible heuristics.
 
 Regarding the comparison in the context of the satisficing planning
 we have considered the following {\stripsp} planning system
@@ -1616,7 +1650,7 @@ performing planning system in IPC8 \cite{vallati20152014}, and
 \fdss \cite{fdss2018}, \fdremixcomplete \cite{fdremix} (abbreviated with \fdremix),
 which are some of the best performing planning system in the last IPC9 \cite{ipc9website}
 which have been compared with {\lprpgp} \cite{coles2011lprpg}, which is one of the
-performing planner which supports PDDL3 preferences. Moreover have considered our 
+performing planner which supports PDDL3 preferences. Moreover we have considered our 
 specifically enhanced version of {\lama} for planning with soft goal,
 which is {\lamapruning}, which makes use of admissibile
 heuristic $h_\text{R}$ to test the reachability of the soft goals
@@ -1636,14 +1670,14 @@ and memory limits of 30 minutes and 8GiB, respectively, for
 each run of every tested planner. We have tested 8 planners for 5 domains
 each of which consists of 20 instances for a total of 800 runs.
 
-Table \ref{tab:ipc_score} shows the performances of the considered planning system
-in term of plans quality. As quality measure we have used the IPC quality score, a
-popular metric of which we have reported a brief description \cite{IPC6}. 
+In order to do a quality comparison we have considered two different quality metrics. The 
+first one that we  used is the IPC quality score, a
+popular metric used in the IPC competitions \cite{IPC6},
+of which a brief description follows.
 
 Given a planner $p$ and a task $i$ we assign, if $p$ solves $i$, the
 following score to $p$:
 $$
-% \textit{score}(p, i) = \textit{cost}_{\textit{best}} (i) / \textit{cost}(p, i)
 \textit{score}(p, i) = \frac{\textit{cost}_{\textit{best}} (i)}{\textit{cost}(p, i)}
 $$
 
@@ -1656,38 +1690,18 @@ cost of the best solution among the tested planners within 30 minutes. If $p$
 did not find a solution within the time assigned, then $\textit{score}(p, i)$
 is equal to $0$ in order to reward both quality and coverage. 
 
-The quality score assigned to each tested planner $p$ is set equal to 
-sum of the quality scores assigned to $p$ over all the considered instances:
-$$
-\textit{score}(p) = \sum_{i \in \textit{tasks}}{\textit{score}(p, i)}
-$$
+% The overall score assigned to each tested planner $p$ is equal to:
+% $$
+% \textit{score}(p) = \sum_{i \in \textit{tasks}}{\textit{score}(p, i)}
+% $$
 
-Table \ref{tab:ipc_score} reports the quality comparison using the IPC score
-described above. It is splitted into six parts, at top we
-have reported the qualitative comparision considering all kinds of preferences together
-in the computation of the IPC score, while in the remaining subtables we have splitted the 
-have considered each considered class of preference seperately (which is indicated in the
-header of each subtable).
+% We reported a brief description of the metric $\alpha_{\textit{cost}}$ that 
+% we used
+We also considered an our quality metrics that we have denoted as $\alpha_{\text{cost}}$
+which is useful for understanding what class of preferences have been achieved
+how important they are to achieve a good quality plan. A description follows.
 
-\noindent\hl{\textbf{NOTA (FP):} selezionare un numero di pianificatori significativi da includere nella tabella
-per alleggerire la tabella.}
-
-% Figures \ref{eps:histogram_histograms_ALL_PERCENTAGE_COST}---\ref{eps:histogram_histograms_storage.eps}
-Figures \ref{lst:file1}---\ref{lst:file5} and \ref{lst:tpp:ag}---\ref{lst:tpp:sg}
-show the qualitative comparison in a different and detailed way. In these histograms
-we have reported, for each istance of each domain, another quality measure denoted with
-$\alpha_{\textit{cost}}$. Each figure is associated
-with one of the considered domains and involve two planners, the best performing planner, in term of 
-IPC score and according to Table \ref{tab:ipc_score},
-among the classical planner and {\lprpgp} which is the competitor.
-% according to the IPC results showed in Table \ref{tab:ipc_score} in the considered domain.
-
-% In particular we have evaluated
-% the best performing planners according to the results showed in Table \ref{tab:ipc_score}
-% which are {\lamapruning} and {\lprpgp} respectively.
-
-We reported a brief description of the metric $\alpha_{\textit{cost}}$ that 
-we used. Given a planner $p$ and a task $i$ we assign, if $p$ solves $i$,
+Given a planner $p$ and a task $i$ we assign, if $p$ solves $i$,
 the following score to $p$:
 $$
 \alpha_{\textit{cost}}(p, i) = \textit{cost}(p, i) / \textit{cost}_{\textit{total}}(i) = \frac{
@@ -1718,6 +1732,66 @@ the satisfaction of the most useful subset of preferences in absolute
 terms. In particular, the planner with the lowest ratio is the planner who
 got the best performance on that particular instance.
 
+In Tables \ref{tab:ipc_score} and \ref{tab:ipc_score-class} we have reported the performances of the considered planning system
+in term of IPC score quality aggregating the scores by domain
+
+In particular in \ref{tab:ipc_score} we have reported the quality comparison
+considering all class of preferences together in the IPC calculation,
+while in \ref{tab:ipc_score-class} we splitted the table into six subtables
+where we have considered each class of preferences separetely in the IPC
+calculation (the class is indicated in the header of
+each subtable).
+
+Figures \ref{hrovers}---\ref{hstorage} instead show the $\alpha_{\text{cost}}$ comparison using
+aggregating the scores by domain. In this case each bar is associated to a planner
+whose value is equal to $\alpha_{\text{cost}}$
+expressed as a percentage
+and calculated by adding up all the quality scores
+obtained in each instance. Each level of the stacked histogram
+represents the aggregated $\alpha_{\text{cost}}(\text{class})$
+restricted to a specific class of preferences in order to show
+how much each class of violated preferences contributes to the total
+cost of the plans.
+
+Note that in \ref{tab:ipc_score} we have reported the results about all the tested
+planners while in Table \ref{tab:ipc_score-class} Figures \ref{hrovers}---\ref{hstorage}
+we have restricted the analysis, in order to synthetize the explanation,
+to the following planners:
+$\text{LAMA}_{\text{P}}({h_{\text{R}}})$ which realize the best IPC score
+performance, {\fdss} which is the best IPC score performing planners in IPC9,
+{\miplan} which realizes a lowest IPC performance than {\lprpgp} and the latter
+which the planning system which natively supports PDDL3 preferences.
+
+Concerning the optimal evaluation, similarly to what to what has been 
+done in \cite{nebel2018}, we have tested our scheme
+using some admissible heuristics which are $h^\text{blind}$, which assign 1 to all states except
+for goal states to which assign 0, the maximum heuristic $h^\text{max}$, the merge and shrink heuristic $h^{\text{M\&S}}$, and the canonical pattern database heuristic $h^{\text{cpdb}}$ \cite{{haslum2007domain}}.
+These heuristitcs guarantee the optimality of the solution found. Starting from the IPC5 domains,
+we generated, similar to what was done \cite{nebel2018},
+simpler instances by randomly sampling subsets of the soft trajectory constraints. Starting
+from each instance we have generated five new instances with 1\%, 5\%, 10\%, 20\% and 40\% of
+the (grounded) soft trajectory constraints while the hard goals have remained unchanged.
+
+Since we do not have the instances that have been used in the aforementioned paper,
+we have generated, for each percentage of sampling preferences (except for 100 \%), 3 sampled
+instances in order to average the obtained results and be able to compare with their
+results. 
+All our experiments
+were conducted on a 2.00GHz Core Intel(R) Xeon(R) CPU E5-2620 machine with CPU-time
+and memory limits of 30 minutes and 8GiB, respectively, while the experiments 
+reported in \cite{nebel2018} are conducted on a
+Intel(R) Xeon(R) E5-2650v2 2.60GHz processors with 64GiB with one hour of CPU-time
+for the search and then our approach is penalized.
+
+The results about this experiment and the comparison with the automata approach
+are shown Table \ref{coverage_admissible_heuristics}. The results
+inherent to Openstacks have been excluded because it was not possible to find optimal
+plans even for the simplest instances. Overall we have tested 
+4 admissible heuristics for 4 domains,
+each of which consists of 320 instances, the 20 original ones plus
+300 sampled instances 
+$(20 * \text{sampling\_rates} * \text{sample} )$, 
+where $\text{sampling\_rates} = 5$ and $\text{rate} = 3$), for a total of 5120 runs.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DESCRIZIONE RISULTATI PIANI SUBOTTIMI
@@ -1726,7 +1800,7 @@ got the best performance on that particular instance.
 %%%%%%%%%%%%%%%%%%%%%
 % COMMENTO GENERALE %
 %%%%%%%%%%%%%%%%%%%%%
-The results obtained comparing the planners considered above show that the 
+The results obtained comparing the satisficing context show that the 
 compilative approach is almost always preferable since the tested classical planners obtain 
 an higher IPC score than {\lprpgp} except for {\mercury} and {\miplan}.
 
@@ -1744,64 +1818,79 @@ domains each classical planner performs better or at least comparable than {\lpr
 and {\lamapruning} in Storage. Also {\miplan} works well in Trucks but it
 is penalized due to coverage (it solves only 15 instances out of 20).
 
-The planning system from the more recent IPC9 {\fdremix}
-and {\fdss} perform overall better in this benchmark than the planning system from the
+The planning system from the more recent IPC9, {\fdremix}
+and {\fdss}, perform overall better in this benchmark than the planning system from the
 previous IPC8 but the enhanced version {\lamapruning} is better than everyone else indeed
 it improves the performance of LAMA in all the considered domains except in
 Rovers (where there is no soft goal).
 
-Figures \ref{lst:file1}--\ref{lst:file5} show the $\alpha_{\text{cost}}$ comparison
-for each domain comparing the best perfoming classical planner 
-in term of IPC score in such domain with {\lprpgp}.
+% Figures \ref{lst:file1}--\ref{lst:file5} show the $\alpha_{\text{cost}}$ comparison
+% for each domain comparing the best perfoming classical planner 
+% in term of IPC score in such domain with {\lprpgp}.
 
-Looking at Figure \ref{lst:file1},
-where we have reported the $\alpha_{\text{cost}}$ comparison for 
-the best performing planners in Rovers in term of IPC score,
-% {\ibacop} and {\lprpgp},
-% the best performing competitor planning system in Rovers according to Table \ref{tab:ipc_score},
-we can say that the compilative approach, combined with the use of {\ibacop},
-achieves to satisfy a better subset of preferences in all the compared instances
-compared to {\lprpgp}.
+% Looking at Figure \ref{lst:file1},
+% where we have reported the $\alpha_{\text{cost}}$ comparison for 
+% the best performing planners in Rovers in term of IPC score,
+% % {\ibacop} and {\lprpgp},
+% % the best performing competitor planning system in Rovers according to Table \ref{tab:ipc_score},
+% we can say that the compilative approach, combined with the use of {\ibacop},
+% achieves to satisfy a better subset of preferences in all the compared instances
+% compared to {\lprpgp}.
+
+%%%%%%%%%%%%%%%%%%%
+% COMMENTO ROVERS %
+%%%%%%%%%%%%%%%%%%%
+Looking at Figure \ref{hrovers} we note that
+the IPC gap between the classical planners and {\lprpgp} in Rovers
+is due to the {\lprpgp} violation of sometime-before preferences. As regards the remaining
+classes preferences, the violation cost settles down on similar level
+except for {\ibacop}, which achieves more sometime-before and sometime
+preferences than the others planning violating more at-most-once preferences
+but succeeding to obtaining better quality plans.
 
 
 %%%%%%%%%%%%%%%%
 % COMMENTO TPP %
 %%%%%%%%%%%%%%%%
 In TPP the compilative 
-approach seems to be very ineffective, each classical planner
+approach seems to be very ineffective, indeed each classical planner
 achieves an extremely lower quality performance compared to {\lprpgp}. The bad
-performances in this domain are probably due to the many soft goals and sometime
+performances in this domain are due to the many soft goals and sometime
 preferences because, as shown in \cite{percassi2017improving}, the compilation
 of soft goals can be sometime problematic and neither the use of the reachability
-heuristic $h_{\text{R}}$ in {\lamapruning} can compensate this weakness.
-
-Indeed the part of Table \ref{tab:ipc_score}, 
-which concerns soft goals and sometime preferences,
-cleary shows that {\lprpgp} is overall more performing than the classical planners
-especially in TPP in term of these kinds of preferences achieved. This
-aspect is clearly observable Figures \ref{lst:tpp:sg} and \ref{lst:tpp:st}
-which report the $\alpha_{\text{cost}}(\mathcal{SG})$ and 
-$\alpha_{\text{cost}}(\mathcal{ST})$ comparison respectively between {\lamapruning} and
-{\lprpgp} in TPP. In these figures we can see that the compilative approach fails to achieve
-a better subset of soft goals and sometime preferences compared to what {\lprpgp}
-in half of the instances does. But looking at Table \ref{tab:ipc_score}
-we can also observe that {\lamapruning} achieves a better result
+heuristic $h_{\text{R}}$ in {\lamapruning} can compensate this weakness. Indeed looking
+at Table \ref{tab:ipc_score-class} we note that {\lprpgp} gets an high IPC score
+for these two preference classes than all the classical planners. Looking 
+at Table \ref{tab:ipc_score} we can also observe that the classical planners 
+achieves a better result
 of always, sometime-before and at-most-once preferences compared to {\lprpgp} in
-term of IPC score, but this is not significant because
-apparently it happens
-at the expense of soft-goal and sometime preferences which
-are clearly more expensive to violate (or equivalently more useful to satisfy).
+term of IPC score, but this is not very relevant for the plan quality because
+apparently it happens at the expense of soft-goal and sometime preferences which
+are clearly more expensive to violate (or equivalently more useful to satisfy), indeed
+looking to Figure \ref{htpp} we note that the decisive preferences in this domain are 
+mainly soft goals which are more achieved by {\lprpgp}. Note that {\lamap} helps
+a bit {\lama} to achieves more soft goals.
+
+
+% %%%%%%%%%%%%%%%%%
+% COMMENTO TRUCKS %
+% %%%%%%%%%%%%%%%%%
+Looking at Figure {\ref{htrucks}} we observe that the classical planners,
+except {\miplan}, achieves a comparable performance with {\lprpgp} and
+in particular {\lamap} and {\fdss} get higher quality plan because
+they manage to achieve almost all the always preferences
+and more sometime-before preferences than their competitor.
 
 % In Trucks {\ibacop} gets a poorer performance while {\fdremix} gets the best result
 % in term of IPC score 
 
-Looking at Figure \ref{lst:file3},
-where we have reported the $\alpha_{\text{cost}}$ comparison for the
-% best performing competitor planning system in Trucks according to Table \ref{tab:ipc_score},
-best performing planners in Trucks in term of IPC score,
-we can say that the compilative approach, combined with the use of {\fdremix}, 
-achieves to satisfy a better, worst and equal subset of preferences in all instances compared to
-{\lprpgp} in 15, 4 and 1 respectively.
+% Looking at Figure \ref{lst:file3},
+% where we have reported the $\alpha_{\text{cost}}$ comparison for the
+% % best performing competitor planning system in Trucks according to Table \ref{tab:ipc_score},
+% best performing planners in Trucks in term of IPC score,
+% we can say that the compilative approach, combined with the use of {\fdremix}, 
+% achieves to satisfy a better, worst and equal subset of preferences in all instances compared to
+% {\lprpgp} in 15, 4 and 1 respectively.
 
 % Looking at Figure \ref{lst:file2},
 % where we have reported the $\alpha_{\text{cost}}$ for the
@@ -1829,11 +1918,18 @@ achieves to satisfy a better, worst and equal subset of preferences in all insta
 %%%%%%%%%%%%%%%%%%%%%%%
 % COMMENTO OPENSTACKS %
 %%%%%%%%%%%%%%%%%%%%%%%
-Regarding Opentacks the tested planners achieve a comparable performance even if the classical planners are slightly penalized compared to \lprpgp. Looking at Figure \ref{lst:file4},
-where we have reported the $\alpha_{\text{cost}}$ comparison between {\lamapruning}
-and {\lprpgp} calculated considering all kind of preferences, we can say that our classical planner
-achieves to satisfy a better, worst and equal subset of preferenes in 12, 7 and 1 instances respectively
+Regarding Opentacks and looking at Table \ref{tab:ipc_score} all the tested planners 
+achieve a comparable performance in term of IPC score even if the classical planners
+are slightly penalized compared to \lprpgp. Looking at Figure \ref{hopenstacks} we can assert
+that the only relevant classes of preferences in this domain are soft goals and always preferences 
+and every planner performs a similar performance (except for {\ibacop} amd {\miplan}
+that do worse).
 
+Looking at Figure {\ref{hstorage}} we observe that all the classical planners,
+achieves a better performance than {\lprpgp} and
+in particular {\lamap} and {\miplan} get higher quality plan because
+they manage to achieve almost the sometime-before preferences
+than their competitor.
 
 % {\lama} and {\\fdremix} compute lower quality plans that {\lprpgp}
 % for more than half of the instances. Both classical system work better than
@@ -1854,9 +1950,9 @@ achieves to satisfy a better, worst and equal subset of preferenes in 12, 7 and 
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
-\multicolumn{7}{|c|}{$\mathscr{P}_{\mathcal{ALL}}$}\\ \hline 
+% \multicolumn{7}{|c|}{$\mathscr{P}_{\mathcal{ALL}}$}\\ \hline 
 Planner & Rovers & TPP & Trucks & Openstacks & Storage &TOTAL \\ \hline 
-$\text{LAMA}_{\text{B}}(h_r)$ & 16.98 & 8.34 & 15.32 & 19.28 & \textbf{18.47} & \textbf{78.39}\\ \hline 
+$\text{LAMA}_{\text{B}}(h_{\text{R}})$ & 16.98 & 8.34 & 15.32 & 19.28 & \textbf{18.47} & \textbf{78.39}\\ \hline 
 \fdremix & 17.89 & 7.1 & \textbf{17.67} & 18.99 & 16.2 & 77.86\\ \hline 
 \fdssshort & 17.6 & 7.03 & 17.08 & 18.7 & 17.11 & 77.52\\ \hline 
 LAMA(2011) & 17.01 & 7.53 & 13.04 & 18.42 & 17.81 & 73.82\\ \hline 
@@ -1865,10 +1961,22 @@ LAMA(2018) & 16.44 & 7.63 & 13.34 & 16.03 & 17.78 & 71.22\\ \hline
 LPRPG-P & 11.36 & \textbf{18.74} & 6.99 & \textbf{19.71} & 12.87 & 69.66\\ \hline 
 MIPlan & 17.65 & 8.8 & 9.23 & 17.35 & 14.42 & 67.45\\ \hline 
 Mercury & 16.07 & 6.57 & 7.78 & 18.06 & 14.5 & 62.97\\ \hline
+\end{tabular}
+
+\caption{IPC comparison calculated using all kinds of preferences together. {\lprpgp} is the planning system which natively support preferences, while the others are all classical planners. The considered planning system are sorted by the total IPC score.}
+\label{tab:ipc_score}
+\end{table}\newpage
+
+
+\begin{table}[]
+\tiny
+\setlength\tabcolsep{2pt}
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
 \multicolumn{7}{|c|}{$\mathscr{P}_{\mathcal{A}}$}\\ \hline 
 Planner & Rovers & TPP & Trucks & Openstacks & Storage &TOTAL \\ \hline 
-$\text{LAMA}_{\text{B}}(h_r)$ & 13.46 & 20.0 & 15.0 & 20.0 & 19.0 & 87.46\\ \hline 
+$\text{LAMA}_{\text{B}}(h_{\text{R}})$ & 13.46 & 20.0 & 15.0 & 20.0 & 19.0 & 87.46\\ \hline 
 \fdssshort & 13.51 & 17.0 & 18.0 & 17.83 & 20.0 & 86.34\\ \hline 
 LAMA(2011) & 13.8 & 20.0 & 13.0 & 20.0 & 19.0 & 85.8\\ \hline 
 IBaCoP2 & 14.73 & 20.0 & 13.0 & 19.0 & 19.0 & 85.73\\ \hline 
@@ -1883,7 +1991,7 @@ Planner & Rovers & TPP & Trucks & Openstacks & Storage &TOTAL \\ \hline
 LPRPG-P & --- & 19.45 & 16.48 & 19.43 & 14.94 & 70.3\\ \hline 
 \fdremix & --- & 14.73 & 17.12 & 18.63 & 18.57 & 69.05\\ \hline 
 \fdssshort & --- & 14.66 & 16.49 & 18.4 & 18.44 & 67.99\\ \hline 
-$\text{LAMA}_{\text{B}}(h_r)$ & --- & 14.82 & 14.36 & 18.7 & 18.9 & 66.78\\ \hline 
+$\text{LAMA}_{\text{B}}(h_{\text{R}})$ & --- & 14.82 & 14.36 & 18.7 & 18.9 & 66.78\\ \hline 
 LAMA(2011) & --- & 13.95 & 13.57 & 17.78 & 18.29 & 63.6\\ \hline 
 IBaCoP2 & --- & 16.03 & 10.7 & 17.23 & 18.61 & 62.57\\ \hline 
 LAMA(2018) & --- & 14.82 & 13.17 & 15.84 & 18.3 & 62.13\\ \hline 
@@ -1895,7 +2003,7 @@ Planner & Rovers & TPP & Trucks & Openstacks & Storage &TOTAL \\ \hline
 Mercury & 16.61 & 20.0 & 19.0 & --- & 20.0 & 75.61\\ \hline 
 \fdssshort & 16.4 & 17.0 & 20.0 & --- & 19.0 & 72.4\\ \hline 
 LAMA(2018) & 14.92 & 17.0 & 20.0 & --- & 20.0 & 71.92\\ \hline 
-$\text{LAMA}_{\text{B}}(h_r)$ & 14.54 & 18.0 & 20.0 & --- & 19.0 & 71.54\\ \hline 
+$\text{LAMA}_{\text{B}}(h_{\text{R}})$ & 14.54 & 18.0 & 20.0 & --- & 19.0 & 71.54\\ \hline 
 LAMA(2011) & 14.36 & 17.0 & 20.0 & --- & 20.0 & 71.36\\ \hline 
 \fdremix & 16.37 & 16.0 & 20.0 & --- & 18.0 & 70.37\\ \hline 
 MIPlan & 14.03 & 16.0 & 15.0 & --- & 20.0 & 65.03\\ \hline 
@@ -1904,7 +2012,7 @@ LPRPG-P & 13.42 & 1.0 & 19.0 & --- & 12.0 & 45.42\\ \hline
 \hline 
 \multicolumn{7}{|c|}{$\mathscr{P}_{\mathcal{SB}}$}\\ \hline 
 Planner & Rovers & TPP & Trucks & Openstacks & Storage &TOTAL \\ \hline 
-$\text{LAMA}_{\text{B}}(h_r)$ & 18.25 & 20.0 & 18.0 & --- & 19.0 & 75.25\\ \hline 
+$\text{LAMA}_{\text{B}}(h_{\text{R}})$ & 18.25 & 20.0 & 18.0 & --- & 19.0 & 75.25\\ \hline 
 LAMA(2011) & 18.18 & 20.0 & 15.5 & --- & 18.0 & 71.68\\ \hline 
 Mercury & 17.07 & 20.0 & 14.5 & --- & 20.0 & 71.57\\ \hline 
 MIPlan & 18.24 & 20.0 & 12.0 & --- & 20.0 & 70.24\\ \hline 
@@ -1917,7 +2025,7 @@ LPRPG-P & 8.21 & 14.0 & 15.5 & --- & 7.0 & 44.71\\ \hline
 \multicolumn{7}{|c|}{$\mathscr{P}_{\mathcal{ST}}$}\\ \hline 
 Planner & Rovers & TPP & Trucks & Openstacks & Storage &TOTAL \\ \hline 
 LAMA(2018) & 13.23 & 11.0 & --- & --- & 20.0 & 44.23\\ \hline 
-$\text{LAMA}_{\text{B}}(h_r)$ & 14.28 & 10.0 & --- & --- & 19.0 & 43.28\\ \hline 
+$\text{LAMA}_{\text{B}}(h_{\text{R}})$ & 14.28 & 10.0 & --- & --- & 19.0 & 43.28\\ \hline 
 \fdssshort & 16.17 & 8.0 & --- & --- & 19.0 & 43.17\\ \hline 
 IBaCoP2 & 16.81 & 10.0 & --- & --- & 16.0 & 42.81\\ \hline 
 LAMA(2011) & 14.41 & 9.0 & --- & --- & 19.0 & 42.41\\ \hline 
@@ -1928,70 +2036,116 @@ Mercury & 12.78 & 4.0 & --- & --- & 12.0 & 28.78\\ \hline
 
 \end{tabular}
 
-\caption{Temp caption}
-\label{tab:ipc_score}
+\caption{
+IPC comparison calculated considering all kinds of preferences separately. Each subtable
+concerne a single class of preferences which is indicated in the first row.
+{\lprpgp} is the planning system which natively support preferences,
+while the others are all classical planners. The considered planning system are sorted in
+each subtable by the total IPC score.
+}
+\label{tab:ipc_score-class}
 \end{table}\newpage
 
 
 \begin{figure}[]
 \centering
-
-\setcounter{tmp}{\thefigure}
-\setcounter{figure}{\thelstlisting}
-% \captionsetup{list=no,name=Listing}
-
-% \begin{tabular}{cc}
-% \begin{tabular}{c}
-
-% ROVERS ALL HISTOGRAM
-\begin{subfigure}[b]{\linewidth}
-\includegraphics[width=8.5cm]{histogrammi/histogram_rovers_ALL_PERCENTAGE_COST.eps}
-\caption{Rovers}
-\label{lst:file1}
-\end{subfigure}
-% &
-\\
-% TPP ALL HISTOGRAM
-\begin{subfigure}[b]{\linewidth}
-\includegraphics[width=8.5cm]{histogrammi/histogram_tpp_ALL_PERCENTAGE_COST.eps}
-\caption{TPP}
-\label{lst:file2}
-\end{subfigure} \\
-% TRUCKS
-\begin{subfigure}[b]{\linewidth}
-\includegraphics[width=8.5cm]{histogrammi/histogram_trucks_ALL_PERCENTAGE_COST.eps}
-\caption{Trucks}
-\label{lst:file3}
-\end{subfigure}
-
+% \includegraphics[width=8.5cm]{histogrammi/rovers.png}
+\includegraphics[width=8.5cm]{histogrammi/rovers.png}
+\caption{$\alpha_{\text{cost}}$ comparison for Rovers domain.}
+\label{hrovers}
 \end{figure}
 
-\begin{figure}[htb] \ContinuedFloat
-% OPENSTACKS
-\begin{subfigure}[b]{\linewidth}
-\includegraphics[width=8.5cm]{histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST.eps}
-\caption{Openstacks}
-\label{lst:file4}
-\end{subfigure}
-\\
-% \end{tabular}
-% \begin{tabular}{c}
-% STORAGE
-\begin{subfigure}[b]{\linewidth}
-\includegraphics[width=8.5cm]{histogrammi/histogram_preprocessed-storage_ALL_PERCENTAGE_COST.eps}
-\caption{Storage}
-\label{lst:file5}
-\end{subfigure}
-\\
-
-% \end{tabular}
-
-% \captionsetup{font=scriptsize}
-\caption{Quality Comparison using $\alpha_{\textit{cost}}$ for each domain. Each bar represents the $\alpha_{\textit{cost}}$ of the best plan produced by the considered planner. The negative bar represents an instance which has not been solved or that has no preferences of that kind. From the top to bottom we have provided the results about $\alpha_{\textit{cost}}$ calculated considering each kind of preferences for Rovers, TPP, Trucks, Openstacks and Storage.}
-\label{eps:histogram_histograms_ALL_PERCENTAGE_COST}
-% \stepcounter{lstlisting}
-% \setcounter{figure}{\thetmp}
+\begin{figure}[]
+\centering
+% \includegraphics[width=8.5cm]{histogrammi/rovers.png}
+\includegraphics[width=8.5cm]{histogrammi/tpp.png}
+\caption{$\alpha_{\text{cost}}$ comparison for TPP domain.}
+\label{htpp}
 \end{figure}
+
+\begin{figure}[]
+\centering
+% \includegraphics[width=8.5cm]{histogrammi/rovers.png}
+\includegraphics[width=8.5cm]{histogrammi/trucks.png}
+\caption{$\alpha_{\text{cost}}$ comparison for Trucks domain.}
+\label{htrucks}
+\end{figure}
+
+\begin{figure}[]
+\centering
+% \includegraphics[width=8.5cm]{histogrammi/rovers.png}
+\includegraphics[width=8.5cm]{histogrammi/openstacks.png}
+\caption{$\alpha_{\text{cost}}$ comparison for Openstacks domain.}
+\label{hopenstacks}
+\end{figure}
+
+\begin{figure}[]
+\centering
+% \includegraphics[width=8.5cm]{histogrammi/rovers.png}
+\includegraphics[width=8.5cm]{histogrammi/preprocessed-storage.png}
+\caption{$\alpha_{\text{cost}}$ comparison for Storage domain.}
+\label{hstorage}
+\end{figure}
+
+% \begin{figure}[]
+% \centering
+
+% \setcounter{tmp}{\thefigure}
+% \setcounter{figure}{\thelstlisting}
+% % \captionsetup{list=no,name=Listing}
+
+% % \begin{tabular}{cc}
+% % \begin{tabular}{c}
+
+% % ROVERS ALL HISTOGRAM
+% \begin{subfigure}[b]{\linewidth}
+% \includegraphics[width=8.5cm]{histogrammi/histogram_rovers_ALL_PERCENTAGE_COST.eps}
+% \caption{Rovers}
+% \label{lst:file1}
+% \end{subfigure}
+% % &
+% \\
+% % TPP ALL HISTOGRAM
+% \begin{subfigure}[b]{\linewidth}
+% \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_ALL_PERCENTAGE_COST.eps}
+% \caption{TPP}
+% \label{lst:file2}
+% \end{subfigure} \\
+% % TRUCKS
+% \begin{subfigure}[b]{\linewidth}
+% \includegraphics[width=8.5cm]{histogrammi/histogram_trucks_ALL_PERCENTAGE_COST.eps}
+% \caption{Trucks}
+% \label{lst:file3}
+% \end{subfigure}
+
+% \end{figure}
+
+% \begin{figure}[htb] \ContinuedFloat
+% % OPENSTACKS
+% \begin{subfigure}[b]{\linewidth}
+% \includegraphics[width=8.5cm]{histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST.eps}
+% \caption{Openstacks}
+% \label{lst:file4}
+% \end{subfigure}
+% \\
+% % \end{tabular}
+% % \begin{tabular}{c}
+% % STORAGE
+% \begin{subfigure}[b]{\linewidth}
+% \includegraphics[width=8.5cm]{histogrammi/histogram_preprocessed-storage_ALL_PERCENTAGE_COST.eps}
+% \caption{Storage}
+% \label{lst:file5}
+% \end{subfigure}
+% \\
+
+% % \end{tabular}
+
+% % \captionsetup{font=scriptsize}
+% \caption{Quality Comparison using $\alpha_{\textit{cost}}$ for each domain. Each bar represents the $\alpha_{\textit{cost}}$ of the best plan produced by the considered planner. The negative bar represents an instance which has not been solved or that has no preferences of that kind. From the top to bottom we have provided the results about $\alpha_{\textit{cost}}$ calculated considering each kind of preferences for Rovers, TPP, Trucks, Openstacks and Storage.}
+% \label{eps:histogram_histograms_ALL_PERCENTAGE_COST}
+% % \stepcounter{lstlisting}
+% % \setcounter{figure}{\thetmp}
+% \end{figure}
 
 
 % RESTANTI HISTOGRAMMI COMMENTATI
@@ -2046,57 +2200,57 @@ Mercury & 12.78 & 4.0 & --- & --- & 12.0 & 28.78\\ \hline
 
 % \end{figure}
 
-% %%%%%%%%%%%%%%%
-% % TPP results %
-% %%%%%%%%%%%%%%%
-\begin{figure}[]
-\centering
+% % %%%%%%%%%%%%%%%
+% % % TPP results %
+% % %%%%%%%%%%%%%%%
+% \begin{figure}[]
+% \centering
 
-% \begin{tabular}{cc}
+% % \begin{tabular}{cc}
 
+% % \begin{subfigure}{\linewidth}
+% % \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_ALL_PERCENTAGE_COST.eps}
+% % \caption{All}
+% % \label{lst:tpp:all}
+% % \end{subfigure}
+% % &
+% % \begin{subfigure}{\linewidth}
+% % \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_ag_PERCENTAGE_COST.eps}
+% % \caption{$\mathcal{A}$}
+% % \label{lst:tpp:ag}
+% % \end{subfigure}
+% % \\
 % \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_ALL_PERCENTAGE_COST.eps}
-% \caption{All}
-% \label{lst:tpp:all}
+% \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_sg_PERCENTAGE_COST.eps}
+% \caption{$\mathcal{SG}$}
+% \label{lst:tpp:sg}
 % \end{subfigure}
-% &
+% % &
+% % \begin{subfigure}{\linewidth}
+% % \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_amo_PERCENTAGE_COST.eps}
+% % \caption{$\mathcal{AO}$}
+% % \label{lst:tpp:amo}
+% % \end{subfigure}
+% % \\
+% % \begin{subfigure}{\linewidth}
+% % \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_sbg_PERCENTAGE_COST.eps}
+% % \caption{$\mathcal{SB}$}
+% % \label{lst:tpp:sbg}
+% % \end{subfigure}
+% % &
 % \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_ag_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{A}$}
-% \label{lst:tpp:ag}
+% \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_stg_PERCENTAGE_COST.eps}
+% \caption{$\mathcal{ST}$}
+% \label{lst:tpp:st}
 % \end{subfigure}
-% \\
-\begin{subfigure}{\linewidth}
-\includegraphics[width=8.5cm]{histogrammi/histogram_tpp_sg_PERCENTAGE_COST.eps}
-\caption{$\mathcal{SG}$}
-\label{lst:tpp:sg}
-\end{subfigure}
-% &
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_amo_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{AO}$}
-% \label{lst:tpp:amo}
-% \end{subfigure}
-% \\
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_sbg_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{SB}$}
-% \label{lst:tpp:sbg}
-% \end{subfigure}
-% &
-\begin{subfigure}{\linewidth}
-\includegraphics[width=8.5cm]{histogrammi/histogram_tpp_stg_PERCENTAGE_COST.eps}
-\caption{$\mathcal{ST}$}
-\label{lst:tpp:st}
-\end{subfigure}
 
-% \end{tabular}
+% % \end{tabular}
 
-% \captionsetup{font=scriptsize}
-\caption{Each bar represents the $\alpha_{\textit{cost}}$ of the best plan produced by the considered planner. The negative bar represents an instance which has not been solved or that has no preferences of that kind. From left to right we have provided the results about the $\alpha_{\textit{cost}}$ calculated considering each kind of preferences, always, at-end (or soft goals), at-most-once, sometime-before and sometime preferences.}
-\label{eps:histogram_histograms_tpp.eps.sg}
+% % \captionsetup{font=scriptsize}
+% \caption{Each bar represents the $\alpha_{\textit{cost}}$ of the best plan produced by the considered planner. The negative bar represents an instance which has not been solved or that has no preferences of that kind. From left to right we have provided the results about the $\alpha_{\textit{cost}}$ calculated considering each kind of preferences, always, at-end (or soft goals), at-most-once, sometime-before and sometime preferences.}
+% \label{eps:histogram_histograms_tpp.eps.sg}
 
-\end{figure}
+% \end{figure}
 
 % %%%%%%%%%%
 % % TRUCKS %
@@ -2247,30 +2401,7 @@ Mercury & 12.78 & 4.0 & --- & --- & 12.0 & 28.78\\ \hline
 
 \subsection{Optimal Planning Results}
 
-Similarly to what to what has been done in \cite{nebel2018}, we have tested our scheme
-using some admissible heuristics which are $h^\text{blind}$, which assign 1 to all states except
-for goal states to which assign 0, the maximum heuristic $h^\text{max}$, the merge and shrink heuristic $h^{\text{M\&S}}$, and the canonical pattern database heuristic $h^{\text{cpdb}}$ \cite{{haslum2007domain}}.
-These heuristitcs guarantee the optimality of the solution found. Starting from the IPC5 domains,
-we generated, similar to what was done \cite{nebel2018},
-simpler instances by randomly sampling subsets of the soft trajectory constraints. Starting
-from each instance we have generated five new instances with 1\%, 5\%, 10\%, 20\% and 40\% of
-the (grounded) soft trajectory constraints while the hard goals have remained unchanged.
 
-Since we do not have the instances that have been used in the aforementioned paper,
-we have generated, for each percentage of sampling preferences (except for 100 \%), 3 sampled
-instances in order to average the obtained results and be able to compare with their
-results. 
-All our experiments
-were conducted on a 2.00GHz Core Intel(R) Xeon(R) CPU E5-2620 machine with CPU-time
-and memory limits of 30 minutes and 8GiB, respectively, while the experiments 
-reported in \cite{nebel2018} are conducted on a
-Intel(R) Xeon(R) E5-2650v2 2.60GHz processors with 64GiB with one hour of CPU-time
-for the search and then our approach is penalized.
-
-The results about this experiment and the comparison with the automata approach
-are shown Table \ref{coverage_admissible_heuristics}. The results
-inherent to Openstacks have been excluded because it was not possible to find optimal
-plans even for the simplest instances. 
 
 
 \begin{table}[]

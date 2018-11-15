@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.18)  14 NOV 2018 17:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.18)  15 NOV 2018 17:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -244,19 +244,19 @@ LaTeX Warning: Label `def:trueclauses' multiply defined.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 81.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 84.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
@@ -325,77 +325,77 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 88.
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 88.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 91.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 91.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 88.
+LaTeX Font Info:    Try loading font information for U+msa on input line 91.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 88.
+LaTeX Font Info:    Try loading font information for U+msb on input line 91.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 88.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 88.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 91.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 91.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 88.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 91.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 89.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 92.
 
 
-Package natbib Warning: Citation `smith04' on page 1 undefined on input line 11
-8.
+Package natbib Warning: Citation `smith04' on page 1 undefined on input line 12
+1.
 
 
 Package natbib Warning: Citation `Weld:94AA' on page 1 undefined on input line 
-120.
+123.
 
 
-Package natbib Warning: Citation `bacKab' on page 1 undefined on input line 120
+Package natbib Warning: Citation `bacKab' on page 1 undefined on input line 123
 .
 
 
 Package natbib Warning: Citation `Hplanp:aij09' on page 1 undefined on input li
-ne 120.
+ne 123.
 
 
 Package natbib Warning: Citation `kn:geffner09' on page 1 undefined on input li
-ne 133.
+ne 136.
 
 
 Package natbib Warning: Citation `Hplanp:aij09' on page 1 undefined on input li
-ne 144.
+ne 147.
 
 
 Package natbib Warning: Citation `BM:AAAI06' on page 1 undefined on input line 
-144.
+147.
 
 
 Package natbib Warning: Citation `Edelk06' on page 1 undefined on input line 14
-5.
+8.
 
 
-Package natbib Warning: Citation `Edelk' on page 1 undefined on input line 145.
+Package natbib Warning: Citation `Edelk' on page 1 undefined on input line 148.
 
 
 
 Package natbib Warning: Citation `LPRPGP-P:icaps11' on page 1 undefined on inpu
-t line 145.
+t line 148.
 
 
 Package natbib Warning: Citation `coles2013searching' on page 1 undefined on in
-put line 146.
+put line 149.
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
@@ -404,149 +404,145 @@ put line 146.
 ]
 
 Package natbib Warning: Citation `CC:ECAI04' on page 2 undefined on input line 
-152.
+155.
 
 
 Package natbib Warning: Citation `Rintanen:ECAI00' on page 2 undefined on input
- line 152.
+ line 155.
 
 
 Package natbib Warning: Citation `Rintanen:personal2015' on page 2 undefined on
- input line 157.
+ input line 160.
 
 
 Package natbib Warning: Citation `BM:AAAI06' on page 2 undefined on input line 
-158.
+161.
 
 
 Package natbib Warning: Citation `nebelCompiling' on page 2 undefined on input 
-line 163.
+line 166.
 
 Missing character: There is no Ã in font ptmb7t!
 Missing character: There is no   in font ptmb7t!
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 216.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 219.
 [2]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 233.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 236.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 
 Package natbib Warning: Citation `techReportGerevini1' on page 3 undefined on i
-nput line 234.
+nput line 237.
 
 
 Package natbib Warning: Citation `techReportGerevini2' on page 3 undefined on i
-nput line 234.
+nput line 237.
 
 
-Overfull \hbox (9.00534pt too wide) in paragraph at lines 244--244
+Overfull \hbox (9.00534pt too wide) in paragraph at lines 247--247
 []  \OT1/pcr/m/n/9 <con-GD> ::= (at end <GD>) | (always <GD>) |[] 
  []
 
 
-LaTeX Warning: Reference `fig:semantics' on page 3 undefined on input line 247.
+LaTeX Warning: Reference `fig:semantics' on page 3 undefined on input line 250.
 
 
 LaTeX Font Info:    Font shape `OMS/ptm/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 291.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 294.
 
 Package natbib Warning: Citation `kn:geffner09' on page 3 undefined on input li
-ne 304.
+ne 307.
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 368.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 371.
 [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 397.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 400.
 
 
-LaTeX Warning: Reference `fig:semantics' on page 4 undefined on input line 404.
-
-
-
-LaTeX Warning: Reference `fig:semantics' on page 4 undefined on input line 481.
+LaTeX Warning: Reference `fig:semantics' on page 4 undefined on input line 407.
 
 
 
-LaTeX Warning: Command \O invalid in math mode on input line 492.
+LaTeX Warning: Reference `fig:semantics' on page 4 undefined on input line 484.
+
+
+
+LaTeX Warning: Command \O invalid in math mode on input line 495.
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 517--518
+Underfull \hbox (badness 10000) in paragraph at lines 520--521
 
  []
 
 
-LaTeX Warning: Command \O invalid in math mode on input line 548.
+LaTeX Warning: Command \O invalid in math mode on input line 551.
 
 
-LaTeX Warning: Command \O invalid in math mode on input line 581.
+LaTeX Warning: Command \O invalid in math mode on input line 584.
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 633--634
+Underfull \hbox (badness 10000) in paragraph at lines 636--637
 \OT1/ptm/m/n/10 the com-piled \OT1/ptm/m/sc/10 strips\OT1/ptm/m/n/10 + prob-lem
  of $\OT1/cmr/m/n/10 ^^E$ \OT1/ptm/m/n/10 is $\OT1/cmr/m/n/10 ^^E[] =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 735--740
+Underfull \hbox (badness 10000) in paragraph at lines 738--743
  \OT1/ptm/b/n/10 Op-er-a-tor Com-pi-la-tion Func-tion \OT1/ptm/m/n/10 The func-
 tion
  []
 
 
-Underfull \hbox (badness 3271) in paragraph at lines 735--740
+Underfull \hbox (badness 3271) in paragraph at lines 738--743
 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 o; \U/rsfs/m/n/10 P\OT1/cmr/m/n/10 )$ \OT1/
 ptm/m/n/10 which trans-forms an orig-i-nal op-er-a-tor $\OML/cmm/m/it/10 o$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 800--801
+Underfull \hbox (badness 10000) in paragraph at lines 803--804
 
  []
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 843.
+LaTeX Warning: Command \l invalid in math mode on input line 846.
 
 
-Underfull \hbox (badness 5359) in paragraph at lines 868--869
+Underfull \hbox (badness 5359) in paragraph at lines 871--872
 []$\OML/cmm/m/it/10 cond\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 o; P\OT1/cmr/m/n/10 )
  =    [][](\OML/cmm/m/it/10 l[] \OMS/cmsy/m/n/10 ^ [] ^
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 868--869
+Underfull \hbox (badness 10000) in paragraph at lines 871--872
 
  []
 
 [6]
 
-LaTeX Warning: Command \O invalid in math mode on input line 890.
+LaTeX Warning: Command \O invalid in math mode on input line 893.
 
 
-Underfull \hbox (badness 2790) in paragraph at lines 889--896
+Underfull \hbox (badness 2790) in paragraph at lines 892--899
 []\OT1/ptm/b/n/10 EXAMPLE \OT1/ptm/m/n/10 Con-sider the fol-low-ing op-er-a-tor
  $\OML/cmm/m/it/10 o \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (5.24274pt too wide) detected at line 981
+Overfull \hbox (5.24274pt too wide) detected at line 984
 \OMS/cmsy/m/n/10 W\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 o; P\OT1/cmr/m/n/10 ) = []
  []
 
 [7]
 
-LaTeX Warning: Reference `fig:semantics' on page 8 undefined on input line 1114
+LaTeX Warning: Reference `fig:semantics' on page 8 undefined on input line 1117
 .
 
 
 Package natbib Warning: Citation `gazen97:ecp' on page 8 undefined on input lin
-e 1192.
-
-
-Package natbib Warning: Citation `nebel2000compilability' on page 8 undefined o
-n input line 1207.
+e 1195.
 
 
 Package natbib Warning: Citation `nebel2000compilability' on page 8 undefined o
@@ -554,323 +550,188 @@ n input line 1210.
 
 
 Package natbib Warning: Citation `nebel2000compilability' on page 8 undefined o
-n input line 1210.
+n input line 1213.
+
+
+Package natbib Warning: Citation `nebel2000compilability' on page 8 undefined o
+n input line 1213.
 
 [8]
-Underfull \hbox (badness 1484) in paragraph at lines 1235--1249
+Underfull \hbox (badness 1484) in paragraph at lines 1238--1252
 []\OT1/ptm/m/n/10 Concerning at-most-once pref-er-ences, an in-ter-fer-ence
  []
 
 
-Underfull \hbox (badness 1158) in paragraph at lines 1250--1255
+Underfull \hbox (badness 1158) in paragraph at lines 1253--1258
 []\OT1/ptm/m/n/10 We can ex-pose sim-i-lar con-sid-er-a-tions for sometime-
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1262.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1265.
 
 Package natbib Warning: Citation `nebel2000compilability' on page 9 undefined o
-n input line 1262.
+n input line 1265.
 
 
 Package natbib Warning: Citation `nebel2000compilability' on page 9 undefined o
-n input line 1266.
+n input line 1269.
 
 
 Package natbib Warning: Citation `ceriani2015planning' on page 9 undefined on i
-nput line 1266.
+nput line 1269.
 
 
-LaTeX Warning: Command \O invalid in math mode on input line 1270.
+LaTeX Warning: Command \O invalid in math mode on input line 1273.
 
 
-Underfull \hbox (badness 3646) in paragraph at lines 1297--1300
+Underfull \hbox (badness 3646) in paragraph at lines 1300--1303
 []\OT1/ptm/m/n/10 Operator $\OML/cmm/m/it/10 o$ \OT1/ptm/m/n/10 threat-ens only
  one clause of $\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 1$\OT1/ptm/m/n/10 , i.e.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1326--1328
+Underfull \hbox (badness 10000) in paragraph at lines 1329--1331
 
  []
 
 [9]
-Underfull \hbox (badness 3989) in paragraph at lines 1381--1383
+Underfull \hbox (badness 3989) in paragraph at lines 1384--1386
 []\OT1/ptm/m/n/10 The con-di-tion $[][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 o; P\O
 T1/cmr/m/n/10 2)$ \OT1/ptm/m/n/10 to ac-ti-vate the flu-ent
  []
 
 
-LaTeX Warning: Reference `compstrips' on page 10 undefined on input line 1414.
+LaTeX Warning: Reference `compstrips' on page 10 undefined on input line 1417.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1413--1416
+Underfull \hbox (badness 10000) in paragraph at lines 1416--1419
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1435--1439
+Underfull \hbox (badness 10000) in paragraph at lines 1438--1442
 
  []
 
 
 Package natbib Warning: Citation `fdss2018' on page 10 undefined on input line 
-1616.
+1650.
 
 
 Package natbib Warning: Citation `fdremix' on page 10 undefined on input line 1
-616.
+650.
 
 [10]
 
-Package natbib Warning: Citation `IPC6' on page 11 undefined on input line 1641
+Package natbib Warning: Citation `IPC6' on page 11 undefined on input line 1675
 .
 
 
-LaTeX Warning: Reference `lst:tpp:ag' on page 11 undefined on input line 1676.
+Package natbib Warning: Citation `haslum2007domain' on page 11 undefined on inp
+ut line 1768.
 
-
-Underfull \hbox (badness 4144) in paragraph at lines 1747--1752
-[]\OT1/ptm/m/n/10 The plan-ning sys-tem from the more re-cent IPC9
+[11]
+Underfull \hbox (badness 3343) in paragraph at lines 1821--1826
+[]\OT1/ptm/m/n/10 The plan-ning sys-tem from the more re-cent IPC9,
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 1747--1752
+Underfull \hbox (badness 1028) in paragraph at lines 1821--1826
 \OT1/ptm/m/n/10 tem from the pre-vi-ous IPC8 but the en-hanced ver-sion
  []
 
-[11]
-Underfull \hbox (badness 1371) in paragraph at lines 1832--1836
-\OT1/ptm/m/n/10 pa-ra-ble per-for-mance even if the clas-si-cal plan-ners are
- []
-
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 1851.
+               Default added (so using `tbp') on input line 1947.
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1859.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1955.
 [12]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 1936.
-
-Package epstopdf Info: Source file: <histogrammi/histogram_rovers_ALL_PERCENTAG
-E_COST.eps>
-(epstopdf)                    date: 2018-11-12 15:12:26
-(epstopdf)                    size: 50012 bytes
-(epstopdf)             Output file: <histogrammi/histogram_rovers_ALL_PERCENTAG
-E_COST-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-11-12 15:13:38
-(epstopdf)                    size: 15516 bytes
-(epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_rove
-rs_ALL_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram_rovers_ALL_PE
-RCENTAGE_COST.eps>
-(epstopdf)             \includegraphics on input line 1948.
-Package epstopdf Info: Output file is already uptodate.
-
-<histogrammi/histogram_rovers_ALL_PERCENTAGE_COST-eps-converted-to.pdf, id=68, 
-361.35pt x 216.81pt>
-File: histogrammi/histogram_rovers_ALL_PERCENTAGE_COST-eps-converted-to.pdf Gra
-phic file (type pdf)
-
-<use histogrammi/histogram_rovers_ALL_PERCENTAGE_COST-eps-converted-to.pdf>
-Package pdftex.def Info: histogrammi/histogram_rovers_ALL_PERCENTAGE_COST-eps-c
-onverted-to.pdf used on input line 1948.
-(pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
-
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 1948--1949
-[][] 
- []
-
-Package epstopdf Info: Source file: <histogrammi/histogram_tpp_ALL_PERCENTAGE_C
-OST.eps>
-(epstopdf)                    date: 2018-11-12 15:12:26
-(epstopdf)                    size: 47842 bytes
-(epstopdf)             Output file: <histogrammi/histogram_tpp_ALL_PERCENTAGE_C
-OST-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-11-12 15:21:46
-(epstopdf)                    size: 14436 bytes
-(epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_tpp_
-ALL_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram_tpp_ALL_PERCENTA
-GE_COST.eps>
-(epstopdf)             \includegraphics on input line 1956.
-Package epstopdf Info: Output file is already uptodate.
-
-<histogrammi/histogram_tpp_ALL_PERCENTAGE_COST-eps-converted-to.pdf, id=69, 361
-.35pt x 216.81pt>
-File: histogrammi/histogram_tpp_ALL_PERCENTAGE_COST-eps-converted-to.pdf Graphi
-c file (type pdf)
-
-<use histogrammi/histogram_tpp_ALL_PERCENTAGE_COST-eps-converted-to.pdf>
-Package pdftex.def Info: histogrammi/histogram_tpp_ALL_PERCENTAGE_COST-eps-conv
-erted-to.pdf used on input line 1956.
-(pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
-
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 1956--1957
-[][] 
- []
-
-Package epstopdf Info: Source file: <histogrammi/histogram_trucks_ALL_PERCENTAG
-E_COST.eps>
-(epstopdf)                    date: 2018-11-12 15:29:56
-(epstopdf)                    size: 49429 bytes
-(epstopdf)             Output file: <histogrammi/histogram_trucks_ALL_PERCENTAG
-E_COST-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-11-12 15:32:08
-(epstopdf)                    size: 15269 bytes
-(epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_truc
-ks_ALL_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram_trucks_ALL_PE
-RCENTAGE_COST.eps>
-(epstopdf)             \includegraphics on input line 1962.
-Package epstopdf Info: Output file is already uptodate.
-
-<histogrammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-converted-to.pdf, id=70, 
-361.35pt x 216.81pt>
-File: histogrammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-converted-to.pdf Gra
-phic file (type pdf)
-
-<use histogrammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-converted-to.pdf>
-Package pdftex.def Info: histogrammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-c
-onverted-to.pdf used on input line 1962.
-(pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
-
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 1962--1963
-[][] 
- []
-
-Package epstopdf Info: Source file: <histogrammi/histogram_openstacks_ALL_PERCE
-NTAGE_COST.eps>
-(epstopdf)                    date: 2018-11-12 13:17:39
-(epstopdf)                    size: 52338 bytes
-(epstopdf)             Output file: <histogrammi/histogram_openstacks_ALL_PERCE
-NTAGE_COST-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-11-12 13:40:05
-(epstopdf)                    size: 16256 bytes
-(epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_open
-stacks_ALL_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram_openstack
-s_ALL_PERCENTAGE_COST.eps>
-(epstopdf)             \includegraphics on input line 1972.
-Package epstopdf Info: Output file is already uptodate.
-
-<histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST-eps-converted-to.pdf, id=
-71, 361.35pt x 216.81pt>
-File: histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST-eps-converted-to.pdf
- Graphic file (type pdf)
-
-<use histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST-eps-converted-to.pdf>
-Package pdftex.def Info: histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST-e
-ps-converted-to.pdf used on input line 1972.
-(pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
-
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 1972--1973
-[][] 
- []
-
-Package epstopdf Info: Source file: <histogrammi/histogram_preprocessed-storage
-_ALL_PERCENTAGE_COST.eps>
-(epstopdf)                    date: 2018-11-12 13:17:40
-(epstopdf)                    size: 51321 bytes
-(epstopdf)             Output file: <histogrammi/histogram_preprocessed-storage
-_ALL_PERCENTAGE_COST-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-11-12 13:40:05
-(epstopdf)                    size: 15819 bytes
-(epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_prep
-rocessed-storage_ALL_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram
-_preprocessed-storage_ALL_PERCENTAGE_COST.eps>
-(epstopdf)             \includegraphics on input line 1981.
-Package epstopdf Info: Output file is already uptodate.
-
-<histogrammi/histogram_preprocessed-storage_ALL_PERCENTAGE_COST-eps-converted-t
-o.pdf, id=72, 361.35pt x 216.81pt>
-File: histogrammi/histogram_preprocessed-storage_ALL_PERCENTAGE_COST-eps-conver
-ted-to.pdf Graphic file (type pdf)
-
-<use histogrammi/histogram_preprocessed-storage_ALL_PERCENTAGE_COST-eps-convert
-ed-to.pdf>
-Package pdftex.def Info: histogrammi/histogram_preprocessed-storage_ALL_PERCENT
-AGE_COST-eps-converted-to.pdf used on input line 1981.
-(pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
-
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 1981--1982
-[][] 
- []
+               Default added (so using `tbp') on input line 1971.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1971--1986
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2050.
 
+<histogrammi/rovers.png, id=67, 481.8pt x 361.35pt>
+File: histogrammi/rovers.png Graphic file (type png)
+
+<use histogrammi/rovers.png>
+Package pdftex.def Info: histogrammi/rovers.png used on input line 2053.
+(pdftex.def)             Requested size: 241.84842pt x 181.38583pt.
+
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 2053--2054
+ [][] 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 2052.
+               Default added (so using `tbp') on input line 2058.
 
-Package epstopdf Info: Source file: <histogrammi/histogram_tpp_sg_PERCENTAGE_CO
-ST.eps>
-(epstopdf)                    date: 2018-11-12 13:17:40
-(epstopdf)                    size: 49690 bytes
-(epstopdf)             Output file: <histogrammi/histogram_tpp_sg_PERCENTAGE_CO
-ST-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-11-12 13:19:31
-(epstopdf)                    size: 15140 bytes
-(epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_tpp_
-sg_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram_tpp_sg_PERCENTAGE
-_COST.eps>
-(epstopdf)             \includegraphics on input line 2070.
-Package epstopdf Info: Output file is already uptodate.
+<histogrammi/tpp.png, id=68, 481.8pt x 361.35pt>
+File: histogrammi/tpp.png Graphic file (type png)
+ <use histogrammi/tpp.png>
+Package pdftex.def Info: histogrammi/tpp.png used on input line 2061.
+(pdftex.def)             Requested size: 241.84842pt x 181.38583pt.
 
-<histogrammi/histogram_tpp_sg_PERCENTAGE_COST-eps-converted-to.pdf, id=73, 361.
-35pt x 216.81pt>
-File: histogrammi/histogram_tpp_sg_PERCENTAGE_COST-eps-converted-to.pdf Graphic
- file (type pdf)
-
-<use histogrammi/histogram_tpp_sg_PERCENTAGE_COST-eps-converted-to.pdf>
-Package pdftex.def Info: histogrammi/histogram_tpp_sg_PERCENTAGE_COST-eps-conve
-rted-to.pdf used on input line 2070.
-(pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
-
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 2070--2071
-[][] 
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 2061--2062
+ [][] 
  []
-
-Package epstopdf Info: Source file: <histogrammi/histogram_tpp_stg_PERCENTAGE_C
-OST.eps>
-(epstopdf)                    date: 2018-11-12 13:17:40
-(epstopdf)                    size: 49739 bytes
-(epstopdf)             Output file: <histogrammi/histogram_tpp_stg_PERCENTAGE_C
-OST-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-11-12 13:26:27
-(epstopdf)                    size: 15048 bytes
-(epstopdf)             Command: <repstopdf --outfile=histogrammi/histogram_tpp_
-stg_PERCENTAGE_COST-eps-converted-to.pdf histogrammi/histogram_tpp_stg_PERCENTA
-GE_COST.eps>
-(epstopdf)             \includegraphics on input line 2088.
-Package epstopdf Info: Output file is already uptodate.
-
-<histogrammi/histogram_tpp_stg_PERCENTAGE_COST-eps-converted-to.pdf, id=74, 361
-.35pt x 216.81pt>
-File: histogrammi/histogram_tpp_stg_PERCENTAGE_COST-eps-converted-to.pdf Graphi
-c file (type pdf)
-
-<use histogrammi/histogram_tpp_stg_PERCENTAGE_COST-eps-converted-to.pdf>
-Package pdftex.def Info: histogrammi/histogram_tpp_stg_PERCENTAGE_COST-eps-conv
-erted-to.pdf used on input line 2088.
-(pdftex.def)             Requested size: 241.84842pt x 145.10976pt.
-
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 2088--2089
-[][] 
- []
-
-
-Package natbib Warning: Citation `haslum2007domain' on page 13 undefined on inp
-ut line 2252.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 2276.
+               Default added (so using `tbp') on input line 2066.
+
+<histogrammi/trucks.png, id=69, 481.8pt x 361.35pt>
+File: histogrammi/trucks.png Graphic file (type png)
+
+<use histogrammi/trucks.png>
+Package pdftex.def Info: histogrammi/trucks.png used on input line 2069.
+(pdftex.def)             Requested size: 241.84842pt x 181.38583pt.
+
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 2069--2070
+ [][] 
+ []
 
 
-Overfull \hbox (20.15878pt too wide) in paragraph at lines 2279--2304
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2074.
+
+<histogrammi/openstacks.png, id=70, 481.8pt x 361.35pt>
+File: histogrammi/openstacks.png Graphic file (type png)
+
+<use histogrammi/openstacks.png>
+Package pdftex.def Info: histogrammi/openstacks.png used on input line 2077.
+(pdftex.def)             Requested size: 241.84842pt x 181.38583pt.
+
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 2077--2078
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2082.
+
+<histogrammi/preprocessed-storage.png, id=71, 481.8pt x 361.35pt>
+File: histogrammi/preprocessed-storage.png Graphic file (type png)
+
+<use histogrammi/preprocessed-storage.png>
+Package pdftex.def Info: histogrammi/preprocessed-storage.png used on input lin
+e 2085.
+(pdftex.def)             Requested size: 241.84842pt x 181.38583pt.
+
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 2085--2086
+ [][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 2407.
+
+
+Overfull \hbox (20.15878pt too wide) in paragraph at lines 2410--2435
  [][] 
  []
 
@@ -889,17 +750,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--7
 \OT1/pcr/m/n/10 / / ipc2018-[]classical . bitbucket . io$\OT1/ptm/m/n/10 .
  []
 
-[13 <./histogrammi/histogram_rovers_ALL_PERCENTAGE_COST-eps-converted-to.pdf> <
-./histogrammi/histogram_tpp_ALL_PERCENTAGE_COST-eps-converted-to.pdf> <./histog
-rammi/histogram_trucks_ALL_PERCENTAGE_COST-eps-converted-to.pdf>]
+[13 <./histogrammi/rovers.png> <./histogrammi/tpp.png>]
 Underfull \hbox (badness 1178) in paragraph at lines 28--33
 []\OT1/ptm/m/n/10 M.B. Do and S. Kamb-ham-pati.  Par-tial sat-is-fac-
  []
 
-[14 <./histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST-eps-converted-to.pd
-f> <./histogrammi/histogram_preprocessed-storage_ALL_PERCENTAGE_COST-eps-conver
-ted-to.pdf> <./histogrammi/histogram_tpp_sg_PERCENTAGE_COST-eps-converted-to.pd
-f> <./histogrammi/histogram_tpp_stg_PERCENTAGE_COST-eps-converted-to.pdf>]
+
 Underfull \hbox (badness 1107) in paragraph at lines 60--64
 []\OT1/ptm/m/n/10 S. Richter and M. West-phal.  The LAMA plan-
  []
@@ -910,9 +766,8 @@ Missing character: There is no ¼ in font ptmr7t!
 
 Package natbib Warning: There were undefined citations.
 
-[15
-
-] (./main.aux)
+[14 <./histogrammi/trucks.png> <./histogrammi/openstacks.png> <./histogrammi/pr
+eprocessed-storage.png>] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -921,13 +776,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5575 strings out of 493304
- 83350 string characters out of 6139871
- 176854 words of memory out of 5000000
- 8892 multiletter control sequences out of 15000+600000
+ 5547 strings out of 493304
+ 81251 string characters out of 6139871
+ 176785 words of memory out of 5000000
+ 8866 multiletter control sequences out of 15000+600000
  44480 words of font info for 93 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,13n,38p,736b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,13n,38p,736b,288s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -954,10 +809,10 @@ ts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
 times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (15 pages, 430093 bytes).
+Output written on main.pdf (14 pages, 371706 bytes).
 PDF statistics:
- 265 PDF objects out of 1000 (max. 8388607)
- 169 compressed objects within 2 object streams
+ 174 PDF objects out of 1000 (max. 8388607)
+ 118 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
