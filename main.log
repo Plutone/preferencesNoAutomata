@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.18)  17 NOV 2018 19:12
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.18)  17 NOV 2018 21:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -442,266 +442,252 @@ Package natbib Warning: Citation `kn:geffner09' on page 3 undefined on input li
 ne 334.
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 380.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 372.
 Excluding 'comment' comment. [3] Excluding 'comment' comment.
-Underfull \hbox (badness 10000) in paragraph at lines 560--562
+Underfull \hbox (badness 10000) in paragraph at lines 552--554
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 693--694
+Underfull \hbox (badness 10000) in paragraph at lines 685--686
 \OT1/ptm/m/n/10 the com-piled \OT1/ptm/m/sc/10 strips\OT1/ptm/m/n/10 + prob-lem
  of $\OT1/cmr/m/n/10 ^^E$ \OT1/ptm/m/n/10 is $\OT1/cmr/m/n/10 ^^E[] =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 795--800
+Underfull \hbox (badness 10000) in paragraph at lines 788--793
  \OT1/ptm/b/n/10 Op-er-a-tor Com-pi-la-tion Func-tion \OT1/ptm/m/n/10 The func-
 tion
  []
 
 
-Underfull \hbox (badness 3271) in paragraph at lines 795--800
+Underfull \hbox (badness 3271) in paragraph at lines 788--793
 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 o; \U/rsfs/m/n/10 P\OT1/cmr/m/n/10 )$ \OT1/
 ptm/m/n/10 which trans-forms an orig-i-nal op-er-a-tor $\OML/cmm/m/it/10 o$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 860--861
+Underfull \hbox (badness 10000) in paragraph at lines 853--854
 
  []
 
 [5]
 
-LaTeX Warning: Command \l invalid in math mode on input line 903.
+LaTeX Warning: Command \l invalid in math mode on input line 896.
 
 
-Underfull \hbox (badness 5359) in paragraph at lines 928--929
+Underfull \hbox (badness 5359) in paragraph at lines 921--922
 []$\OML/cmm/m/it/10 cond\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 o; P\OT1/cmr/m/n/10 )
  =    [][](\OML/cmm/m/it/10 l[] \OMS/cmsy/m/n/10 ^ [] ^
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 928--929
+Underfull \hbox (badness 10000) in paragraph at lines 921--922
 
  []
 
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 936.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 929.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 
-LaTeX Warning: Command \O invalid in math mode on input line 950.
+LaTeX Warning: Command \O invalid in math mode on input line 943.
 
 
-Underfull \hbox (badness 2790) in paragraph at lines 949--956
+Underfull \hbox (badness 2790) in paragraph at lines 942--949
 []\OT1/ptm/b/n/10 EXAMPLE \OT1/ptm/m/n/10 Con-sider the fol-low-ing op-er-a-tor
  $\OML/cmm/m/it/10 o \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (5.24274pt too wide) detected at line 1041
+Overfull \hbox (5.24274pt too wide) detected at line 1034
 \OMS/cmsy/m/n/10 W\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 o; P\OT1/cmr/m/n/10 ) = []
  []
 
 [6]
 
 Package natbib Warning: Citation `gazen97:ecp' on page 7 undefined on input lin
-e 1252.
+e 1245.
 
 
 Package natbib Warning: Citation `nebel2000compilability' on page 7 undefined o
-n input line 1267.
+n input line 1260.
 
 
 Package natbib Warning: Citation `nebel2000compilability' on page 7 undefined o
-n input line 1270.
+n input line 1263.
 
 
 Package natbib Warning: Citation `nebel2000compilability' on page 7 undefined o
-n input line 1270.
+n input line 1263.
 
 [7]
-Underfull \hbox (badness 1484) in paragraph at lines 1295--1309
+Underfull \hbox (badness 1484) in paragraph at lines 1288--1302
 []\OT1/ptm/m/n/10 Concerning at-most-once pref-er-ences, an in-ter-fer-ence
  []
 
 
-Underfull \hbox (badness 1158) in paragraph at lines 1310--1315
+Underfull \hbox (badness 1158) in paragraph at lines 1303--1308
 []\OT1/ptm/m/n/10 We can ex-pose sim-i-lar con-sid-er-a-tions for sometime-
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1322.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1315.
 
 Package natbib Warning: Citation `nebel2000compilability' on page 8 undefined o
-n input line 1322.
+n input line 1315.
 
 
 Package natbib Warning: Citation `nebel2000compilability' on page 8 undefined o
-n input line 1326.
+n input line 1319.
 
 
 Package natbib Warning: Citation `ceriani2015planning' on page 8 undefined on i
-nput line 1326.
+nput line 1319.
 
 
-LaTeX Warning: Command \O invalid in math mode on input line 1330.
+Underfull \hbox (badness 5374) in paragraph at lines 1329--1338
+[]\OT1/ptm/m/n/10 Consider the op-er-a-tor $\OML/cmm/m/it/10 o \OT1/cmr/m/n/10 
+= \OMS/cmsy/m/n/10 h[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 o\OT1/cmr/m/n/10 )\OML/
+cmm/m/it/10 ; []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 o\OT1/cmr/m/n/10 )\OMS/cmsy/m
+/n/10 i \OT1/cmr/m/n/10 =
+ []
 
 [8]
-Underfull \hbox (badness 3646) in paragraph at lines 1357--1360
+Underfull \hbox (badness 3884) in paragraph at lines 1362--1366
 []\OT1/ptm/m/n/10 Operator $\OML/cmm/m/it/10 o$ \OT1/ptm/m/n/10 threat-ens only
- one clause of $\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 1$\OT1/ptm/m/n/10 , i.e.
+ one clause of $\OT1/cmss/m/n/10 A[]$\OT1/ptm/m/n/10 , i.e.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1386--1388
-
- []
-
-
-Underfull \hbox (badness 3989) in paragraph at lines 1441--1443
-[]\OT1/ptm/m/n/10 The con-di-tion $[][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 o; P\O
-T1/cmr/m/n/10 2)$ \OT1/ptm/m/n/10 to ac-ti-vate the flu-ent
- []
-
-
-LaTeX Warning: Reference `compstrips' on page 9 undefined on input line 1474.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1473--1476
+Underfull \hbox (badness 10000) in paragraph at lines 1400--1403
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1495--1499
+Package natbib Warning: Citation `fdss2018' on page 9 undefined on input line 1
+557.
 
- []
+
+Package natbib Warning: Citation `fdremix' on page 9 undefined on input line 15
+57.
+
+
+Package natbib Warning: Citation `IPC6' on page 9 undefined on input line 1582.
+
 
 [9]
 
-Package natbib Warning: Citation `fdss2018' on page 10 undefined on input line 
-1707.
-
-
-Package natbib Warning: Citation `fdremix' on page 10 undefined on input line 1
-707.
-
-
-Package natbib Warning: Citation `IPC6' on page 10 undefined on input line 1732
+Package natbib Warning: Citation `TODO' on page 10 undefined on input line 1675
 .
 
-[10]
 
-Package natbib Warning: Citation `haslum2007domain' on page 11 undefined on inp
-ut line 1825.
+Package natbib Warning: Citation `haslum2007domain' on page 10 undefined on inp
+ut line 1676.
 
 
-Underfull \hbox (badness 3343) in paragraph at lines 1878--1883
+Underfull \hbox (badness 3343) in paragraph at lines 1731--1736
 []\OT1/ptm/m/n/10 The plan-ning sys-tem from the more re-cent IPC9,
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 1878--1883
+Underfull \hbox (badness 1028) in paragraph at lines 1731--1736
 \OT1/ptm/m/n/10 tem from the pre-vi-ous IPC8 but the en-hanced ver-sion
  []
 
+[10]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 2004.
+               Default added (so using `tbp') on input line 1857.
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2012.
-[11]
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1865.
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 2028.
+               Default added (so using `tbp') on input line 1881.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 2107.
+               Default added (so using `tbp') on input line 1960.
 
-<histogrammi/rovers.png, id=64, 481.8pt x 361.35pt>
+<histogrammi/rovers.png, id=61, 481.8pt x 361.35pt>
 File: histogrammi/rovers.png Graphic file (type png)
 
 <use histogrammi/rovers.png>
-Package pdftex.def Info: histogrammi/rovers.png used on input line 2110.
+Package pdftex.def Info: histogrammi/rovers.png used on input line 1963.
 (pdftex.def)             Requested size: 241.84842pt x 181.38583pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 2110--2111
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 1963--1964
  [][] 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 2115.
+               Default added (so using `tbp') on input line 1968.
 
-<histogrammi/tpp.png, id=65, 481.8pt x 361.35pt>
+<histogrammi/tpp.png, id=62, 481.8pt x 361.35pt>
 File: histogrammi/tpp.png Graphic file (type png)
  <use histogrammi/tpp.png>
-Package pdftex.def Info: histogrammi/tpp.png used on input line 2118.
+Package pdftex.def Info: histogrammi/tpp.png used on input line 1971.
 (pdftex.def)             Requested size: 241.84842pt x 181.38583pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 2118--2119
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 1971--1972
  [][] 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 2123.
+               Default added (so using `tbp') on input line 1976.
 
-<histogrammi/trucks.png, id=66, 481.8pt x 361.35pt>
+<histogrammi/trucks.png, id=63, 481.8pt x 361.35pt>
 File: histogrammi/trucks.png Graphic file (type png)
 
 <use histogrammi/trucks.png>
-Package pdftex.def Info: histogrammi/trucks.png used on input line 2126.
+Package pdftex.def Info: histogrammi/trucks.png used on input line 1979.
 (pdftex.def)             Requested size: 241.84842pt x 181.38583pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 2126--2127
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 1979--1980
  [][] 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 2131.
+               Default added (so using `tbp') on input line 1984.
 
-<histogrammi/openstacks.png, id=67, 481.8pt x 361.35pt>
+<histogrammi/openstacks.png, id=64, 481.8pt x 361.35pt>
 File: histogrammi/openstacks.png Graphic file (type png)
 
 <use histogrammi/openstacks.png>
-Package pdftex.def Info: histogrammi/openstacks.png used on input line 2134.
+Package pdftex.def Info: histogrammi/openstacks.png used on input line 1987.
 (pdftex.def)             Requested size: 241.84842pt x 181.38583pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 2134--2135
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 1987--1988
  [][] 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 2139.
+               Default added (so using `tbp') on input line 1992.
 
-<histogrammi/preprocessed-storage.png, id=68, 481.8pt x 361.35pt>
+<histogrammi/preprocessed-storage.png, id=65, 481.8pt x 361.35pt>
 File: histogrammi/preprocessed-storage.png Graphic file (type png)
 
 <use histogrammi/preprocessed-storage.png>
 Package pdftex.def Info: histogrammi/preprocessed-storage.png used on input lin
-e 2142.
+e 1995.
 (pdftex.def)             Requested size: 241.84842pt x 181.38583pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 2142--2143
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 1995--1996
  [][] 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 2464.
+               Default added (so using `tbp') on input line 2005.
 
-
-Overfull \hbox (20.15878pt too wide) in paragraph at lines 2467--2492
- [][] 
- []
-
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2012.
 (./main.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 4--7
 []\OT1/ptm/m/n/10 The 2018 in-ter-na-tional plan-ning com-pe-
@@ -717,12 +703,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--7
 \OT1/pcr/m/n/10 / / ipc2018-[]classical . bitbucket . io$\OT1/ptm/m/n/10 .
  []
 
-
+[11 <./histogrammi/rovers.png> <./histogrammi/tpp.png>] [12 <./histogrammi/truc
+ks.png> <./histogrammi/openstacks.png> <./histogrammi/preprocessed-storage.png>
+]
 Underfull \hbox (badness 1178) in paragraph at lines 28--33
 []\OT1/ptm/m/n/10 M.B. Do and S. Kamb-ham-pati.  Par-tial sat-is-fac-
  []
 
-[12 <./histogrammi/rovers.png>]
+
 Underfull \hbox (badness 1107) in paragraph at lines 60--64
 []\OT1/ptm/m/n/10 S. Richter and M. West-phal.  The LAMA plan-
  []
@@ -733,47 +721,44 @@ Missing character: There is no ¼ in font ptmr7t!
 
 Package natbib Warning: There were undefined citations.
 
-[13 <./histogrammi/tpp.png> <./histogrammi/trucks.png> <./histogrammi/openstack
-s.png> <./histogrammi/preprocessed-storage.png>] (./main.aux)
+[13
 
-LaTeX Warning: There were undefined references.
-
- ) 
+] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 5584 strings out of 493304
- 81841 string characters out of 6139871
- 184632 words of memory out of 5000000
- 8898 multiletter control sequences out of 15000+600000
- 46164 words of font info for 95 fonts, out of 8000000 for 9000
+ 5587 strings out of 493304
+ 81868 string characters out of 6139871
+ 187632 words of memory out of 5000000
+ 8900 multiletter control sequences out of 15000+600000
+ 47790 words of font info for 97 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,13n,38p,867b,325s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs5.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
-times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (13 pages, 370996 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsf
+s10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs5.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs7.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
+imes/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (13 pages, 366913 bytes).
 PDF statistics:
  171 PDF objects out of 1000 (max. 8388607)
  116 compressed objects within 2 object streams

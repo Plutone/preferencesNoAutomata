@@ -356,20 +356,12 @@ The state where an operator $o$ is applied is indicated with $s$ and the state r
 
 \begin{mydef}\label{def:trueclauses}
 Given an operator $o$ and a CNF formula $\phi = \phi_{1} \land ... \land \phi_{n}$, we define the set $C_{\phi}(o)$ of clauses of $\phi$ that $o$ makes {\bf certainly true} (independently from $s$) in $s'$ as:
-% $$
-% C_{\phi}(o) =  \{\phi_{i} \mid L(\phi_{i}) \cap Z(o) \not = \O, \;i \in \{1 \ldots n\}\}
-% $$
 $$
 C_{\phi}(o) =  \{\phi_{i} : |L(\phi_{i}) \cap Z(o)| > 0, \;i \in \{1 \ldots n\} \}.
 $$
-%$\overline{C}_{\phi}(o)$ is the set of clauses of $\phi$ such that
-%$$
-%C_{\phi}(o) =  \{\phi_{i} : |L(\phi_{i}) \cap Z(o)| = 0, \;i \in \{1 \ldots n\} \}.
-%$$
-%complementary to $C_{\phi}(o)$, i.e.,  $\overline{C}_{\phi}(o) = \{ \phi_{i} : \phi_i \not \in C_{\phi}(o), \;i \in \{1 \ldots n\} \}$.
 \end{mydef}
 
-[AG: CHECK!!! CAMBIARE NOTAZIONE PERCHE' ABBIAMO TOLTO $\overline{C}_{\phi}(o)$ e DICIAMO $o$ MAKES CERTAINLY TRUE]
+[AG: CHECK!!! CAMBIARE NOTAZIONE PERCHE' ABBIAMO TOLTO $\overline{C}_{\phi}(o)$ e DICIAMO $o$ MAKES CERTAINLY TRUE] ------ {FATTO}
 
 Given a clause $\phi_{i} = l_1 \lor ... \lor l_{m_i}$ of $\phi$, condition $|L(\phi_{i}) \cap Z(o)| > 0$ in Definition \ref{def:trueclauses} requires that there exists at least a literal $l_j$, $j \in \{1 \ldots m_i\}$ that belongs to $Z(o)$ and thus making clause $\phi_i$ true in $s'$.
 
@@ -468,7 +460,7 @@ The conditions of Definitin \ref{threat_formula} require that there exist at lea
 (2) has not literals which are true in the resulting state from the application of $o$ and (3)
 this clause is not already false in the state where $o$ is applied. The expression 
 $\overline{L}(\phi_i) \not \subseteq \textit{Pre}(o)$ in Definition \ref{violation_formula}-\ref{threat_formula}
-is necessary to avoids that an operator $o$ is considered a violation/threat when its precondition is
+is necessary to avoids that an operator $o$ is considered a violator/threat when its precondition is
 already violated in the state where it is applied.
 \end{comment}
 
@@ -492,7 +484,7 @@ Given an operator $o$ and an always preference $\sf{A}_{\phi}$ of a {\stripspp} 
 \noindent
 {\bf Example}. An operator $o = \langle \lnot a, \lnot b\rangle$ 
 % such that $\textit{Pre}(o) = \{\lnot a\}$ and $\textit{Eff}(o) = \{\lnot b\}$ 
-is a threat for $\mathsf{A}_{\phi_1}$, a violation for $\mathsf{A}_{\phi_2}$ and neutral for
+is a threat for $\mathsf{A}_{\phi_1}$, a violator for $\mathsf{A}_{\phi_2}$ and neutral for
 $\mathsf{A}_{\phi_3}$ where 
 $\phi_1 = c \lor b$, $\phi_2 = a \lor b$
 and $\phi_3 = d$.
@@ -667,7 +659,7 @@ P_{\textit{affected}(o)} =
 $$
 \end{mydef}
 
-Given a {\stripspp} problem, an equivalent {\stripsp} problem can be derived by translation which has some similarities to what proposed by Keyder and Geffner for soft goals but also significant difference. The scheme proposed by Keyder and Geffner is considerable simpler than ours because it does not to consider the interaction between actions and preferences such as threats, supports and violations. In order to simplify the compilation scheme we don't consider the compilation of soft goals because it can be easily added using the same method of Keyder and Geffner.
+Given a {\stripspp} problem, an equivalent {\stripsp} problem can be derived by translation which has some similarities to what proposed by Keyder and Geffner for soft goals but also significant difference. The scheme proposed by Keyder and Geffner is considerable simpler than ours because it does not to consider the interaction between actions and preferences such as threats, supports and violators. In order to simplify the compilation scheme we don't consider the compilation of soft goals because it can be easily added using the same method of Keyder and Geffner.
 
 Moreover we assume that every always and sometime-before preference are not violated and every sometime preference are not satisfied in the problem initial state $I$. Before starting the compilation, we carry out the following checks
 in order to exclude some preferences from the process:
@@ -726,7 +718,7 @@ $
 
     \item$V = \cup_{i=1}^{|\mathscr{P}|} \{P_i\text{\it-violated}\}$;
 
-    \item$V_{\mathcal{ST}} = \cup_{i=1}^{|\mathscr{P}_\mathcal{ST}|} \{P_i\text{\it-violated}\}$, $\mathscr{P}_\mathcal{ST} \subseteq \mathscr{P}$; this is the set of the violation predicates restricted to the subset of the sometime preferences of all preferences $\mathscr{P}$;
+    \item$V_{\mathcal{ST}} = \cup_{i=1}^{|\mathscr{P}_\mathcal{ST}|} \{P_i\text{\it-violated}\}$, $\mathscr{P}_\mathcal{ST} \subseteq \mathscr{P}$; this is the set of the violator predicates restricted to the subset of the sometime preferences of all preferences $\mathscr{P}$;
 
     \item {
     $S_{\mathcal{AO}} = \cup_{i=1}^{|\mathscr{P}_{\mathcal{AO}}(I)|}\{P_i\text{-}seen\}$, $\mathscr{P}_\mathcal{AO}(I) 
@@ -767,7 +759,8 @@ $
 
 
     % VERSIONE FINALE
-    \item $\textit{comp}(o , \mathscr{P})$, which definition is provided in Definition \ref{compiledOcondeff};
+    \item $\textit{comp}(o , \mathscr{P})$ which is the function which transforms
+    an operator $o$ into the corresponding compiled one, see Definition \ref{compiledOcondeff};
 
 
 % $\textit{comp}(o , \mathscr{P}) = \\
@@ -837,7 +830,7 @@ Note that the original initial state $I$ is extended to $I'$ with the set of lit
 Furthermore the original initial state $I$ is extended with the set of literals $S_{\mathcal{AO}}$
 which contains, for each at-most-once preference $P_i = {\sf AO}_{\phi_i}$ of the problem such that
 $I \models \phi_i$, the literal $\textit{seen-}P_i$. This additional fluent
-$\textit{seen-}P_i$ states that the formula $\phi_i$, involved in $P_i$, is satisfied in $I$. This precaution is necessary to correctly capture any possible violations of at-most-once preferences.
+$\textit{seen-}P_i$ states that the formula $\phi_i$, involved in $P_i$, is satisfied in $I$. This precaution is necessary to correctly capture any possible violators of at-most-once preferences.
 
 % We now present the transformation of not neutral operators that affects a set of preferences i.e. the operators in
 % $O - O_{{neutral}}$.
@@ -918,7 +911,7 @@ $$\mathcal{W}(o, P) =
 \{\textit{when} \; (\textit{cond}(o, P)) \; (\pviol)\}\\
 \;\;\;\;\;\;\text{if}\;o\;\text{is a threat for }P\\
 \{\textit{when} \; (\textsc{true}) \; (\pviol)\}\\
-\;\;\;\;\;\;\text{if}\;o\;\text{is a violation for }P\\
+\;\;\;\;\;\;\text{if}\;o\;\text{is a violators for }P\\
 
 
 \end{cases}$$
@@ -932,7 +925,7 @@ $$\mathcal{W}(o, P) =
 
 For each preference $P \in P_\mathcal{A}$ affected by an operator $o$,
 the compiled operator $o'$ contains a conditional effect whose effect $\pviol$ and conditions depends on how
-$o$ affects $P$. If $o$ is a violation for $P$, then the condition is always true (i.e. it is the special literal
+$o$ affects $P$. If $o$ is a violators for $P$, then the condition is always true (i.e. it is the special literal
 {\truettt} that holds in every state). Instead, if $o$ is a \textit{threat} to $P$, the effects are extended
 with a conditional described below.
 
@@ -972,7 +965,7 @@ $$
 where:
 \begin{itemize}
 \item  $\textit{cond}_{\mathcal{S}}(o, P) = 
-\{{\phi_i}{ \; \mid \; \phi_i \in \overline{C}_{\phi}(o)}\}
+\{{\phi_i}{ \; \mid \; \phi_i \not \in {C}_{\phi}(o)}\}
 $.
 
 % \item  $\textit{eff}_{\mathcal{S}}(o, P) = $ 
@@ -998,9 +991,9 @@ defined in Section \ref{subsection:sometime_operators}.
 
 An operator $o$ could make a formula $\phi$ true 
 when there are some clauses of $\phi$ that will surely be true in the state $s'$ resulting
-from the application of $o$. So, if all $ { \phi_i \in \overline{C}_{\phi}(o)} $ hold in $s$ 
-(where $\overline{C}_{\phi}(o)$ is the set of clauses of $\phi$ that
-are not surely true in $s'$ - see Definition \ref{def:trueclauses}),
+from the application of $o$. So, if all $ { \phi_i \not \in {C}_{\phi}(o)} $ hold in $s$ 
+% (where $\overline{C}_{\phi}(o)$ is the set of clauses of $\phi$ that
+% are not surely true in $s'$ - see Definition \ref{def:trueclauses}),
 i.e. $\textit{cond}_{}(o, P)$ holds in $s$,
 then $\phi$ will be true in $s'$, and $\pviol$ should be falsified
 by the effects of $o'$.
@@ -1044,7 +1037,7 @@ $$
 \item  $\textit{cond}_{\mathcal{S}}(o, P) = 
 % \{\bigcup_{\psi_i \in \overline{C}_{\psi}(o)} \psi_i\} = \{ { \psi_i \in \overline{C}_{\psi}(o)} \}
 \{
-\psi_i \;\mid\; \psi_i \in \overline{C}_{\psi}(o)    
+\psi_i \;\mid\; \psi_i \not \in {C}_{\psi}(o)    
 \}
 $
 
@@ -1054,7 +1047,7 @@ $
 % \begin{itemize}
 \item  $\textit{cond}_{\mathcal{T}}(o, P) = 
 \{\lnot \textit{seen-}\psi\} \cup \{
-\phi_i \;\mid\; \phi_i \in \overline{C}_{\phi}(o) \}    
+\phi_i \;\mid\; \phi_i \not \in {C}_{\phi}(o) \}    
 % \{\lnot \textit{seen-}\psi\} \cup \{ { \phi_i \in \overline{C}_{\phi}(o)} \}
 $.
 % \item  $\textit{eff}_{\mathcal{T}}(o, P) = \pviol$ 
@@ -1085,9 +1078,9 @@ If $o$ is a {potential support} for $P$ then this operator can behave in two dif
 ways when it is executed.
 Recalling Definition \ref{def:becometrue}, an operator $o$ could make true a formula $\phi$
 when there exists some clauses of $\phi$ that will surely be true in the state resulting
-from the application of $o$. So, if all $ { \psi_i \in \overline{C}_{\psi}(o)} $ hold in $s$ 
-(where $\overline{C}_{\psi}(o)$ is the set of clauses of $\psi$ that
-are not surely true in $s'$ - see Definition \ref{def:trueclauses})
+from the application of $o$. So, if all $ { \psi_i \not \in {C}_{\psi}(o)} $ hold in $s$ 
+% (where $\overline{C}_{\psi}(o)$ is the set of clauses of $\psi$ that
+% are not surely true in $s'$ - see Definition \ref{def:trueclauses})
 , i.e. $\textit{cond}_{\mathcal{S}}(o, P)$ holds in $s$,
 then $\psi$ will be true in $s'$ and then we have to keep track of this fact by
 making the predicate $\textit{seen-}\psi$ true in the effects $\textit{Eff}_{\mathcal{T}}(o, P)$ of $o'$.
@@ -1101,10 +1094,10 @@ making the predicate $\textit{seen-}\psi$ true in the effects $\textit{Eff}_{\ma
 % $\textit{eff}_{\mathcal{S}}(o, P) = \{\textit{seen-}\psi\}$ is made true is $s'$.
 
 If $o$ is a threat for $P$ its compilation is similar. A threat for $\mathsf{SB}_{\phi, \psi}$
-behaves as violation 
+behaves as violators 
 in the case that the operator makes $\phi$ true in $s'$
 % specifing in $\textit{cond}_{\mathcal{T}}(o, P)$ the expression $\{ { \phi_i \in \overline{C1}_{\phi}(o)} \}$)
-(i.e., when all $\phi_i \in \overline{C}_{\phi}(o)$ holds in $s$,
+(i.e., when all $\phi_i \not \in {C}_{\phi}(o)$ holds in $s$,
 which is the condition of $\textit{cond}_{\mathcal{T}(o, P)}$), and
 that the $\psi$ has never been made true in the states preceeding $s$. If 
 both these
@@ -1115,7 +1108,7 @@ We have also to consider the case in which an operator $o$ is both a threat and 
 case $o$ can behaves in the following ways: making $\phi$ true in $s'$, making $\psi$ true in $s'$
 and making both $\phi$ and $\psi$ true in $s'$. In order to handle these situations,
 the compiled operator $o'$ contains both conditional effects of $o$ as threat of $P$ and
-as support of $P$. Note that this correctly captures the violation of $P$ determined by $\phi$
+as support of $P$. Note that this correctly captures the violators of $P$ determined by $\phi$
 and $\psi$ becoming simultaneously true by execution of $o$.
 
 
@@ -1149,14 +1142,14 @@ where:
 
 \begin{itemize}
 
-\item  $\text{cond}_{{N}}(o, P) = \{\lnot \textit{seen-}\phi\} \cup \{ { \phi_i \mid \phi_i \in \overline{C}_{\phi}(o)} \}$
+\item  $\text{cond}_{{N}}(o, P) = \{\lnot \textit{seen-}\phi\} \cup \{ { \phi_i \mid \phi_i \not \in {C}_{\phi}(o)} \}$
 
 % \item  $\text{eff}_{\mathcal{N}}(o, P) =  $
 
 \item  
 % \begin{align*}
 $
-\text{cond}_{{T}}(o, P) = \{\textit{seen-}\phi\} \cup \{ { \phi_i \mid \phi_i \in \overline{C}_{\phi}(o)} \} \cup $
+\text{cond}_{{T}}(o, P) = \{\textit{seen-}\phi\} \cup \{ { \phi_i \mid \phi_i \not \in {C}_{\phi}(o)} \} \cup $
 
 $
 \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;
@@ -1194,14 +1187,14 @@ of a plan, then it behaves as a neutral operator for $P$. On the other hand, if 
 can make $\phi$ true after having been true and become false in past states of the trajectory,
 then $o$ behaves as a threat for $P$.
 
-In order to correctly capture the possible violation of $P$,
+In order to correctly capture the possible violators of $P$,
 the set of effects extending $o$ $\mathcal{W}(o,P)$ has two conditional effects. The
 first one is a neutral effect that is used to catch the behavior
 of $o$ as neutral operator for $P$. Condition 
 $\text{cond}_{{N}}(o, P)$ requires that $\phi$ has been never changed truth value
 from true to false in preceeding state using the negated predicate
 $\lnot \textit{seen-}\phi$ and that $\phi$
-will be true in $s'$ using the condition $\{ { \phi_i \mid \phi_i \in \overline{C}_{\phi}(o)} \}$
+will be true in $s'$ using the condition $\{ { \phi_i \mid \phi_i \not \in {C}_{\phi}(o)} \}$
 similarly to what done in the compilation schemes previously presented. If the conditions 
 specified in $\text{cond}_{{N}}(o, P)$ hold in 
 the state $s$ where $o$ is applied,
@@ -1217,7 +1210,7 @@ the neutral conditional effect predicate $\textit{seen-}\phi$.
         \item  $\phi$ has alreay been made true in a state preceding s; this is
         expressed by the predicate $\textit{seen-}\phi$ when $o$ is applied;
         \item  $\phi$ is made true in the resulting state $s'$; this is guaranteed by the conditions
-        $\{ { \phi_i \mid \phi_i \in \overline{C}_{\phi}(o)} \}$;
+        $\{ { \phi_i \mid \phi_i \not \in {C}_{\phi}(o)} \}$;
         \item  $\phi$ is false in the state $s$ where $o$ is applied; this is specified by requiring that at least
         a clause in $C_{\phi}(o)$ is false in $s$. 
     \end{itemize}
@@ -1299,7 +1292,7 @@ for $(\textit{when } (\textit{cond}_{\mathcal{V}}(o, P))\textit{ }(P{\it-violate
 is constrained to be ordered before the other pair. If we evaluated these conditional effects without following this order, 
 the execution would be equivalent to not evaluating all conditional effects
 of the same operator simultaneously,
-thus risking to recognize a violation even if this does not happen. Indeed,
+thus risking to recognize a violators even if this does not happen. Indeed,
 given a preference $P = \sf{AO}_{\phi}$ 
 and a threat operator $o$, if $\phi$ becomes true for the first time in $s'$
 after the application of $o$,
@@ -1310,7 +1303,7 @@ that may not have happened.
 We can expose similar considerations for sometime-before preferences. In this case,
 if we do not check the condition $\textit{cond}_{\mathcal{V}}(o, P)$
 before $\textit{cond}_{\mathcal{T}}(o, P)$,
-we risk to not correctly identifying a possible violation if
+we risk to not correctly identifying a possible violators if
 $\phi$ and $\psi$ become true at the same time.
 
 Consequently, starting from the previous observations which show that it is possible to eliminate any interferences within our context,
@@ -1325,338 +1318,200 @@ while with the original compilation it is built at search time by the planner.
 
 Since our compilation of conditional effects can be easily derived from Nebel's method, instead of giving all the formal details of the translation, we illustrate the compilation with an example, referring the reader to \cite{nebel2000compilability} for a formal description. Moreover, in \cite{ceriani2015planning} we give a detailed description of the final (without conditional effects) compiled problem for any \strips+ problem with always preferences.
 
+
+% ESEMPIO DI COMPILAZIONE
+% senza la compilazione degli effetti condizionali
 \subsection{Compilation Example} \
 
-Consider the following operator $o = \langle \textit{Pre}(o), \textit{Eff}(o) \rangle =\langle \O, \{a, \lnot c\} \rangle$
-with cost $\kappa$, which affects two preferences,
-$P1 \in \mathcal{A}$ and $P2 \in \mathcal{AO}$, where
-$P1 = (\textit{always}\text{ }\phi^{P1})$ and $P2 = ({\textit{at-most-once}}\text{ }\phi^{P2})$
-and $\phi^{P1} = \phi_{1}^{P1} \land \phi_{2}^{P1} = (a \lor b) \land (c \lor d) $
-and $\phi_{1}^{P2} \land \phi_{2}^{P2} =(\lnot c \lor e) \land (d \lor f)$.
+[NOTA FP: ho usato $\psi$ e $\psi$ per le formule riferito alla preferenza always ed at-most-once dell'esempio
+per evitare i doppi indici nei pedici delle clausole e renderle piu' facilmente distinguibili]
 
-\paragraph{Compilation of P1} 
-Using the conditions specified in Definition \ref{threat_formula}, we can say that
-$o$ is a \textit{threat} for $P1$ because there exists a clause $\phi_{2}^{P1} = (c \lor d$) of $\phi^{P1}$ such that:
+Consider the operator $o = \langle \textit{Pre}(o), \textit{Eff}(o) \rangle =\langle \top, \{a, \lnot c\} \rangle$
+with cost $\kappa$, which affects two preferences ${\sf A}_{\phi}$ and ${\sf AO}_{\psi}$, where
+% $P1 \in \mathcal{A}$ and $P2 \in \mathcal{AO}$, where
+% $P1 = (\textit{always}\text{ }\phi^{P1})$ and $P2 = ({\textit{at-most-once}}\text{ }\phi^{P2})$
+% $P1 \in \mathcal{A}$ and $P2 \in \mathcal{AO}$, where
+% $P1 = (\textit{always}\text{ }\phi^{P1})$ and $P2 = ({\textit{at-most-once}}\text{ }\phi^{P2})$
+% ${\sf A}_{\phi_1}$
+$\phi = \phi_{1} \land \phi_{2} = (a \lor b) \land (c \lor d) $
+and $\psi = \psi_{1} \land \psi_{2} =(\lnot c \lor e) \land (d \lor f)$.
+
+\paragraph{Compilation of ${\sf A}_{\phi}$} 
+Using the conditions specified in Definition \ref{threat_formula}, we can classify
+$o$ as a \textbf{threat} of ${\sf A}_{\phi}$ because there exists a clause 
+$\phi_{2} = (c \lor d$) of $\phi$ such that:
 
 \begin{enumerate}
 
-\item it contains at least a literal, which is $c$,
+\item it contains at least a literal, i.e. $c$,
 that is negated by the effects of $o$:
-$|\overline{L}(\phi_{1}^{P2}) \cap Z(o)| = |\overline{L}(c \lor d) \cap Z(o)| = |\{\lnot c, \lnot d\} \cap \{a, \lnot c\}| = |\{\lnot c\}| > 0$;
+$|\overline{L}(\psi_{1}) \cap Z(o)| = 
+|\overline{L}(c \lor d) \cap Z(o)| = 
+|\{\lnot c, \lnot d\} \cap \{a, \lnot c\}| = |\{\lnot c\}| > 0$;
 
-\item the other literal in the clause, which is $d$, is not made true in the resulting
-state from the application of $o$:
-$|{L}(\phi_{1}^{P2}) \cap Z(o)| = |L(c \lor d) \cap Z(o)| = |\{c, d\} \cap \{a, \lnot c\}| = 0$;
+\item the other literal which does not satisfy the previous point, i.e. $d$, 
+will not be certainly true in the resulting state from the application of $o$:
+$|{L}(\psi_{1}) \cap Z(o)| = |L(c \lor d) \cap Z(o)| = |\{c, d\} \cap \{a, \lnot c\}| = 0$;
 
-\item (the clause) is not already negated in the state where $o$ is applied because its
-negation is not implied by the precondition of $o$:
+\item (the clause) is not false in the state where $o$ is applied because
+the negation of its literals are not implied by the precondition of $o$:
 $\overline{L}(c \lor d) = \{\lnot c, \lnot d\} \not \subseteq \textit{Pre}(o)$.
 
 \end{enumerate}
 
-Operator $o$ threatens only one clause of $P1$, i.e. $T_{\mathcal{A}}(o, P1) = \{ \phi_2^{P1}\} = \{ c \lor d\}$
-(remember that $T_{\mathcal{A}}(o, P1)$ is the set of threatened clauses of $P1$ by $o$),
+Operator $o$ threatens only one clause of ${\sf A}_{\phi}$,
+i.e. $TC_{\mathcal{A}}(o, {\sf A}_{\phi}) = \{ \phi_2\} = \{ c \lor d\}$
+(remember that $TC_{\mathcal{A}}(o, {\sf A}_{\phi})$ is the set of threatened clauses of ${\sf A}_{\phi}$ by $o$),
 which could be falsified if $o$ is applied.
 
 Using the preliminary definitions provided in Section \ref{compilation_always},
-we define the set $\overline{AA}(o)_{\phi_{2}^{P1}} = \{\lnot d\}$ which contain those literal of the threatened clause $\phi_2^{P1}$ that are not falsified by $o$.
+we define the set $\overline{AA}(o)_{\phi_{2}} = \{\lnot d\}$
+which contains those literal of the threatened clause $\phi_2$
+which are not falsified by the $o$ execution.
 % that we have to check when $o$ is applied in order to capture 
-% the possibile violation of $P1$ in the resulting state.
+% the possibile violation of ${\sf A}_{\phi}$ in the resulting state.
 
-In this case $o$, denying the literal $c$, threatens a single clause 
-of $P1$, i.e. $\phi_2^{P1} = c \lor d$, and
-therefore we have to check 
-the literal $d$ is true in the precondition
-to capture the possible violation.
+% In this case $o$, denying the literal $c$, threatens a single clause 
+% of ${\sf A}_{\phi}$, i.e. $\phi_2 = c \lor d$, and
+% therefore we have to check 
+% the literal $d$ is true in the precondition
+% to capture the possible violation.
 
 Starting from these considerations and using Definition
 \ref{when_always} we define the conditional effect $\mathcal{W}(o, P1)$
 to add to $\textit{Eff}(o)$:
 \begin{gather*}
-\mathcal{W}(o, P1) = \{\textit{when} \; (\lnot d) \; (P1\textit{-violated})\}.
+\mathcal{W}(o, P1) = \\
+\{\textit{when} \; ((\lnot d), \; \{\lnot d\}=\overline{AA}(o)_{\phi_2}) \; ({\sf A}_{\phi}\textit{-violated})\} = \\
+\{\textit{when} \; (\lnot d) \; ({\sf A}_{\phi}\textit{-violated})\}.
 \end{gather*}
 
-\paragraph{Compilation of P2} 
-According to Definition \ref{threat_amo}, $o$ is also a \textit{threat} for $P2$ because it
-could make true $\phi^{P2}$ in the resulting state $s'$ from
-its application; indeed there exists a clause of $\phi^{P2}$, i.e. $\phi_{1}^{P2} = c \lor e$, such that:
+% \begin{gather*}
+% \mathcal{W}(o, P1) = \{\textit{when} \; (\lnot d) \; (P1\textit{-violated})\}.
+% \end{gather*}
+
+\paragraph{Compilation of ${\sf AO}_{\psi}$} 
+According to Definition \ref{threat_amo}, we can classify $o$ as a \textit{threat} of ${\sf AO}_{\psi}$
+because it could make true $\psi$ in the state resulting from the application of $o$;
+indeed:
 
 \begin{itemize}
 
-    \item it contains at least a literal, i.e. $\lnot c$, that will be surely true in $s'$:
-        $|L(\phi_{1}^{P2}) \cap Z(o)| = |L(\lnot c \lor e) \cap Z(o)| = |\{\lnot c, e\} \cap \{a, \lnot c\}| = |\{\lnot c\}| > 0 $\\
+    \item there exists a clause of $\psi$, i.e. $\psi_{1} = c \lor e$, which contains at least a 
+        literal, i.e. $\lnot c$, that will be surely true in $s'$:
+        $|L(\phi_{1}) \cap Z(o)| = |L(\lnot c \lor e) \cap Z(o)| = |\{\lnot c, e\} \cap \{a, \lnot c\}| = |\{\lnot c\}| > 0 $;\\
 
-
-    \item the other clause, which is $\phi_{2}^{P2} = d \lor f$, is not negated by the execution of $o$:
-	$|\overline{L}(\phi_{2}^{P2}) \cap Z(o)| = |\overline{L}(d \lor f) \cap Z(o)| = |\{\lnot d, \lnot f\} \cap \{a, \lnot c\}| = 0 $
+    \item while the other clause, i.e. $\psi_{2} = d \lor f$, will not be certainly false in the state resulting
+    the application of $o$:
+	$|\overline{L}(\psi_{2}) \cap Z(o)| = |\overline{L}(d \lor f) \cap Z(o)| = |\{\lnot d, \lnot f\} \cap \{a, \lnot c\}| = 0 $
 
 \end{itemize}
 
-We denote with $C_{\phi^{P2}}(o) = \{\phi_{1}^{P2}\} = \{\lnot c \lor e\}$
-the set of clauses of $\phi^{P2}$ that will be surely true in the resulting state $s'$
-and with $\overline{C}_{\phi^{P2}}(o) = \{\phi_{2}^{P2}\} = \{d \lor f\}$
-the set of clauses of $\psi$
-the remaining ones. With
-reference to Section \ref{subsect:amo_comp}, we define
-the set of conditional effects related to the threatened at-most-once preference $P2$ as: \begin{align*}
-\mathcal{W}(o,&P_2) = \{  \\
-& \textit{when } (\textit{cond}_{{N}}(o, P_2))\text{ }(\textit{seen-}\phi^{P2}))\\
-& \textit{when } (\textit{cond}_{{T}}(o, P_2)))\text{ }(\pviol )
+We denote with $C_{\psi}(o) = \{\psi_{1}\} = \{\lnot c \lor e\}$
+the set of clauses of $\psi$ that will be surely true in the resulting state $s'$. Starting 
+from these considerations and using Definition
+\ref{subsect:amo_comp} we define the conditional effect $\mathcal{W}(o, {\sf AO}_{\psi})$
+to add to $\textit{Eff}(o)$:
+
+% \begin{gather*}
+% \mathcal{W}(o,&P_2) = \{  \\
+% \textit{when } (\textit{cond}_{{N}}(o, P_2))\text{ }(\textit{seen-}\phi^{P2}))\\
+% \textit{when } (\textit{cond}_{{T}}(o, P_2)))\text{ }(\pviol )
+% \}
+% \end{gather*}
+\begin{gather*}
+\mathcal{W}(o, {\sf AO}_{\psi}) = \{  \\
+\textit{when } (\textit{cond}_{{N}}(o, {\sf AO}_{\psi}))\text{ }(\textit{seen-}\psi)),\\
+\textit{when } (\textit{cond}_{{T}}(o, {\sf AO}_{\psi})))\text{ }({\sf AO}_{\psi}\textit{-violated} )
 \}
-\end{align*}
+\end{gather*}
 \noindent where:
 
-\begin{itemize}
+% \begin{itemize}
+% \item 
+\begin{gather*}
+\textit{cond}_{{N}}(o, {\sf AO}_{\psi}) = \\\{\lnot \textit{seen-}\psi\} \cup \{ { \psi_i \mid \psi_i \not \in {C}_{\psi}(o)} \} = \\
+= \{\lnot \textit{seen-}\psi\} \cup \{ \psi_2 \} = \{\lnot \textit{seen-}\psi, d \lor f\}
+\end{gather*}
 
-\item  $\textit{cond}_{{N}}(o, P2) = \{\lnot \textit{seen-}\phi^{P2}\} \cup \{ { \phi_i \mid \phi_i \in \overline{C}_{\phi^{P2}}(o)} \} =$
-
-$\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\,\,\,\,\,= \{\lnot \textit{seen-}\phi^{P2}\} \cup \{ \phi_2^{P2} \} = \{\lnot \textit{seen-}\phi^{P2}, d \lor f\}$
-\item  
-$
-\textit{cond}_{{T}}(o, P2) = \{\textit{seen-}\phi^{P2}\} \cup \{ { \phi_i \mid \phi_i \in \overline{C}_{\phi^{P2}}(o)} \} \; \cup $
-
-$
-\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\,\,\,
-\{ \bigvee_{ \phi_i \in {C}_{\phi^{P2}}(o)} (\lnot l_1 \land ... \land \lnot l_q) \mid  \{l_1, ..., l_q\} = {L}(\phi_i)\} =
-$
-
-$
-\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\,\,\,
-= \{ \textit{seen-}\phi^{P2} \} \cup \{ \phi^{P2}_2 \} 
-\cup \{ \{ \lnot \lnot c \land \lnot e \} \mid \{\lnot c, e\} = L(\phi_1^{P2}) \}  =
-$
-
-$
-\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\
-= \{\textit{seen-}\phi^{P2}, d \lor f, c \land \lnot e\}
-$
-% \end{align*}
-
-% \item  $\text{eff}_{\mathcal{V}}(o, P) = \pviol $
-
-% \item  $\mathcal{R}_{\phi}(o, P) = $
-
-\end{itemize}
-
-The condition $\textit{cond}_{{N}}(o, P2)$ to activate the fluent $\textit{seen-}\phi^{P2}$
-requires that the following condition hold in the state where $o$ is applied:
-
-\begin{itemize}
-
-\item the fluent $\textit{seen-}\phi^{P2}$ has to be false and so $\phi^{P2}$
-never became true until then;
-
-\item those clauses of $P2$ which are not affected by $o$,
-i.e. $\phi^{P2}_2 = d \lor f$, have to be true
-making sure that $\phi^{P2}$ becomes true. 
-\end{itemize}
-
-The condition $\textit{cond}_{{T}}(o, P_2))$
-to activate the violation of $P2$ requires that:
-
-\begin{itemize}
-
-\item the fluent $\textit{seen-}\phi^{P2}$ has to be true and so $\phi^{P2}$
-has already been made true;
-\item those clauses of $P2$ which are not affected by $o$,
-i.e. $\phi^{P2}_2 = d \lor f$, have to be true and those clauses of $P2$
-which are affected by $o$, i.e. $\phi^{P2}_1 = \lnot c \lor e$, have to be false
-ensuring that  $\phi^{P2}$ passes from false to true.
-
-\end{itemize}
+% \item 
+\begin{gather*}
+\textit{cond}_{T}(o, {\sf AO}_{\psi}) = \{\textit{seen-}\psi\} \cup \{ { \psi_i \mid \psi_i \not \in {C}_{\psi}(o)} \} \; \cup \\
+\{ \bigvee_{ \psi_i \in {C}_{\psi}(o)} (\lnot l_1 \land ... \land \lnot l_q) \mid  \{l_1, ..., l_q\} = {L}(\psi_i)\} = \\
+= \{ \textit{seen-}\psi \} \cup \{ \psi_2 \} \cup \{ \{ \lnot \lnot c \land \lnot e \} \mid \{\lnot c, e\} = L(\psi_1) \}  = \\
+= \{\textit{seen-}\psi, d \lor f, c \land \lnot e\}
+\end{gather*}
 
 
-\paragraph {Compilation of conditional effects} According to what described above we can say that $o$ it is simultaneously a threat to both $P1$ and $P2$
-and we denote the set of affected preference by $o$ as:
-$$\affectedd = \{P1, P2\}\text{.}$$
+[FP: spiegazione {commentata} effetto condizionale della preferenza at-most-once, necessaria?]
+% INIZIO SPIEGAZIONE
+% The condition $\textit{cond}_{{N}}(o, {\sf AO}_{\psi})$ to activate the predicate $\textit{seen-}\psi$
+% requires that the following condition hold in the state where $o$ is applied:
 
-The compiled operator $o'$ with conditional effects is defined, according to the compilation 
-scheme provided in Section \ref{compstrips} and using Definition
-\ref{compiledOcondeff}, as:\\
-
-% \cup \{\text{\it normal-mode}, \lnot pause\}
-$ 
-{\textit{Pre}}(o') = {\textit{Pre}}(o) \cup \{\text{\it normal-mode}\}
-$
-
-$
-{\textit{Eff}}(o') \,= {\textit{Eff}}(o) \cup \mathcal{W}(o, P1) \cup \mathcal{W}(o, P2) =
-$
-
-$
-\;\;\;\;\;\;\;\;\;\;\,\,={\textit{Eff}}(o) \cup \{\textit{when } (\lnot b)\text{ }(P1\textit{-violated})\} \cup
-$
-
-$
-\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\,
-\{\textit{when } (\lnot \textit{seen-}\phi^{P2} \land (d \lor f))\text{ }(\textit{seen-}\phi^{P2}),
-$
-
-$
-\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\,\,
-\textit{when } (\textit{seen-}\phi^{P2} \land (d \lor f) \land (c \land \lnot e))\text{ }(P2\textit{-violated})\}.
-$\\
-
-
-% \begin{align*}
-% { \textit{Pre}}(o') & = {\textit{Pre}}(o) \cup \{\text{\it normal-mode}\} \\
-% { \textit{Eff}}(o') & = {\textit{Eff}}(o) \cup \mathcal{W}(o, P1) \cup \mathcal{W}(o, P2) = \\
-%  ={\textit{Eff}}(o) \cup &\{\textit{when } (\lnot b)\text{ }(P1\textit{-violated})\} \cup \\
-% & \{\textit{when } (\lnot \textit{seen-}\phi^{P2} \land (d \lor f))\text{ }(\textit{seen-}\phi^{P2}), \\
-% & \textit{when } (\textit{seen-}\phi^{P2} \land (d \lor f) \land (c \land \lnot e))\text{ }(P2\textit{-violated})\}.
-% \end{align*}
-
-
-% We compile away the three conditional effects
-% replacing $o'$ with the set of operators defined as:
-% $$
-% O_{\affectedd} = \{o_{P1}, \overline{o}_{P1}, o_{P2}^{{V}}, \overline{o}_{P2}^{{V}}, o_{P2}^{{N}}, \overline{o}_{P2}^{{N}}\}\text{,}
-% $$
-
-% which contains, for each conditional effect specified in $\textit{Eff}(o')$,
-% a pair of mutually exclusive unconditional operators. In particular:
 % \begin{itemize}
 
-% \item  $o_{P1}$ and $\overline{o}_{P1}$ refer to the first conditional effect of $o'$ introduced 
-% by the compilation to handle the possible violation of $P_1$;
+% \item the predicate $\textit{seen-}\psi$ has to be false which means that $\psi^{P2}$
+% never became true until then;
 
-% \item  $o_{P2}^{{V}}$ and $\overline{o}_{P2}^{{V}}$
-% refer to the second conditional effect of $o'$ introduced 
-% by the compilation to handle the possible violation of $P_2$;
-
-% \item  $o_{P2}^{{N}}$, $\overline{o}_{P2}^{{N}}$
-% refer to the third conditional effect of $o'$ introduced in order to correctly updating the predicate $\textit{seen-}\phi^{P2}$
-% when $\phi^{P2}$ becomes true.
+% \item those clauses of ${\sf AO}_{\psi}$ which are not certainly true in the resulting state
+% from the application of $o$,
+% i.e. $\psi_2 = d \lor f$, have to be true
+% making sure that $\phi$ becomes true. 
 % \end{itemize}
 
-% % Each operator $o$ such that $T(o) \not=\O$ is compiled into a set of new operators (one for each threatened preference). If $T(o)=\{A_1, \ldots, A_{m}\}$, $o$ is compiled into a set of $2m$ operators $O_{T(o)}=\{o_{A_1}, \overline{o}_{A_1}, \ldots, o_{A_{m}}, \overline{o}_{A_{m}}\}$ such that, in any state $s$ where $o$ can be applied violating a set of preferences in $T(o)$, the \emph{sequence $\omega_{T(o)}$ of $m$ operators in $O_{T(o)}$} defined as follows can be applied:
-% % %\begin{equation}
-% % %\label{omega}
-% % %\[ \omega_{T(o)}=\langle o'_{A_1}, \ldots, o'_{A_{m}}\rangle \]
-% % $\omega_{T(o)}=\langle o'_{A_1}, \ldots, o'_{A_{m}}\rangle$,
-% % %\end{equation}
-% % %luca7: uguale %luca1 
-% % where 
-% % $o'_{A_i}$= $\overline{o}_{A_i}$ if $o$ violates $A_i$ when applied in $s$, $o'_{A_i}$= $o_{A_i}$ if $o$ does not violate $A_i$ when applied
-% % The six unconditional operators are defined in order to,
-% % in any state $s$ where $o'$ can be applied affecting the $P_1$ and $P_2$, the
-% % \emph{sequence $\omega_{\affectedd}$ of $3$ operators in $O_{\affectedd}$} defined as follows can be applied: 
-
-% These six operators are defined in order to guaratee that, in any state $s$ where $o$
-% can be applied affecting $P1$ and $P2$, the sequence $\omega_{\affectedd}$ of three operators
-% in $O_{\affectedd}$, defined as follows, can be applied:
-
-% $$
-%     \omega_{\affectedd} = \langle o'_{P1}, {o'}_{P2}^{{V}}, {o'}_{P2}^{{N}} \rangle
-% $$
-
-% \noindent where:
+% The condition $\textit{cond}_{{T}}(o, {\sf AO}_{\psi}$))
+% to activate the violation of ${\sf AO}_{\psi}$ requires that:
 
 % \begin{itemize}
-%     \item  $o'_{P1} = \overline{o}_{P1}$ if $o$ violates $P1$ when applied in $s$, $o'_{P1} = o_{P1}$ if $o$ does not violate $P1$ when applied in $s$;
 
-%     \item  ${{o}'}_{P2}^{{V}} = \overline{o}_{P2}^{{V}}$ if $o$ violates $P2$ when applied in $s$, ${o'}_{P2}^{{V}} = o_{P2}^{{V}}$ if $o$ does not violate $P2$ when applied in $s$;
+% \item the fluent $\textit{seen-}\psi$ has to be true and so $\psi$
+% has already been made true;
+% \item those clauses of ${\sf AO}_{\psi}$ which are not affected by $o$,
+% i.e. $\psi_2 = d \lor f$, have to be true and those clauses of ${\sf AO}_{\psi}$
+% which are affected by $o$, i.e. $\psi_1 = \lnot c \lor e$, have to be false
+% ensuring that  $\psi$ passes from false to true.
 
-%     \item  ${o'}_{P2}^{{N}} = \overline{o}_{P2}^{{N}} $ if $o$ makes $\psi$ true when applied in $s$, ${o'}_{P2}^{{N}} = {o}_{P2}^{{N}} $ if $o$ does not make $\psi$ true when applied in $s$.
 % \end{itemize}
 
-% These operators are defined in the following way:
+% FINE SPIEGAZIONE
+
+% PROPERTIES 
+% \section{Compilation Properties}
+
+% \begin{prop}[Correspondence between plans]
+% For an applicable action sequence $\pi$ for a {\stripspp} problem $P$, let $\pi'$ a compiled plan such that
+% $|\pi| = |\pi'|$ where each action $o'$ in $\pi$ it is built by adding some
+% conditional effects to $o$ according to Definition \ref{compiledOcondeff},
+% which definition depends by the operator itself and the class of affected preferences, then:
+% $$\pi \text{ is a plan for P } \Longleftrightarrow  \pi' \text{ is a plan for P'}.$$
+
+
+% \begin{proof} ($\Rightarrow$) \\
+% % The original initial state $I$ is extendend with some additional predicates
+% % so if $I \subseteq I'$ then $I' \models I$. 
+% Using Definition \ref{compiledOcondeff}, if:
 % \begin{itemize}
-
-% \item  operators $o_{P1}$ and $o_{P2}$:
-
-% $\textit{Pre}({o}_{P1}) = \textit{Pre}(o) \cup \{\neg{\textit{pause}}, b \}$
-
-% $\textit{Eff}({o}_{P1}) = \{P1\text{-}done, \textit{pause} \}\\$
-
-% $\textit{Pre}(\overline{o}_{P1}) = \textit{Pre}(o) \cup \{\neg{\textit{pause}}, \lnot b \}$
-
-% $\textit{Eff}(\overline{o}_{P1}) = \{P1\text{-}done, P1\textit{-violated}, \textit{pause} \}$
-
-% \item  operators ${o}_{P2}^{V}$ and ${\overline{o}}_{P2}^{V}$:
-
-% $\textit{Pre}({o}_{P2}^{V}) = \{P1\text{-}done,\textit{pause}\} \cup \{\lnot ((\textit{seen-}\phi^{P2}) \land (\lnot c \lor e) \land (d \lor f))\}$
-
-% $\textit{Eff}({o}_{P2}^{V}) = \{P2\text{-}done, \lnot P1\text{-}done \}\\$
-
-% $\textit{Pre}({\overline{o}}_{P2}^{V}) = \{P1\text{-}done, pause, \textit{seen-}\phi^{P2}, \lnot c \lor e, d \lor f \}$
-
-% $\textit{Eff}({\overline{o}}_{P2}^{V}) = \{P2\text{-}done, \lnot P1\text{-}done, P2\textit{-violated} \}$
-
-% \item  operators ${o}_{P2}^{N}$ and ${\overline{o}}_{P2}^{N}$:
-
-% $\textit{Pre}({o}_{P2}^{N}) = \{P2\text{-}done,\textit{pause}\} \cup \{\lnot (\lnot \textit{seen-}\phi^{P2} \land (d \lor f))\}$
-
-% $\textit{Eff}({o}_{P2}^{N}) = \{\lnot P2\text{-}done, \lnot pause\}\\$
-
-% $\textit{Pre}({\overline{o}}_{P2}^{N}) = \{P2\text{-}done, pause, \lnot \textit{seen-}\phi^{P2}, d \lor f \}$
-
-% $\textit{Eff}({\overline{o}}_{P2}^{N}) = \{\lnot P2\text{-}done, \lnot pause, \textit{seen-}\phi^{P2}\}\\$
+% 	\item $o \in O_{\text{neutral}}$, which means that $o$ does not affect any preferences of $P$, then $o'$ is equal to $o$;
+% 	\item $o \not \in O_{\text{neutral}}$, which means that exists at least a preference of $P$ which is affected by the execution of the operator, then the preconditions of $o$ remain the same and its effects
+% 	are extended with a set of conditional effects which do not delete any fluent belonging to $F$,
+% 	but they only affect the compiled additional fluents, e.g. $P\textit{-violated}$.
 % \end{itemize}
 
-% The operators of $O_{\affectedd}$ involve additional predicates that are used for
-% two purposes: (1) evaluating the conditional effects of $o'$ in sequence and (2)
-% avoiding that the domain state changes because of the execution of domain operator during the evaluation.
+% Starting from this fact we can assert that \textit{(i)}
+% the sequence $\pi'$ is still applicable
+% in the same order of $\pi$ because none
+% of the compiled operator may affects any
+% original predicates in $F$, which are the only
+% ones that can be involved in the
+% precondition of any $o' \in O'$.
 
-% The $P_{i}\text{-}done$ predicates force the planner to strictly follow a fixed
-% order avoiding repetitions in $\omega_{\affectedd}$. Once the planner starts
-% the sequence $\omega_{\affectedd}$, no other operator, except those in $O_{\affectedd}$,
-% can be applied before the application of the sequence is completed.
-
-% The order of execution may be arbitrary, except
-% for those operators concerning the violation of $P2$, i.e. ${o}_{P2}^{V}$
-% and $\overline{o}_{P2}^{V}$, 
-% whose evaluation takes place before that of the operators
-% ${o}_{P2}^{N}$ and $\overline{o}_{P2}^{N}$, 
-% appointed for the update the $\textit{seen-}\phi^{P2}$ predicate. As described previously,
-% this expedient is necessary in order to correctly capture the violations 
-% of at-most-once preference when they occour.
-% % 
-
-% Concerning the cost of the compiled operators of $O_{\affectedd}$ we have
-% $c(o_{P1}) = c(\overline{o}_{P1}) = \textit{cost}(o) = \kappa$ and 
-% $c(o_{P2}^{V}) = c(\overline{o}_{P2}^{V}) = c({o}_{P2}^{N}) = c(\overline{o}_{P2}^{N}) = 0$.
-
-
-
-
-% PROPERTIES
-\section{Compilation Properties}
-
-\begin{prop}[Correspondence between plans]
-For an applicable action sequence $\pi$ for a {\stripspp} problem $P$, let $\pi'$ a compiled plan such that
-$|\pi| = |\pi'|$ where each action $o'$ in $\pi$ it is built by adding some
-conditional effects to $o$ according to Definition \ref{compiledOcondeff},
-which definition depends by the operator itself and the class of affected preferences, then:
-$$\pi \text{ is a plan for P } \Longleftrightarrow  \pi' \text{ is a plan for P'}.$$
-
-
-\begin{proof} ($\Rightarrow$) \\
-% The original initial state $I$ is extendend with some additional predicates
-% so if $I \subseteq I'$ then $I' \models I$. 
-Using Definition \ref{compiledOcondeff}, if:
-\begin{itemize}
-	\item $o \in O_{\text{neutral}}$, which means that $o$ does not affect any preferences of $P$, then $o'$ is equal to $o$;
-	\item $o \not \in O_{\text{neutral}}$, which means that exists at least a preference of $P$ which is affected by the execution of the operator, then the preconditions of $o$ remain the same and its effects
-	are extended with a set of conditional effects which do not delete any fluent belonging to $F$,
-	but they only affect the compiled additional fluents, e.g. $P\textit{-violated}$.
-\end{itemize}
-
-Starting from this fact we can assert that \textit{(i)}
-the sequence $\pi'$ is still applicable
-in the same order of $\pi$ because none
-of the compiled operator may affects any
-original predicates in $F$, which are the only
-ones that can be involved in the
-precondition of any $o' \in O'$.
-
-Having excluded from the demonstration
-the forgo and collect operators for soft goals and sometime preferences,
-whose correctness has already been demonstrated, 
-we can observe that \textit{(ii)} the compiled goal
-is equal to the original goal, so $G = G'$, and the compiled initial
-state is an extension of the original state with some additional predicates
-such that $I' \models I$.
+% Having excluded from the demonstration
+% the forgo and collect operators for soft goals and sometime preferences,
+% whose correctness has already been demonstrated, 
+% we can observe that \textit{(ii)} the compiled goal
+% is equal to the original goal, so $G = G'$, and the compiled initial
+% state is an extension of the original state with some additional predicates
+% such that $I' \models I$.
 
 % % As said previously the compiled operator do not delete any fluent of the original problem,
 % % and affecting only additional predicates, the compiled plan $\pi'$ is still applicable.
@@ -1679,13 +1534,8 @@ such that $I' \models I$.
 % compiled operator sequences in $\pi''$, which are not present in the transformation of Keyder and Geffner to compile soft goals into STRIPS+. To handle them, it suffices to show that (i) the state resulting from the application of any sequence $\omega_{\affectedd}$ to the state where it is applied in $\pi''$ is the same as the one that would be obtained by applying $o$ to $s$, with the only exception of the auxiliary $P$-{\it done}, $P\textit{-violated}$ and {\it pause} predicates,
 % %(ii) by construction of $\omega$-sequence, in $\pi''$ any $\omega_{T(o)}$ sequence in $\pi''$  cannot be interrupted by any other action, 
 % and (ii) $\pi'''$ is analogous to the plan extension $\pi''$ in the structure of the plans solving the compiled problems defined by the problem transformation for STRIPS+ with soft goals described in \cite{kn:geffner09}.
-\end{proof}
-\end{prop}
-
-
-
-
-
+% \end{proof}
+% \end{prop}
 
 % EXPERIMENTAL RESULTS
 \section{Experimental Results}
@@ -1694,7 +1544,7 @@ such that $I' \models I$.
 
 
 We implemented the proposed compilation scheme and we have evaluated it
-by two sets of experiments with different purposes. On the one hand we
+by two sets of experiments with different purposes. On the one hand we have
 evaluated the scheme in a satisficing planning context in which we focused
 on the search for sub-optimal plans using different planning systems,
 while in the other we focuse on the search of optimal plans using admissible heuristics.
@@ -1716,19 +1566,19 @@ of the problem \cite{percassi2017improving}.
 As benchmark we have considered the five domains 
 of the qualitative preference track of IPC5 \cite{GHLS+09}
 which involve always, sometime, sometime-before, at-most-once and soft goal preferences, i.e
-Rovers, TPP, Trucks, Openstacks and Storage. 
+Rovers, TPP, Trucks, Openstacks and Storage. Storage and TPP are particular domains without
+hard goals.
 
 For each original 
 problem all preferences and each original utility were kept. The 
-the classical planners were runned on the compiled problems while {\lprpgp}
+classical planners were runned on the compiled problems while {\lprpgp}
 was runned on the original problems of the competition. All the experiments
 were conducted on a 2.00GHz Core Intel(R) Xeon(R) CPU E5-2620 machine with CPU-time
-and memory limits of 30 minutes and 8GiB, respectively, for
-each run of every tested planner. We have tested 8 planners for 5 domains
+and memory limits of 30 minutes and 8GiB respectively. We have tested 8 planners for 5 domains
 each of which consists of 20 instances for a total of 800 runs.
 
-In order to do a quality comparison we have considered two different quality metrics. The 
-first one that we  used is the IPC quality score, a
+In order to realize a quality comparison we have considered two different quality metrics. The 
+first one is the IPC quality score, a
 popular metric used in the IPC competitions \cite{IPC6},
 of which a brief description follows.
 
@@ -1754,11 +1604,10 @@ is equal to $0$ in order to reward both quality and coverage.
 
 % We reported a brief description of the metric $\alpha_{\textit{cost}}$ that 
 % we used
-We also considered an our quality metrics that we have denoted as $\alpha_{\text{cost}}$
-which is useful for understanding what class of preferences have been achieved
-how important they are to achieve a good quality plan. A description follows.
-
-Given a planner $p$ and a task $i$ we assign, if $p$ solves $i$,
+We also considered another quality metrics, that we have denoted as $\alpha_{\text{cost}}$,
+which is useful for understanding what class of preferences have been achieved and
+how important they are to achieve a good quality plan. A description follows. Given a
+planner $p$ and a task $i$ we assign, if $p$ solves $i$,
 the following score to $p$:
 $$
 \alpha_{\textit{cost}}(p, i) = \textit{cost}(p, i) / \textit{cost}_{\textit{total}}(i) = \frac{
@@ -1792,17 +1641,16 @@ got the best performance on that particular instance.
 In Tables \ref{tab:ipc_score} and \ref{tab:ipc_score-class} we have reported the performances of the considered planning system
 in term of IPC score quality aggregating the scores by domain
 
-In particular in \ref{tab:ipc_score} we have reported the quality comparison
+In particular in Table \ref{tab:ipc_score} we have reported the quality comparison
 considering all class of preferences together in the IPC calculation,
 while in \ref{tab:ipc_score-class} we splitted the table into six subtables
 where we have considered each class of preferences separetely in the IPC
-calculation (the class is indicated in the header of
+calculation (which is indicated in the header of
 each subtable).
 
-Figures \ref{hrovers}---\ref{hstorage} instead show the $\alpha_{\text{cost}}$ comparison using
-aggregating the scores by domain. In this case each bar is associated to a planner
-whose value is equal to $\alpha_{\text{cost}}$
-expressed as a percentage
+Figures \ref{hrovers}---\ref{hstorage} instead show the $\alpha_{\text{cost}}$ comparison
+aggregated by domain. In this case each bar is associated to a planner
+whose value is equal to $\alpha_{\text{cost}}$ expressed as a percentage
 and calculated by adding up all the quality scores
 obtained in each instance. Each level of the stacked histogram
 represents the aggregated $\alpha_{\text{cost}}(\text{class})$
@@ -1810,45 +1658,50 @@ restricted to a specific class of preferences in order to show
 how much each class of violated preferences contributes to the total
 cost of the plans.
 
-Note that in \ref{tab:ipc_score} we have reported the results about all the tested
-planners while in Table \ref{tab:ipc_score-class} Figures \ref{hrovers}---\ref{hstorage}
-we have restricted the analysis, in order to synthetize the explanation,
+Note that in Table \ref{tab:ipc_score} we have reported the results about all the tested
+planners while in Table \ref{tab:ipc_score-class} and Figures \ref{hrovers}---\ref{hstorage}
+we have restricted the analysis, in order to synthetize the explanationy,
 to the following planners:
 $\text{LAMA}_{\text{P}}({h_{\text{R}}})$ which realize the best IPC score
 performance, {\fdss} which is the best IPC score performing planners in IPC9,
 {\miplan} which realizes a lowest IPC performance than {\lprpgp} and the latter
-which the planning system which natively supports PDDL3 preferences.
+which the planning system which natively supports PDDL3 preferences. We have done
+some exceptions in the stacked histograms Figures for avoiding redundancy.
 
 Concerning the optimal evaluation, similarly to what to what has been 
 done in \cite{nebel2018}, we have tested our scheme
-using some admissible heuristics which are $h^\text{blind}$, which assign 1 to all states except
-for goal states to which assign 0, the maximum heuristic $h^\text{max}$, the merge and shrink heuristic $h^{\text{M\&S}}$, and the canonical pattern database heuristic $h^{\text{cpdb}}$ \cite{{haslum2007domain}}.
-These heuristitcs guarantee the optimality of the solution found. Starting from the IPC5 domains,
-we generated, similar to what was done \cite{nebel2018},
+using some admissible heuristics which are $h^\text{blind}$, 
+which assign 1 to all states except for goal states to which assign 0,
+the maximum heuristic $h^\text{max}$ \cite{TODO}, 
+and the canonical pattern database heuristic $h^{\text{cpdb}}$ \cite{{haslum2007domain}}.
+
+These heuristitcs used with A* algorithm guarantee the optimality of the solution
+found. Starting from the IPC5 domains we have generated, likewise what was done in \cite{nebel2018},
 simpler instances by randomly sampling subsets of the soft trajectory constraints. Starting
 from each instance we have generated five new instances with 1\%, 5\%, 10\%, 20\% and 40\% of
-the (grounded) soft trajectory constraints while the hard goals have remained unchanged.
+(grounded) soft trajectory constraints while the hard goals have remained unchanged if they exist.
 
-Since we do not have the instances that have been used in the aforementioned paper,
+Since we do not have the same instances that have been used in the aforementioned paper,
 we have generated, for each percentage of sampling preferences (except for 100 \%), 3 sampled
-instances in order to average the obtained results and be able to compare with their
-results. 
-All our experiments
+instances in order to average the obtained results in order to have a better comparison with their
+approach. 
+
+All these experiments about the optimality
 were conducted on a 2.00GHz Core Intel(R) Xeon(R) CPU E5-2620 machine with CPU-time
-and memory limits of 30 minutes and 8GiB, respectively, while the experiments 
+and memory limits of 30 minutes and 8GiB respectively, while the experiments 
 reported in \cite{nebel2018} are conducted on a
 Intel(R) Xeon(R) E5-2650v2 2.60GHz processors with 64GiB with one hour of CPU-time
 for the search and then our approach is penalized.
 
-The results about this experiment and the comparison with the automata approach
+The results about these experiments and the comparison with the automata approach
 are shown Table \ref{coverage_admissible_heuristics}. The results
 inherent to Openstacks have been excluded because it was not possible to find optimal
 plans even for the simplest instances. Overall we have tested 
-4 admissible heuristics for 4 domains,
+3 admissible heuristics for 4 domains,
 each of which consists of 320 instances, the 20 original ones plus
 300 sampled instances 
 $(20 * \text{sampling\_rates} * \text{sample} )$, 
-where $\text{sampling\_rates} = 5$ and $\text{rate} = 3$), for a total of 5120 runs.
+where $\text{sampling\_rates} = 5$ and $\text{rate} = 3$), for a total of 4800 runs.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DESCRIZIONE RISULTATI PIANI SUBOTTIMI
@@ -2020,7 +1873,7 @@ MIPlan & 17.65 & 8.8 & 9.23 & 17.35 & 14.42 & 67.45\\ \hline
 Mercury & 16.07 & 6.57 & 7.78 & 18.06 & 14.5 & 62.97\\ \hline
 \end{tabular}
 
-\caption{IPC comparison calculated using all kinds of preferences together. {\lprpgp} is the planning system which natively support preferences, while the others are all classical planners. The considered planning system are sorted by the total IPC score.}
+\caption{IPC comparison calculated using all kinds of preferences together. {\lprpgp} is the planning system which natively support preferences, while the others are all classical planners. The considered planning system are sorted by the total IPC score. The best performance are indicated in bold.}
 \label{tab:ipc_score}
 \end{table}\newpage
 
@@ -2098,7 +1951,7 @@ IPC comparison calculated considering all kinds of preferences separately. Each 
 concerne a single class of preferences which is indicated in the first row.
 {\lprpgp} is the planning system which natively support preferences,
 while the others are all classical planners. The considered planning system are sorted in
-each subtable by the total IPC score.
+each subtable by the total IPC score. The best performance are indicated in bold.
 }
 \label{tab:ipc_score-class}
 \end{table}\newpage
@@ -2144,354 +1997,48 @@ each subtable by the total IPC score.
 \label{hstorage}
 \end{figure}
 
-% \begin{figure}[]
-% \centering
 
-% \setcounter{tmp}{\thefigure}
-% \setcounter{figure}{\thelstlisting}
-% % \captionsetup{list=no,name=Listing}
-
-% % \begin{tabular}{cc}
-% % \begin{tabular}{c}
-
-% % ROVERS ALL HISTOGRAM
-% \begin{subfigure}[b]{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_rovers_ALL_PERCENTAGE_COST.eps}
-% \caption{Rovers}
-% \label{lst:file1}
-% \end{subfigure}
-% % &
-% \\
-% % TPP ALL HISTOGRAM
-% \begin{subfigure}[b]{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_ALL_PERCENTAGE_COST.eps}
-% \caption{TPP}
-% \label{lst:file2}
-% \end{subfigure} \\
-% % TRUCKS
-% \begin{subfigure}[b]{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_trucks_ALL_PERCENTAGE_COST.eps}
-% \caption{Trucks}
-% \label{lst:file3}
-% \end{subfigure}
-
-% \end{figure}
-
-% \begin{figure}[htb] \ContinuedFloat
-% % OPENSTACKS
-% \begin{subfigure}[b]{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST.eps}
-% \caption{Openstacks}
-% \label{lst:file4}
-% \end{subfigure}
-% \\
-% % \end{tabular}
-% % \begin{tabular}{c}
-% % STORAGE
-% \begin{subfigure}[b]{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_preprocessed-storage_ALL_PERCENTAGE_COST.eps}
-% \caption{Storage}
-% \label{lst:file5}
-% \end{subfigure}
-% \\
-
-% % \end{tabular}
-
-% % \captionsetup{font=scriptsize}
-% \caption{Quality Comparison using $\alpha_{\textit{cost}}$ for each domain. Each bar represents the $\alpha_{\textit{cost}}$ of the best plan produced by the considered planner. The negative bar represents an instance which has not been solved or that has no preferences of that kind. From the top to bottom we have provided the results about $\alpha_{\textit{cost}}$ calculated considering each kind of preferences for Rovers, TPP, Trucks, Openstacks and Storage.}
-% \label{eps:histogram_histograms_ALL_PERCENTAGE_COST}
-% % \stepcounter{lstlisting}
-% % \setcounter{figure}{\thetmp}
-% \end{figure}
-
-
-% RESTANTI HISTOGRAMMI COMMENTATI
-
-% %%%%%%%%%%%%%%%%%%
-% % ROVERS results %
-% %%%%%%%%%%%%%%%%%%
-% \begin{figure}[H]
-% \centering
-% \captionof*{table}{Rovers}
-% \begin{tabular}{cc}
-
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_rovers_ALL_PERCENTAGE_COST.eps}
-% \caption{All}
-% \label{lst:file1}
-% \end{subfigure}
-% &
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_rovers_ag_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{A}$}
-% \label{lst:file2}
-% \end{subfigure} \\
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_rovers_amo_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{AO}$}
-% \label{lst:file1}
-% \end{subfigure}
-% &
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_rovers_sbg_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{SB}$}
-% \label{lst:file2}
-% \end{subfigure} \\
-
-% \end{tabular}
-
-% \begin{tabular}{c}
-
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_rovers_stg_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{ST}$}
-% \label{lst:file2}
-% \end{subfigure} \\
-
-% \end{tabular}
-
-
-% % \captionsetup{font=scriptsize}
-% \caption{Domain: Rovers. Black: LAMA, Grey: IBaCoP2, Light-Grey: LPRPG-P. Each bar represents the $\alpha_{\textit{cost}}$ of the best plan produced by the considered planner. The negative bar represents an instance which has not been solved or that has no preferences of that kind. From left to right we have provided the results about the $\alpha_{\textit{cost}}$ calculated considering each kind of preferences, always, at-most-once, sometime-before and sometime preferences.}
-% \label{eps:histogram_histograms_rovers.eps}
-
-% \end{figure}
-
-% % %%%%%%%%%%%%%%%
-% % % TPP results %
-% % %%%%%%%%%%%%%%%
-% \begin{figure}[]
-% \centering
-
-% % \begin{tabular}{cc}
-
-% % \begin{subfigure}{\linewidth}
-% % \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_ALL_PERCENTAGE_COST.eps}
-% % \caption{All}
-% % \label{lst:tpp:all}
-% % \end{subfigure}
-% % &
-% % \begin{subfigure}{\linewidth}
-% % \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_ag_PERCENTAGE_COST.eps}
-% % \caption{$\mathcal{A}$}
-% % \label{lst:tpp:ag}
-% % \end{subfigure}
-% % \\
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_sg_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{SG}$}
-% \label{lst:tpp:sg}
-% \end{subfigure}
-% % &
-% % \begin{subfigure}{\linewidth}
-% % \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_amo_PERCENTAGE_COST.eps}
-% % \caption{$\mathcal{AO}$}
-% % \label{lst:tpp:amo}
-% % \end{subfigure}
-% % \\
-% % \begin{subfigure}{\linewidth}
-% % \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_sbg_PERCENTAGE_COST.eps}
-% % \caption{$\mathcal{SB}$}
-% % \label{lst:tpp:sbg}
-% % \end{subfigure}
-% % &
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_tpp_stg_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{ST}$}
-% \label{lst:tpp:st}
-% \end{subfigure}
-
-% % \end{tabular}
-
-% % \captionsetup{font=scriptsize}
-% \caption{Each bar represents the $\alpha_{\textit{cost}}$ of the best plan produced by the considered planner. The negative bar represents an instance which has not been solved or that has no preferences of that kind. From left to right we have provided the results about the $\alpha_{\textit{cost}}$ calculated considering each kind of preferences, always, at-end (or soft goals), at-most-once, sometime-before and sometime preferences.}
-% \label{eps:histogram_histograms_tpp.eps.sg}
-
-% \end{figure}
-
-% %%%%%%%%%%
-% % TRUCKS %
-% %%%%%%%%%%
-% \begin{figure}[H]
-% \centering
-
-% \begin{tabular}{cc}
-
-% % ROVERS ALL HISTOGRAM
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_trucks_ALL_PERCENTAGE_COST.eps}
-% \caption{All}
-% \label{lst:file1}
-% \end{subfigure}
-% &
-% % TPP ALL HISTOGRAM
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_trucks_ag_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{A}$}
-% \label{lst:file2}
-% \end{subfigure} \\
-% % TRUCKS
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_trucks_sg_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{SG}$}
-% \label{lst:file1}
-% \end{subfigure}
-% &
-% % OPENSTACKS
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_trucks_amo_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{AO}$}
-% \label{lst:file2}
-% \end{subfigure} \\
-
-% \end{tabular}
-
-% \begin{tabular}{c}
-% % STORAGE
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_trucks_sbg_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{SB}$}
-% \label{lst:file2}
-% \end{subfigure} \\
-
-% \end{tabular}
-
-% % \captionsetup{font=scriptsize}
-% \caption{Domain: Trucks. Black: LAMA, Grey: IBaCoP2, Light-Grey: LPRPG-P. Each bar represents the $\alpha_{\textit{cost}}$ of the best plan produced by the considered planner. The negative bar represents an instance which has not been solved or that has no preferences of that kind. From left to right we have provided the results about the $\alpha_{\textit{cost}}$ calculated considering each kind of preferences, always, at-end (or soft goals), at-most-once, sometime-before preferences.}
-% \label{eps:histogram_histograms_trucks.eps}
-
-% \end{figure}
-
-% %%%%%%%%%%%%%%
-% % OPENSTACKS %
-% %%%%%%%%%%%%%%
-% \begin{figure}[H]
-% \centering
-
-% \begin{tabular}{cc}
-
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_openstacks_ALL_PERCENTAGE_COST.eps} 
-% \caption{All}
-% \label{lst:os:all}
-% \end{subfigure}
-% &
-
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_openstacks_ag_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{A}$}
-% \label{lst:os:ag}
-% \end{subfigure}
-% \\
-
-% \end{tabular}
-
-% \begin{tabular}{c}
-
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_openstacks_sg_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{SG}$}
-% \label{lst:os:sg}
-% \end{subfigure}
-
-% \end{tabular}
-
-% % \captionsetup{font=scriptsize}
-% \caption{Domain: Openstacks. Black: LAMA, Grey: IBaCoP2, Light-Grey: LPRPG-P. Each bar represents the $\alpha_{\textit{cost}}$ of the best plan produced by the considered planner. The negative bar represents an instance which has not been solved or that has no preferences of that kind. From left to right we have provided the results about the $\alpha_{\textit{cost}}$ calculated considering each kind of preferences, always and at end (or soft goals) preferences.}
-% \label{eps:histogram_histograms_openstacks.eps}
-
-% \end{figure}
-
-
-% %%%%%%%%%%%%%%%%%%%
-% % STORAGE results %
-% %%%%%%%%%%%%%%%%%%%
-% \begin{figure}[H]
-% \centering
-
-% \begin{tabular}{cc}
-
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_preprocessed-storage_ALL_PERCENTAGE_COST.eps}
-% \caption{All}
-% \label{lst:file1}
-% \end{subfigure}
-% &
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_preprocessed-storage_ag_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{A}$}
-% \label{lst:file2}
-% \end{subfigure} \\
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_preprocessed-storage_sg_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{SG}$}
-% \label{lst:file1}
-% \end{subfigure}
-% &
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_preprocessed-storage_amo_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{AO}$}
-% \label{lst:file2}
-% \end{subfigure}
-% \\
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_preprocessed-storage_sbg_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{SB}$}
-% \label{lst:file2}
-% \end{subfigure}
-% &
-% \begin{subfigure}{\linewidth}
-% \includegraphics[width=8.5cm]{histogrammi/histogram_preprocessed-storage_stg_PERCENTAGE_COST.eps}
-% \caption{$\mathcal{ST}$}
-% \label{lst:file2}
-% \end{subfigure}
-
-% \end{tabular}
-
-
-% % \captionsetup{font=scriptsize}
-% \caption{Domain: Storage. Black: LAMA, Grey: IBaCoP2, Light-Grey: LPRPG-P. Each bar represents the $\alpha_{\textit{cost}}$ of the best plan produced by the considered planner. The negative bar represents an instance which has not been solved or that has no preferences of that kind. From left to right we have provided the results about the $\alpha_{\textit{cost}}$ calculated considering each kind of preferences, always, at-end (or soft goals), at-most-once, sometime-before and sometime preferences.}
-% \label{eps:histogram_histograms_storage.eps}
-
-% \end{figure}
 
 
 \subsection{Optimal Planning Results}
 
-
-
-
 \begin{table}[]
 \scriptsize
 \centering
-\begin{tabular}{|c||c|c||c|c||c|c||c|c||}
+\begin{tabular}{|c||c|c||c|c||c|c||}
 \hline 
-\multirow{2}{*}{DOMINO} & \multicolumn{2}{c||}{$h^{\text{blind}}$} & \multicolumn{2}{c||}{$h^{\text{max}}$} & \multicolumn{2}{c||}{$h^{\text{m\&s}}$} & \multicolumn{2}{c||}{$h^{\text{cpdb}}$} \\ \cline{2-9}
-& WRB & Our & WRB & Our& WRB & Our& WRB & Our \\ \hline
-% Storage & --- &  --- &  --- &  --- &  --- &  --- &  --- &  --- \hline
-% Domain & $h^{\text{blind}}$ & $h^{\text{max}}$ & $h^{\text{m\&s}}$ & $h^{\text{cpdb}}$\\ \hline 
-Storage & 24.78 & 57.0 & 29.2 & 45.0 & 32.50 & 24.0 & 23.10 & 57.0 \\ \hline
-Rovers & 17.4 & 24.0 & 21.43 & 25.0 & 16.67 & 26.0 & 15.17 & 23.0 \\ \hline
-Trucks & 18.84 & 24.0 & 23.19 & 25.0 & n/a & 25.0 & n/a & 25 \\ \hline
-TPP & --- & 47.0 & --- & 45.0 & --- & 47.0 & -- & 40.0 \\ \hline
-
-%  % & ---& ---& --- & ---\\ \hline
-% \multirow{2}{*}{Rovers} & 23.0& 23.0& 23.0 &\\  \cline{2-5} 
-%  % & ---& ---& --- & ---\\ \hline
-% \multirow{2}{*}{TPP} & 36.0& 33.0& 35.0 &\\  \cline{2-5} 
-%  % & ---& ---& --- & ---\\ \hline
-% \multirow{2}{*}{Trucks} & 23.0& 28.0& 23.0 &\\  \cline{2-5} 
-%  % & ---& ---& --- & ---\\ \hline
-% \multirow{2}{*}{TOTAL} & 33.0& 31.0& 26.0 &\\ \cline{2-5}  
- % & ---& ---& --- & ---\\ \hline
-
-
+\multirow{2}{*}{Domain} & \multicolumn{2}{c||}{$h^{\text{blind}}$} & \multicolumn{2}{c||}{$h^{\text{max}}$} & \multicolumn{2}{c||}{$h^{\text{cpdb}}$} \\ \cline{2-7}
+& WRB & FP & WRB & FP& WRB & FP \\ \hline
+Storage & 24.78 & {\bf 57.0} & 29.2 & {\bf45.0} & 23.10 & 57.0 \\ \hline
+Rovers & 17.4 & {\bf24.0} & 21.43 & {\bf 25.0} & 15.17 & 23.0 \\ \hline
+Trucks & 18.84 & {\bf24.0} & 23.19 & 25.0 & n/a & 25 \\ \hline
+TPP & --- & 47.0 & --- & 45.0 & -- & 40.0 \\ \hline
 \end{tabular}
-\caption{Coverage of our and Nebel compilation scheme on the IPC5 benchmarks set with
+\caption{Coverage of our (PG) and Nebel compilation scheme (WRB) on the IPC5 benchmarks set with
 additional instances with random sampled soft-trajectory constraints, A*
-search for optimal solution. Our results concerning the sampled instances are averaged.}
+search for optimal solution. Our results concerning the sampled instances are averaged 
+for each generated instance. The best performance are indicated in bold.}
 \label{coverage_admissible_heuristics}
 \end{table}
+
+% STESSA TABELLA MA CON HEURISTICA M&S
+% \begin{table}[]
+% \scriptsize
+% \centering
+% \begin{tabular}{|c||c|c||c|c||c|c||c|c||}
+% \hline 
+% \multirow{2}{*}{DOMINO} & \multicolumn{2}{c||}{$h^{\text{blind}}$} & \multicolumn{2}{c||}{$h^{\text{max}}$} & \multicolumn{2}{c||}{$h^{\text{m\&s}}$} & \multicolumn{2}{c||}{$h^{\text{cpdb}}$} \\ \cline{2-9}
+% & WRB & Our & WRB & Our& WRB & Our& WRB & Our \\ \hline
+% Storage & 24.78 & 57.0 & 29.2 & 45.0 & 32.50 & 24.0 & 23.10 & 57.0 \\ \hline
+% Rovers & 17.4 & 24.0 & 21.43 & 25.0 & 16.67 & 26.0 & 15.17 & 23.0 \\ \hline
+% Trucks & 18.84 & 24.0 & 23.19 & 25.0 & n/a & 25.0 & n/a & 25 \\ \hline
+% TPP & --- & 47.0 & --- & 45.0 & --- & 47.0 & -- & 40.0 \\ \hline
+% \end{tabular}
+% \caption{Coverage of our and Nebel compilation scheme on the IPC5 benchmarks set with
+% additional instances with random sampled soft-trajectory constraints, A*
+% search for optimal solution. Our results concerning the sampled instances are averaged. The best performance are indicated in bold.}
+% \label{coverage_admissible_heuristics}
+% \end{table}
 
 
 \section{Conclusions}
