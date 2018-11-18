@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.18)  18 NOV 2018 04:20
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.18)  18 NOV 2018 04:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -591,85 +591,85 @@ LaTeX Warning: No positions in optional float specifier.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 1949.
+               Default added (so using `tbp') on input line 1926.
 
 <histogrammi/rovers.png, id=61, 481.8pt x 361.35pt>
 File: histogrammi/rovers.png Graphic file (type png)
 
 <use histogrammi/rovers.png>
-Package pdftex.def Info: histogrammi/rovers.png used on input line 1952.
+Package pdftex.def Info: histogrammi/rovers.png used on input line 1929.
 (pdftex.def)             Requested size: 241.84842pt x 181.38583pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 1952--1953
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 1929--1930
  [][] 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 1957.
+               Default added (so using `tbp') on input line 1934.
 
 <histogrammi/tpp.png, id=62, 481.8pt x 361.35pt>
 File: histogrammi/tpp.png Graphic file (type png)
  <use histogrammi/tpp.png>
-Package pdftex.def Info: histogrammi/tpp.png used on input line 1960.
+Package pdftex.def Info: histogrammi/tpp.png used on input line 1937.
 (pdftex.def)             Requested size: 241.84842pt x 181.38583pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 1960--1961
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 1937--1938
  [][] 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 1965.
+               Default added (so using `tbp') on input line 1942.
 
 <histogrammi/trucks.png, id=63, 481.8pt x 361.35pt>
 File: histogrammi/trucks.png Graphic file (type png)
 
 <use histogrammi/trucks.png>
-Package pdftex.def Info: histogrammi/trucks.png used on input line 1968.
+Package pdftex.def Info: histogrammi/trucks.png used on input line 1945.
 (pdftex.def)             Requested size: 241.84842pt x 181.38583pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 1968--1969
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 1945--1946
  [][] 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 1973.
+               Default added (so using `tbp') on input line 1950.
 
 <histogrammi/openstacks.png, id=64, 481.8pt x 361.35pt>
 File: histogrammi/openstacks.png Graphic file (type png)
 
 <use histogrammi/openstacks.png>
-Package pdftex.def Info: histogrammi/openstacks.png used on input line 1976.
+Package pdftex.def Info: histogrammi/openstacks.png used on input line 1953.
 (pdftex.def)             Requested size: 241.84842pt x 181.38583pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 1976--1977
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 1953--1954
  [][] 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 1981.
+               Default added (so using `tbp') on input line 1958.
 
 <histogrammi/preprocessed-storage.png, id=65, 481.8pt x 361.35pt>
 File: histogrammi/preprocessed-storage.png Graphic file (type png)
 
 <use histogrammi/preprocessed-storage.png>
 Package pdftex.def Info: histogrammi/preprocessed-storage.png used on input lin
-e 1984.
+e 1961.
 (pdftex.def)             Requested size: 241.84842pt x 181.38583pt.
 
-Overfull \hbox (2.45404pt too wide) in paragraph at lines 1984--1985
+Overfull \hbox (2.45404pt too wide) in paragraph at lines 1961--1962
  [][] 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 1994.
+               Default added (so using `tbp') on input line 1971.
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2001.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1978.
 (./main.bbl
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 5.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
@@ -689,7 +689,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--7
 \OT1/pcr/m/n/10 / / ipc2018-[]classical . bitbucket . io$\OT1/ptm/m/n/10 .
  []
 
-[11 <./histogrammi/rovers.png> <./histogrammi/tpp.png>] [12 <./histogrammi/truc
+[11] [12 <./histogrammi/rovers.png> <./histogrammi/tpp.png> <./histogrammi/truc
 ks.png> <./histogrammi/openstacks.png> <./histogrammi/preprocessed-storage.png>
 ]
 Underfull \hbox (badness 1178) in paragraph at lines 28--33
@@ -713,7 +713,7 @@ Package natbib Warning: There were undefined citations.
 Here is how much of TeX's memory you used:
  5581 strings out of 493304
  81815 string characters out of 6139871
- 185632 words of memory out of 5000000
+ 173632 words of memory out of 5000000
  8895 multiletter control sequences out of 15000+600000
  45983 words of font info for 93 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -745,7 +745,7 @@ ist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/ut
 mbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (13 pages, 371855 bytes).
+Output written on main.pdf (13 pages, 369548 bytes).
 PDF statistics:
  175 PDF objects out of 1000 (max. 8388607)
  119 compressed objects within 2 object streams

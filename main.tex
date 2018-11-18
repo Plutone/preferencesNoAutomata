@@ -644,7 +644,7 @@ Before describing the general compilation scheme, some further definitions shoul
 \begin{mydef} \label{def:neutral-operators}
 
 Given a {\stripspp} problem $\Pi$ if an operator $o$ of $\Pi$ is neutral for every given preference of $\Pi$ over
-$\mathcal{A}$, $\mathcal{SB}$, $\mathcal{ST}$, $\mathcal{AO}$ and $\mathcal{SG}$
+$\mathcal{A}$, $\mathcal{SB}$, $\mathcal{ST}$, $\mathcal{AO}$ and $\mathcal{G}$
 then we say that $o$ is \textbf{neutral} for $\Pi$.
 The set of all the neutral operator for $\Pi$ is denoted by $O_{\textit{neutral}}$.
 \end{mydef}
@@ -1871,67 +1871,44 @@ Mercury & 16.07 & 6.57 & 7.78 & 18.06 & 14.5 & 62.97\\ \hline
 \tiny
 \setlength\tabcolsep{2pt}
 \centering
+
 \begin{tabular}{|c|c|c|c|c|c|c|}
-\hline
+
+\hline 
 \multicolumn{7}{|c|}{$\mathscr{P}_{\mathcal{A}}$}\\ \hline 
 Planner & Rovers & TPP & Trucks & Openstacks & Storage &TOTAL \\ \hline 
-$\text{LAMA}_{\text{B}}(h_{\text{R}})$ & 13.46 & 20.0 & 15.0 & 20.0 & 19.0 & 87.46\\ \hline 
-\fdssshort & 13.51 & 17.0 & 18.0 & 17.83 & 20.0 & 86.34\\ \hline 
-LAMA(2011) & 13.8 & 20.0 & 13.0 & 20.0 & 19.0 & 85.8\\ \hline 
-IBaCoP2 & 14.73 & 20.0 & 13.0 & 19.0 & 19.0 & 85.73\\ \hline 
-MIPlan & 14.03 & 20.0 & 12.0 & 19.0 & 20.0 & 85.03\\ \hline 
-LAMA(2018) & 15.64 & 20.0 & 10.0 & 15.0 & 19.0 & 79.64\\ \hline 
-\fdremix & 11.96 & 15.0 & 15.0 & 18.5 & 19.0 & 79.46\\ \hline 
-Mercury & 13.07 & 20.0 & 4.0 & 20.0 & 20.0 & 77.07\\ \hline 
-LPRPG-P & 13.78 & 7.0 & 0.0 & 19.5 & 11.0 & 51.28\\ \hline 
-\hline 
+$\text{LAMA}_{\text{P}}(h_\text{R})$ & 14.91 & 20.0 & 15.0 & 20.0 & 19.0 & 88.91\\ \hline 
+\fdssshort & 14.75 & 17.0 & 18.0 & 17.83 & 20.0 & 87.59\\ \hline 
+MIPlan & 15.27 & 20.0 & 12.0 & 19.0 & 20.0 & 86.27\\ \hline 
+LPRPG-P & 15.02 & 7.0 & 0.0 & 19.5 & 11.0 & 52.52\\ \hline \hline
+
 \multicolumn{7}{|c|}{$\mathscr{P}_{\mathcal{SG}}$}\\ \hline 
 Planner & Rovers & TPP & Trucks & Openstacks & Storage &TOTAL \\ \hline 
-LPRPG-P & --- & 19.45 & 16.48 & 19.43 & 14.94 & 70.3\\ \hline 
-\fdremix & --- & 14.73 & 17.12 & 18.63 & 18.57 & 69.05\\ \hline 
-\fdssshort & --- & 14.66 & 16.49 & 18.4 & 18.44 & 67.99\\ \hline 
-$\text{LAMA}_{\text{B}}(h_{\text{R}})$ & --- & 14.82 & 14.36 & 18.7 & 18.9 & 66.78\\ \hline 
-LAMA(2011) & --- & 13.95 & 13.57 & 17.78 & 18.29 & 63.6\\ \hline 
-IBaCoP2 & --- & 16.03 & 10.7 & 17.23 & 18.61 & 62.57\\ \hline 
-LAMA(2018) & --- & 14.82 & 13.17 & 15.84 & 18.3 & 62.13\\ \hline 
-MIPlan & --- & 15.08 & 9.85 & 16.7 & 19.3 & 60.92\\ \hline 
-Mercury & --- & 14.83 & 7.78 & 17.39 & 18.29 & 58.29\\ \hline 
-\hline 
+LPRPG-P & --- & 19.45 & 16.48 & 19.57 & 14.96 & 70.47\\ \hline 
+\fdssshort & --- & 14.66 & 16.49 & 18.55 & 18.46 & 68.16\\ \hline 
+$\text{LAMA}_{\text{P}}(h_\text{R})$ & --- & 14.82 & 14.36 & 18.85 & 18.92 & 66.94\\ \hline 
+MIPlan & --- & 15.08 & 9.85 & 16.84 & 19.32 & 61.09\\ \hline \hline
+
 \multicolumn{7}{|c|}{$\mathscr{P}_{\mathcal{AO}}$}\\ \hline 
 Planner & Rovers & TPP & Trucks & Openstacks & Storage &TOTAL \\ \hline 
-Mercury & 16.61 & 20.0 & 19.0 & --- & 20.0 & 75.61\\ \hline 
-\fdssshort & 16.4 & 17.0 & 20.0 & --- & 19.0 & 72.4\\ \hline 
-LAMA(2018) & 14.92 & 17.0 & 20.0 & --- & 20.0 & 71.92\\ \hline 
-$\text{LAMA}_{\text{B}}(h_{\text{R}})$ & 14.54 & 18.0 & 20.0 & --- & 19.0 & 71.54\\ \hline 
-LAMA(2011) & 14.36 & 17.0 & 20.0 & --- & 20.0 & 71.36\\ \hline 
-\fdremix & 16.37 & 16.0 & 20.0 & --- & 18.0 & 70.37\\ \hline 
-MIPlan & 14.03 & 16.0 & 15.0 & --- & 20.0 & 65.03\\ \hline 
-IBaCoP2 & 13.21 & 15.0 & 16.0 & --- & 19.0 & 63.21\\ \hline 
-LPRPG-P & 13.42 & 1.0 & 19.0 & --- & 12.0 & 45.42\\ \hline 
-\hline 
+\fdssshort & 17.22 & 18.0 & 20.0 & --- & 19.0 & 74.22\\ \hline 
+$\text{LAMA}_{\text{P}}(h_\text{R})$ & 15.33 & 19.0 & 20.0 & --- & 19.0 & 73.33\\ \hline 
+MIPlan & 14.76 & 17.0 & 15.0 & --- & 20.0 & 66.76\\ \hline 
+LPRPG-P & 14.11 & 2.0 & 19.0 & --- & 12.0 & 47.11\\ \hline \hline
+
 \multicolumn{7}{|c|}{$\mathscr{P}_{\mathcal{SB}}$}\\ \hline 
 Planner & Rovers & TPP & Trucks & Openstacks & Storage &TOTAL \\ \hline 
-$\text{LAMA}_{\text{B}}(h_{\text{R}})$ & 18.25 & 20.0 & 18.0 & --- & 19.0 & 75.25\\ \hline 
-LAMA(2011) & 18.18 & 20.0 & 15.5 & --- & 18.0 & 71.68\\ \hline 
-Mercury & 17.07 & 20.0 & 14.5 & --- & 20.0 & 71.57\\ \hline 
-MIPlan & 18.24 & 20.0 & 12.0 & --- & 20.0 & 70.24\\ \hline 
-\fdremix & 17.49 & 16.0 & 16.5 & --- & 20.0 & 69.99\\ \hline 
-\fdssshort & 17.46 & 17.0 & 16.5 & --- & 19.0 & 69.96\\ \hline 
-IBaCoP2 & 19.72 & 20.0 & 12.0 & --- & 18.0 & 69.72\\ \hline 
-LAMA(2018) & 17.21 & 20.0 & 13.33 & --- & 17.0 & 67.54\\ \hline 
-LPRPG-P & 8.21 & 14.0 & 15.5 & --- & 7.0 & 44.71\\ \hline 
-\hline 
+$\text{LAMA}_{\text{P}}(h_\text{R})$ & 18.6 & 20.0 & 18.0 & --- & 19.0 & 75.6\\ \hline 
+MIPlan & 18.66 & 20.0 & 12.0 & --- & 20.0 & 70.66\\ \hline 
+\fdssshort & 17.92 & 17.0 & 16.5 & --- & 19.0 & 70.42\\ \hline 
+LPRPG-P & 8.63 & 14.0 & 15.5 & --- & 7.0 & 45.13\\ \hline \hline
+
 \multicolumn{7}{|c|}{$\mathscr{P}_{\mathcal{ST}}$}\\ \hline 
 Planner & Rovers & TPP & Trucks & Openstacks & Storage &TOTAL \\ \hline 
-LAMA(2018) & 13.23 & 11.0 & --- & --- & 20.0 & 44.23\\ \hline 
-$\text{LAMA}_{\text{B}}(h_{\text{R}})$ & 14.28 & 10.0 & --- & --- & 19.0 & 43.28\\ \hline 
-\fdssshort & 16.17 & 8.0 & --- & --- & 19.0 & 43.17\\ \hline 
-IBaCoP2 & 16.81 & 10.0 & --- & --- & 16.0 & 42.81\\ \hline 
-LAMA(2011) & 14.41 & 9.0 & --- & --- & 19.0 & 42.41\\ \hline 
-LPRPG-P & 9.56 & 17.0 & --- & --- & 14.0 & 40.56\\ \hline 
-\fdremix & 15.44 & 8.0 & --- & --- & 16.0 & 39.44\\ \hline 
-MIPlan & 14.91 & 9.0 & --- & --- & 14.0 & 37.91\\ \hline 
-Mercury & 12.78 & 4.0 & --- & --- & 12.0 & 28.78\\ \hline 
+$\text{LAMA}_{\text{P}}(h_\text{R})$ & 15.3 & 10.0 & --- & --- & 19.0 & 44.3\\ \hline 
+\fdssshort & 17.2 & 8.0 & --- & --- & 19.0 & 44.2\\ \hline 
+LPRPG-P & 10.42 & 17.0 & --- & --- & 14.0 & 41.42\\ \hline 
+MIPlan & 15.86 & 9.0 & --- & --- & 14.0 & 38.86\\ \hline
 
 \end{tabular}
 
