@@ -938,11 +938,12 @@ are false in the state $s$ where $o$ is applied.
 which is a threat of a preference ${\sf A}_{\phi}$ 
 where $\phi = \phi_{1} \land \phi_{2} = (a \lor b) \land (c \lor d \lor e) $. According
 to Definition \ref{when_always}, we have to define a condition
-$\textit{cond}(o, \sf{A}_{\phi}))$ which has to to check that at least a threatened clause
+$\textit{cond}(o, \sf{A}_{\phi}))$ which has to check that exists at least a threatened clause
 will be certainly false in $s'$. In this case we have a single threatened clause
-and we have to build a condition to checks it those literal which
+and we have to build a condition to checks if those literal of this clause which
 are not falsified in $s'$, i.e. $\overline{AA}(o)_{\phi_2} = \{d, e\}$, are
-already false in $s$. So we have that the condition which captures the violation of ${\sf A}_{\phi}$
+already false in $s$. So we have that the condition which captures the violation of ${\sf A}_{\phi}$ 
+is: 
 $\textit{cond}(o, {\sf A}_{\phi}) = \{\lnot d, \lnot e\}$.
 % the compiled operator $o'$ is defined as
 % $o' = \langle \textit{Pre}(o), \textit{Eff}(o) \cup \mathcal{W}(o, P) \rangle$ where
@@ -962,10 +963,10 @@ the conditional effect set $\mathcal{W}(o, P)$ in the compiled version $o'$ of $
 
 $$
 \mathcal{W}(o, P) = \{
-\text{when} (\text{cond}_{\mathcal{S}}(o, P))\text{ } (\lnot \pviol )\}$$
+\text{when} (\text{cond}_{{S}}(o, P))\text{ } (\lnot \pviol )\}$$
 where:
 \begin{itemize}
-\item  $\textit{cond}_{\mathcal{S}}(o, P) = 
+\item  $\textit{cond}_{{S}}(o, P) = 
 \{{\phi_i}{ \; \mid \; \phi_i \not \in {C}_{\phi}(o)}\}
 $.
 
@@ -1013,19 +1014,19 @@ the conditional effect set $\mathcal{W}(o, P)$ in the compiled version $o'$ of $
 $$
 \mathcal{W}(o, P) = 
 \begin{cases}
-\{\textit{when} \; (\textit{cond}_{\mathcal{S}}(o, P)) \; (\textit{seen-}\psi)\} \;
+\{\textit{when} \; (\textit{cond}_{{S}}(o, P)) \; (\textit{seen-}\psi)\} \;
 \\\;\;\;\;\;\;\text{if}\;o\;\text{is a potential support for }P\\
-\{\textit{when} \; (\textit{cond}_{\mathcal{T}}(o, P)) \; (\pviol)\} \;
+\{\textit{when} \; (\textit{cond}_{{T}}(o, P)) \; (\pviol)\} \;
 \\\;\;\;\;\;\;\text{if}\;o\;\text{is a threat for }P\\
 \{
-\textit{when} \; (\textit{cond}_{\mathcal{S}}(o, P)) \; (\textit{seen-}\psi),\\
-\ \ \textit{when} \; (\textit{cond}_{\mathcal{S}}(o, P)) \; (\pviol)
+\textit{when} \; (\textit{cond}_{{S}}(o, P)) \; (\textit{seen-}\psi),\\
+\ \ \textit{when} \; (\textit{cond}_{{S}}(o, P)) \; (\pviol)
 \} 
 \\\;\;\;\;\;\;\text{if}\;o\;\text{is a both a threat and support for }P\\
 \end{cases}$$
 \\where:
 \begin{itemize}
-\item  $\textit{cond}_{\mathcal{S}}(o, P) = 
+\item  $\textit{cond}_{{S}}(o, P) = 
 % \{\bigcup_{\psi_i \in \overline{C}_{\psi}(o)} \psi_i\} = \{ { \psi_i \in \overline{C}_{\psi}(o)} \}
 \{
 \psi_i \;\mid\; \psi_i \not \in {C}_{\psi}(o)    
@@ -1036,7 +1037,7 @@ $
 % \end{itemize}
 % and:
 % \begin{itemize}
-\item  $\textit{cond}_{\mathcal{T}}(o, P) = 
+\item  $\textit{cond}_{{T}}(o, P) = 
 \{\lnot \textit{seen-}\psi\} \cup \{
 \phi_i \;\mid\; \phi_i \not \in {C}_{\phi}(o) \}    
 % \{\lnot \textit{seen-}\psi\} \cup \{ { \phi_i \in \overline{C}_{\phi}(o)} \}
@@ -1069,7 +1070,7 @@ when there exists some clauses of $\phi$ that will surely be true in the state r
 from the application of $o$. So, if all $ { \psi_i \not \in {C}_{\psi}(o)} $ hold in $s$ 
 % (where $\overline{C}_{\psi}(o)$ is the set of clauses of $\psi$ that
 % are not surely true in $s'$ - see Definition \ref{def:trueclauses})
-, i.e. $\textit{cond}_{\mathcal{S}}(o, P)$ holds in $s$,
+, i.e. $\textit{cond}_{{S}}(o, P)$ holds in $s$,
 then $\psi$ will be true in $s'$ and then we have to keep track of this fact by
 making the predicate $\textit{seen-}\psi$ true.
 % in the effects $\textit{Eff}_{\mathcal{T}}(o, P)$ of $o'$.
@@ -1087,10 +1088,10 @@ behaves as violators
 in the case that the operator makes $\phi$ true in $s'$
 % specifing in $\textit{cond}_{\mathcal{T}}(o, P)$ the expression $\{ { \phi_i \in \overline{C1}_{\phi}(o)} \}$)
 (i.e., when all $\phi_i \not \in {C}_{\phi}(o)$ holds in $s$,
-which is the condition of $\textit{cond}_{\mathcal{T}(o, P)}$), and
+which is the condition of $\textit{cond}_{{T}(o, P)}$), and
 that the $\psi$ has never been made true in the states preceeding $s$. If 
 both these
-conditions, specified in $\textit{cond}_{\mathcal{T}}(o, P)$, hold in $s$ then predicate
+conditions, specified in $\textit{cond}_{{T}}(o, P)$, hold in $s$ then predicate
 $P{\it-violated}$ is included in the effects of $o'$.
 
 We have also to consider the case in which an operator $o$ is both a threat and a support for $P$. In this 
@@ -1277,7 +1278,7 @@ those operators that threats at-most-once preference.
 Concerning at-most-once preferences, an interference could arise through
 the predicate $seen$-$\phi$, that is both an effect of the first conditional 
 effect and a condition of the second. However, the conditional effect interference disappears, if in the compilation, the pair of unconditional operators
-for $(\textit{when } (\textit{cond}_{\mathcal{V}}(o, P))\textit{ }(P{\it-violated}))$
+for $(\textit{when } (\textit{cond}_{{V}}(o, P))\textit{ }(P{\it-violated}))$
 is constrained to be ordered before the other pair. If we evaluated these conditional effects without following this order, 
 the execution would be equivalent to not evaluating all conditional effects
 of the same operator simultaneously,
@@ -1285,13 +1286,13 @@ thus risking to recognize a violators even if this does not happen. Indeed,
 given a preference $P = \sf{AO}_{\phi}$ 
 and a threat operator $o$, if $\phi$ becomes true for the first time in $s'$
 after the application of $o$,
-an we check the condition $\textit{cond}_{\mathcal{N}}(o, P)$
-before $\textit{cond}_{\mathcal{V}}(o, P)$, then we could detect a violation
+an we check the condition $\textit{cond}_{{N}}(o, P)$
+before $\textit{cond}_{{V}}(o, P)$, then we could detect a violation
 that may not have happened.
 
 We can expose similar considerations for sometime-before preferences. In this case,
-if we do not check the condition $\textit{cond}_{\mathcal{V}}(o, P)$
-before $\textit{cond}_{\mathcal{T}}(o, P)$,
+if we do not check the condition $\textit{cond}_{{V}}(o, P)$
+before $\textit{cond}_{{T}}(o, P)$,
 we risk to not correctly identifying a possible violators if
 $\phi$ and $\psi$ become true at the same time.
 
