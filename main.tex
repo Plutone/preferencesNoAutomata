@@ -310,8 +310,6 @@ then interpretation of the modal operators considered in this work is specified 
  }
  \end{figure}
 
-%But in the following, without loss of generality, we will assume in the discussion that the formula $\phi$ and $\psi$ involved in a preference $P$ is expressed in conjuctive normal form $\phi = \phi_{1} \land \phi_{2} \land ... \land \phi_{n}$ where each $\phi_{i}$ ($i \in \{1 \ldots n\}$) is a clause of $P$ formed by literals over the problem fluents. 
-
 \begin{mydef}
 A {\strips+} problem with preferences is a tuple $\langle F, I, O, G, \mathscr{P}, c, u \rangle$ where:
 \begin{itemize}
@@ -336,21 +334,15 @@ The definition of plan utility for {\stripspp} is similar to the one given for {
 A plan $\pi$ with utility $u(\pi)$ for a {\stripspp} problem is optimal when there is no plan $\pi'$ such that $u(\pi') > u(\pi) $. 
 The {\em violation cost} of a preference is the value of its utility. [AG: CHECK!!!]
 
-%The definitions below are introduced to simplify the notation in the discussion.
 \subsection{Additional Notation and Definitions}
 In order to make the presentation of our compilation approach more compact, we introduce some further notation.
 
-%\begin{mydef}
 Given a preference clause $\phi_{i} = l_1 \lor l_2 \lor ... \lor l_m$, the set $L(\phi_{i}) = \{l_1, l_2, ..., l_m\}$ is the equivalent set-based definition of $\phi_{i}$ and $\overline{L}(\phi_{i}) = \{\lnot l_1, \lnot l_2, ..., \lnot l_m\}$ is the literal complement set of $L(\phi_{i})$.
-%\end{mydef}
 
-%\begin{mydef}
 Given an operator $o$ of a {\stripspp} problem, $Z(o)$ denotes  the set of literals
-%$Z(o)$ is the set of literal defined as:
 $$
 Z(o) = (\textit{Pre}(o) \setminus \{p \mid \lnot p \in \textit{Eff}(o)^{-}\}) \cup \textit{Eff}(o)^{+} \cup \textit{Eff}(o)^{-}.
 $$
-%\end{mydef}
 Mote that the literals in $Z(o)$ hold in any reachable state resulting from the execution of operator $o$.
 
 The state where an operator $o$ is applied is indicated with $s$ and the state resulting from the application of $o$ with $s'$.
@@ -366,7 +358,6 @@ $$
 
 Given a clause $\phi_{i} = l_1 \lor ... \lor l_{m_i}$ of $\phi$, condition $|L(\phi_{i}) \cap Z(o)| > 0$ in Definition \ref{def:trueclauses} requires that there exists at least a literal $l_j$, $j \in \{1 \ldots m_i\}$ that belongs to $Z(o)$ and thus making clause $\phi_i$ true in $s'$.
 
-% Each literal $l_j \in Z(o)$ can be true in $s'$ in different ways: \textit{i)} it could be already true in the preconditions of $o$, so in $s$, and not falsified by $o$ or \textit{ii)} it could become true in $s'$ by the effects of $o$ regardless of whether it was true or false in $s$.
 
 %If a formula $\phi$ is guaranteed to be true in $s'$ 
 \begin{mydef}\label{def:becometrue}
@@ -382,13 +373,31 @@ Given an operator $o$ and a CNF formula $\phi = \phi_{1} \land ... \land \phi_{n
 
 Condition 1 in Definition \ref{def:becometrue} requires that there exists at least a clause of $\phi$ that is certainly true in $s'$ (independently from $s$), while Condition 2 requires that the clauses that are not certainly true in $s'$ are not certainly false in $s'$.
 
+\begin{mydef}\label{def:becomefalse}
+Given an operator $o$ and a CNF formula $\phi = \phi_{1} \land ... \land \phi_{n}$, we say that $o$ \textbf{can make $\phi$ false} (dependently from $s$) if
+\begin{enumerate}
+\item $|\overline{L}(\phi_i) \cap Z(o)| > 0 \land \overline{L}(\phi_i) \subset Z(o)$
+% \item $L(\phi_i) \cap Z(o) = \O $
+\item $|L(\phi_i) \cap Z(o)| = 0 $
+\item $\overline{L}(\phi_i) \not \subseteq \textit{Pre}(o)$.
+\end{enumerate}
+\end{mydef}
 
-
+The conditions of Definition \ref{def:becomefalse} require that there exist at least a clause of $\phi$ that
+(1) has some (but not all) literals which are falsified after the execution of $o$,
+(2) has not literals which are true in the resulting state from the application of $o$ and (3)
+this clause is not already false in the state where $o$ is applied.
+\begin{comment}
+The expression 
+$\overline{L}(\phi_i) \not \subseteq \textit{Pre}(o)$ in Definition \ref{violation_formula}-\ref{threat_formula}
+is necessary to avoids that an operator $o$ is considered a violator/threat when its precondition is
+already violated in the state where it is applied.
+\end{comment}
 
 \section{Operator-Preference Interactions}
 
 Operators and preferences may have different kinds of interactions, that we have to deal with in their compilation.
-We say that an operator $o$ is {\em neutral} for a preference $P$ if its execution in a plan can bender affect the satisfaction of $P$ in the state trajectory of the plan. Otherwise, depending on the preferences type of $P$,  $o$ can behave as a {\em violatior}, a \textit{threat} or a {\em potential support} of $P$. Informally, a violator falsifies the preference, a threat may falsify it (depending on $s$), and a potential support may satisfies it over the full state trajectory of the plan. In the following, more formal definitions are given for each type of preference.
+We say that an operator $o$ is {\em neutral} for a preference $P$ if its execution in a plan can bender affect the satisfaction of $P$ in the state trajectory of the plan. Otherwise, depending on the preferences type of $P$,  $o$ can behave as a {\em violator}, a \textit{threat} or a {\em potential support} of $P$. Informally, a violator falsifies the preference, a threat may falsify it (depending on $s$), and a potential support may satisfies it over the full state trajectory of the plan. In the following, more formal definitions are given for each type of preference.
 
 [AG: CHECK. VIOLATION MODIFICATO IN VIOLATOR]
 
@@ -411,12 +420,6 @@ of considered preference providing for each of them a formal definition.
 % In the following definitions of operators classes we will assume that $\phi$ (and $\psi$ in the case of dual preferences) are arbitrary CNF formulae $\phi = \phi_{1} \land ... \land \phi_{n}$ where each clause $\phi_{i} = l_{1} \lor ... \lor l_{m_{i}}$ for each $i \in \{1 \ldots n\}$.
 
 \subsection{Operators Affecting Always Preferences} \label{subsection:always_operators}
-%An always preference has the following {\pddl} syntax 
-%$$
-%(preference\text{ }P\text{ }({\textit{always}}\text{ }\phi))
-%$$
-%where the formula $\phi$ has to hold in each reached state of the plan.
-%In the following we will abbreviate it with $P = \sf{A}_{\phi}$.
 An always preference $\sf{A}_{\phi}$ is violated if ${\phi}$ is false in any state on the plan state trajectory. Hence, if the state $s'$ generated by an operator $o$ makes ${\phi}$ false, then $o$ is a violator of $\sf{A}_{\phi}$. 
 
 % ----------
@@ -447,18 +450,20 @@ Operator $o$ is a threat for $\sf{A}_{\phi}$ if it is not a violator, its effect
 % MINACCIA
 % --------
 \begin{mydef}\label{threat_formula}
-Given an operator $o$ and an always preference $\sf{A}_{\phi}$ of a {\stripspp} problem, $o$ is a \textbf{threat} of $\sf{A}_{\phi}$  if it is not a violatior and there exists a clause $\phi_i$ of $\phi$ such that:
+Given an operator $o$ and an always preference $\sf{A}_{\phi}$ of a {\stripspp} problem, $o$ is a \textbf{threat} of $\sf{A}_{\phi}$ if it is not a violator and it can make $\phi$ false.
+\end{mydef}
+
+
+\begin{comment}  
+\begin{mydef}\label{threat_formula}
+Given an operator $o$ and an always preference $\sf{A}_{\phi}$ of a {\stripspp} problem, $o$ is a \textbf{threat} of $\sf{A}_{\phi}$  if it is not a violator and there exists a clause $\phi_i$ of $\phi$ such that:
 \begin{enumerate}
-% \item $\overline{L}(\phi_i) \cap Z(o) \not = \O $
 \item $|\overline{L}(\phi_i) \cap Z(o)| > 0 $
-% \item $L(\phi_i) \cap Z(o) = \O $
 \item $|L(\phi_i) \cap Z(o)| = 0 $
 \item $\overline{L}(\phi_i) \not \subseteq \textit{Pre}(o)$.
-% \end{gather}
 \end{enumerate}
 \end{mydef}
 
-\begin{comment}
 The conditions of Definitin \ref{threat_formula} require that there exist at least a clause of $\phi$ that
 (1) has some (but not all) literals which are falsified after the execution of $o$,
 (2) has not literals which are true in the resulting state from the application of $o$ and (3)
@@ -503,13 +508,7 @@ there is not at least one state in which $\phi$ is true
 on the plan state trajectory. Hence,
 if the state $s'$ generated by an operator $o$ makes $\phi$ true, then $o$
 is a support of $\sf{ST}_{\phi}$.
-% A sometime preference has the following {\pddl} syntax 
-% $$(preference\text{ }P\text{ }(sometime\text{ }\phi))$$
-% where the formula $\phi$ has to become true at least once state in the plan state trajectory. In the following we abbreviate with $P = \sf{ST}_{\phi}$. According to
-% the semantic provided in Figure \ref{fig:semantics}
-% it is not possible to deliberate if a preference $P = \sf{ST}_{\phi}$ is violated
-% until the end of the planning but the preference can be satisfied at any time during planning 
-% if an operator makes $\phi$ true.
+
 
 \begin{mydef} \label{sometime_definition}
 Given an operator $o$ and a sometime preference $\sf{ST}_{\phi}$ of a {\stripspp} problem,
@@ -530,19 +529,7 @@ where ${\phi_1} = c \lor \lnot b$ and ${\phi_2} = c$.
 % CLASSI DI OPERATORI PER LA PREFERENZA SOMETIME BEFORE
 % -----------------------------------------------------
 \subsection{Operators Affecting Sometime-before Preferences}
-% A sometime-before preference has the following {\pddl} syntax and its semantic requires that,
-% $$(preferences\text{ }P\text{ }(sometime\text{-}before\text{ }\phi\text{ }\psi))$$
-% whenever $\phi$ is true in a state $s$ then $\psi$ must have been true in a state before $s$.
-% In the following we will abbreviate it with $P = \sf{SB}_{\phi, \psi}$. Likewise to what exposed for the
-% always preferences a 
-% violation of $P = \sf{SB}_{\phi, \psi}$ is irreversible, when a state $s$ such that
-% $s \not \models \phi$ occurs 
-% without having been made $\psi$ true in a previous state
-% then it is no longer possible to satisfy $P$.
-% Speaking informally, if an operator $o$, applied in a state where $\phi$ has never been made true before, 
-% makes $\psi$ true in the resulting state, 
-% then we consider it a \textit{support} for $P$. Once a support is
-% applied then preference can no longer be violated.
+
 A sometime-before preference $\sf{SB}_{\phi, \psi}$ is violated if $\phi$ becames
 true before $\psi$ has been made true on the plan state trajectory. Hence,
 if the state $s'$ generated by an operator $o$ can make ${\psi}$ true, 
@@ -556,9 +543,6 @@ or as a neutral operators for $\sf{SB}_{\phi, \psi}$.
 Given an operator $o$ and a sometime-before preference $\sf{SB}_{\phi, \psi}$ of a {\stripspp} problem,
 $o$ is a \textbf{potential support} for $P$ if $o$ can make $\psi$ true.\\
 \end{mydef}
-% An operator which satisfies Definition \ref{sup_sb} is a \textit{potential} support for $P$ because
-% it can make true $\psi$, behaving as an \textit{actual} support, depending on the state where is applied.
-% An operator $o$ that satisfied Definition \ref{sup_sb} is a \textit{potential} support for $P$ because it can act as an \textit{actual} support only under certain 
 The set of sometime-before preferences of $\Pi$ which are potentially supported by the operator 
 $o$ are denoted with $S_{\mathcal{SB}}(o)$.
 
@@ -573,13 +557,6 @@ or as a neutral operators for $\sf{SB}_{\phi, \psi}$.
 Given an operator $o$ and a sometime-before preference $\sf{SB}_{\phi, \psi}$ 
 of a {\stripspp} problem, $o$ is a \textbf{threat} for $P$ if $o$ can make true $\phi$.
 \end{mydef}
-% Similarly to Definition \ref{sup_sb} also in this case the behavior of a
-% threat when it is applied depends by the context. We distinguish the following situations
-% \begin{itemize}
-%     \item if $\psi$ does not become true in the resulting state, then $o$ is \textit{neutral} for $P$;
-%     \item if $\psi$ becomes true in the resulting state and the formula $\phi$ has become true at least once in a earlier state, than $s$ is \textit{neutral} for $P$ otherwise if the formula $\phi$ has never become true in previous states,
-%     then $o$ is a \textit{violation} for $P$.
-% \end{itemize}
 The set of sometime-before preferences of $\Pi$ which are threatened by the operator 
 $o$ are denoted with $T_{\mathcal{SB}}(o)$.
 
@@ -634,22 +611,19 @@ is a potential support for $\mathsf{AO}_{\phi_1}$ where $\phi_1 = c \lor \lnot b
 A sometime-after preference ${\sf SA_{\phi, \psi}}$ is violated if $\phi$ in a state 
 without $\psi$ becoming true in a succeeding state on the plan state trajectory. Hence,
 if the state $s'$ generated by an operator $o$ can make
-$\phi$ true, then o is a soft threat of $\sf SA_{\phi, \psi}$. We call it soft threat
-because this operator can not violate the preference irreversibly but temporarily
-unless $\psi$ becomes true in a succeeding state.
+$\phi$ true, then o is a soft threat of $\sf SA_{\phi, \psi}$. 
 
 % OPERATORE DI MINACCIA PER SOMETIME-AFTER %
 \begin{mydef}\label{threato_sa1}
-Given an operator $o$ and a sometime-after preference $\sf{SA}_{\phi, \psi}$ of a {\stripspp} problem, $o$ is a \textbf{soft threat} on $\phi$ operator of $\sf{SA}_{\phi, \psi}$ if $o$ can make true $\phi$.
+Given an operator $o$ and a sometime-after preference $\sf{SA}_{\phi, \psi}$ of a {\stripspp} problem, $o$ is a \textbf{threat} on $\phi$ operator of $\sf{SA}_{\phi, \psi}$ if $o$ can make true $\phi$.
 \end{mydef}
 
 There is another way to threat a sometime-after preference. If a state $s'$ generated by $o$
 can falsify $\psi$ then $\sf{SA}_{\phi, \psi}$ could be violated if $\psi$ 
 remains true in $s'$.
 
-[FP: DA FINIRE, DEFINZIONE COME L'ALWAYS, INTRODURRE DEFINZIONE $o$ can make false ?].
 \begin{mydef}\label{threato_sa2}
-Given an operator $o$ and a sometime-after preference $\sf{SA}_{\phi, \psi}$ of a {\stripspp} problem, $o$ is a \textbf{soft threat} on $\psi$ operator of $\sf{SA}_{\phi, \psi}$ if ... 
+Given an operator $o$ and a sometime-after preference $\sf{SA}_{\phi, \psi}$ of a {\stripspp} problem, $o$ is a \textbf{threat} on $\psi$ operator of $\sf{SA}_{\phi, \psi}$ if $o$ can make $\psi$ false. 
 
 \end{mydef}
 
@@ -669,9 +643,16 @@ Given an operator $o$ and a sometime-after preference $\sf{SA}_{\phi, \psi}$ of 
 The set of sometime-after preferences of $\Pi$ which are potentially supported by 
 the operator $o$ are denoted with $S_{\mathcal{SA}}(o)$.
 
-\begin{mydef}\label{neutral_sa}
-Given an operator $o$ and a sometime-after preference $\sf{SA}_{\phi, \psi}$ of a {\stripspp} problem, $o$ is a \textbf{neutral} for $\sf{SA}_{\phi, \psi}$ if $o$ is neither a threat nor a support for preference.
+\begin{mydef}\label{support_sa}
+Given an operator $o$ and a sometime-after preference $\sf{SA}_{\phi, \psi}$ of a {\stripspp} problem, $o$ is an \textbf{updating} 
+of $\sf{SA}_{\phi, \psi}$ if $o$ can make $\psi$ false.
 \end{mydef}
+
+The set of sometime-after preferences of $\Pi$ which are potentially supported by 
+the operator $o$ are denoted with $S_{\mathcal{SA}}(o)$.
+% \begin{mydef}\label{neutral_sa}
+% Given an operator $o$ and a sometime-after preference $\sf{SA}_{\phi, \psi}$ of a {\stripspp} problem, $o$ is a \textbf{neutral} for $\sf{SA}_{\phi, \psi}$ if $o$ is neither a threat nor a support for preference.
+% \end{mydef}
 
 {\bf Example}
 An operator $o = \langle \top, \lnot a, b \rangle$ 
@@ -1007,7 +988,10 @@ $$\mathcal{W}(o, P) =
 \{\textit{when} \; (\top) \; (P\textit{-violated})\}\\
 \;\;\;\;\;\;\text{if}\;o\;\text{is a violator for }P\\
 \end{cases}$$
-where $\textit{cond}(o, P) =
+where $cond(o, P) =
+%\begin{itemize}
+%\item  
+%$cond(o, {\sf{A}_{\phi}}) = 
 \;\;\;\bigvee_{\phi_i\,\in\,TC_{\mathcal{A}}(o, P)}(l_1 \wedge \ldots \wedge l_q)$\\
 and $\{l_1, \ldots, l_q\}=\overline{AA}(o)_{\phi_i}$.
 %\end{itemize}
@@ -1024,12 +1008,13 @@ threatened clause whose literals that are not falsified in $s'$
 are false in $s$.
 
 \noindent \textbf{Example}. Consider $o =\langle \top, \{a, \lnot c\} \rangle$ 
-and preference ${\sf A}_{\phi}$ with $\phi = (a \lor b) \land (c \lor d \lor e) $. The second clause of $\phi$ is threatened by $o$, and
-$\textit{cond}(o, {\sf{A}_{\phi}}) = \overline{AA}(o)_{c \lor d \lor e} = \{\lnot d, \lnot e\}$.
+and preference  ${\sf A}_{\phi}$ with $\phi = (a \lor b) \land (c \lor d \lor e) $. The second clause of $\phi$  is threatened by $o$, and
+$cond(o, {\sf{A}_{\phi}}) = \overline{AA}(o)_{c \lor d \lor e} = \{\lnot d, \lnot e\}$.
 
 %[CHECK! AG: ESEMPIO ABBREVIATO: TOGLIERE IL RESTO!?]
-\begin{comment}
-According to Definition \ref{when_always}, we have to define a condition
+ \begin{comment}
+ According
+to Definition \ref{when_always}, we have to define a condition
 $\textit{cond}(o, \sf{A}_{\phi}))$ which has to check that exists at least a threatened clause
 will be certainly false in $s'$. In this case we have a single threatened clause
 and we have to build a condition to checks if those literal of this clause which
@@ -1037,11 +1022,15 @@ are not falsified in $s'$, i.e. $\overline{AA}(o)_{c \lor d \lor e} = \{d, e\}$,
 already false in $s$. So we have that the condition which captures the violation of ${\sf A}_{\phi}$ 
 is: 
 $\textit{cond}(o, {\sf A}_{\phi}) = \{\lnot d, \lnot e\}$.
-\end{comment}
+% the compiled operator $o'$ is defined as
+% $o' = \langle \textit{Pre}(o), \textit{Eff}(o) \cup \mathcal{W}(o, P) \rangle$ where
+% $\mathcal{W}(o, P) = (\textit{when} ())$
 
 % ---------------------
 % COMPILAZIONE SOMETIME
 % ---------------------
+\end{comment}
+
 \subsection{Conditional Effects for $\mathcal{ST}$  Preferences}
 
 The conditional effects for a compiled operator affecting a preference $\sf{ST}_{\phi}$ are defined as follows.
@@ -1057,18 +1046,30 @@ $$
 where $\textit{cond}(o, P) = 
 \{{\phi_i}{ \; \mid \; \phi_i \not \in {C}_{\phi}(o)}\}
 $.
+% \item  $\textit{eff}_{\mathcal{S}}(o, P) = $ 
 \end{mydef}
 
 As described above, for each $P = \sf{ST}_{\phi}$
 $\pviol$ holds in the compiled initial state, and
-a potential support $o$ of $P$ makes $\phi$ true when all clauses
+% (if $\phi$ does not hold in the original problem initial state
+% (otherwise the preference is considered satisfied and therefore not compiled).
+%These new violation predicates could be falsified
+%by the potential supports, which are operators whose effects could make $\phi$ true in $s'$.
+a potential support $o$ of $P$ makes $\phi$ true when
+ all clauses
 $ { \phi_i \not \in {C}_{\phi}(o)} $ hold in $s$, where ${C}_{\phi}(o)$ is the set of clauses of $\phi$
 that will be certainly true in $s'$. If this condition holds in $s$, then $o'$ falsifies it in $s'$.
 
-\noindent \textbf{Example}. Consider $o =\langle \top, \{a, c\} \rangle$ 
-and preference  ${\sf ST}_{\phi}$ with $\phi = a \land (b \lor c) \land d $. The second clause 
-of $\phi$ will be certainly true in the state $s'$ generate by $o$,
-and $\textit{cond}(o, {\sf{ST}_{\phi}}) = \{a, d\}$.
+
+% In order to satisfy a given preference $\sf{ST}_{\phi}$, which 
+% is temporarily violated in $I'$,
+% a potential support $o$ for $P$ has to be inserted in the plan
+% and applied in a state where ${(cond}_{\mathcal{S}}(o, P))$ holds,
+% making an actual support for $P$.
+% Otherwise, operator $o$ 
+% behaves as a neutral operator for $P$, leaving the preference 
+% violated in $s'$.
+
 
 % ----------------------------
 % COMPILAZIONE SOMETIME-BEFORE
@@ -1115,7 +1116,25 @@ $
 $.
 % \item  $\textit{eff}_{\mathcal{T}}(o, P) = \pviol$ 
 \end{itemize}
+
+% -------
+% RIMOSSO
+% -------
+% and:
+% \begin{align*}
+% W_{\mathcal{ST}}(o, & P) = \{  \\
+% & \text{when (cond}_{\mathcal{S}}(o, P))\text{ (eff}_{\mathcal{S}}(o, P))\\
+% & \text{when }\text{ (cond}_{\mathcal{T}}(o, P))) \text{ (eff}_{\mathcal{T}}(o, P))
+% \}
+% \end{align*}
+
 \end{mydef}
+
+
+%The definition of the effects used to extend the effect of an operator $o$ which affects a sometime-before preference $P$ in 
+%Definition \ref{when_sometimebefore} depends on the class of operators which $o$ belongs. We have to distinguish 
+%if $o$ is a potential support, a threat or both for $P$. 
+
 
 An operator $o$ affecting a preference $P = \sf{SB}_{\phi, \psi}$ can behave as a (a) {potential support} of $P$,
 (b) a threat for $P$, or (c) both. These case are captured by the three conditional effects of $o'$ in Definition \ref{when_sometimebefore}.
@@ -1128,14 +1147,12 @@ In case (b), if $\psi$ has never been true in the state-trajectory up to $s$ and
 Recalling Definition \ref{def:becometrue}, an operator $o$ could make true a formula $\phi$
 when there exists some clauses of $\phi$ that will surely be true in the state resulting
 from the application of $o$. So, if all $ { \psi_i \not \in {C}_{\psi}(o)} $ hold in $s$ 
+% (where $\overline{C}_{\psi}(o)$ is the set of clauses of $\psi$ that
+% are not surely true in $s'$ - see Definition \ref{def:trueclauses})
 , i.e. $\textit{cond}_{{S}}(o, P)$ holds in $s$,
 then $\psi$ will be true in $s'$ and then we have to keep track of this fact by
 making the predicate $\textit{seen-}\psi$ true.
-
-\noindent \textbf{Example}. Consider $o =\langle \top, \{a, c\} \rangle$ 
-and preference  ${\sf ST}_{\phi}$ with $\phi = a \land (b \lor c) \land d $. The second clause 
-of $\phi$ will be certainly true in the state $s'$ generate by $o$,
-and $\textit{cond}(o, {\sf{ST}_{\phi}}) = \{a, d\}$.
+% in the effects $\textit{Eff}_{\mathcal{T}}(o, P)$ of $o'$.
 \end{comment}
 
 % RIDONDANTE
@@ -1166,11 +1183,6 @@ as support of $P$. Note that this correctly captures the violators of $P$ determ
 and $\psi$ becoming simultaneously true by execution of $o$.
 \end{comment}
 
-\noindent \textbf{Example}. Consider $o =\langle \top, \{a, c\} \rangle$ 
-and preference ${\sf SB}_{\phi, \psi}$ with $\phi = a \land (b \lor c) \land d $. The second clause 
-of $\phi$ will be certainly true in the state $s'$ generate by $o$, and so,
-since $o$ is a threat of the preference, 
-$\textit{cond}_T(o, {\sf SB}_{\phi, \psi}) = \{\lnot \textit{seen-}\psi, a, d\}$.
 % DA FARE PROX
 % \subsection{Compilation of a Sometime-After Preference}
 
@@ -1178,7 +1190,7 @@ $\textit{cond}_T(o, {\sf SB}_{\phi, \psi}) = \{\lnot \textit{seen-}\psi, a, d\}$
 % -------------------------
 % COMPILAZIONE AT-MOST-ONCE
 % -------------------------
-\subsection{Conditional effects of $\mathcal{AO}$ Preferences} \label{subsect:amo_comp}
+\subsection{Conditional effects for $\mathcal{AO}$ Preferences} \label{subsect:amo_comp}
 
 The conditional effects for a compiled operator threatening  preference $\sf{AO}_{\phi}$ preference are defined as follows.
  
@@ -1283,108 +1295,92 @@ the neutral conditional effect predicate $\textit{seen-}\phi$.
 
 \end{comment}
 
-\noindent \textbf{Example}. Consider $o =\langle \top, \{b, e\} \rangle$ 
-and preference ${\sf AO}_{\phi}$ with $\phi = (a \lor b) \land (c \lor d) \land e $. The
-first and the third clauses will be certainly true in the state $s'$ generated by $o$ and
-$\textit{cond}_T(o, {\sf AO}_{\phi, \psi}) = \{\lnot \textit{seen-}\psi, (c \lor d), (\lnot a \land \lnot b) \lor \lnot e \}$.
+
+\subsection{Conditional effects for $\mathcal{SA}$ Preferences} \label{subsect:amo_comp}
+
+The conditional effects for a compiled operator threatening  preference $\sf{SA}_{\phi}$ preference are defined as follows.
+ 
+\begin{mydef} \label{when_sometimeafter}
+
+Given a preference $P = \sf{SA}_{\phi}$ and an operator $o$ that threats  $P$,
+the conditional effect set $\mathcal{W}(o, P)$ in the compiled version $o'$ of $o$
+(according to Definition \ref{compiledOcondeff}) is:
+
+$$
+\mathcal{W}(o, P) = 
+\begin{cases}
+\{\textit{when} \; (\textit{cond}_{{T_{\phi}}}(o, P)) \; (\pviol)\} \;
+\\\;\;\;\;\;\;\text{if}\;o\;\text{is a threat on }\phi \text{ of }P\\
+\{\textit{when} \; (\textit{cond}_{{T_{\psi}}}(o, P)) \; (\pviol)\} \;
+\\\;\;\;\;\;\;\text{if}\;o\;\text{is a threat on }\psi \text{ of }P\\
+\{\textit{when} \; (\textit{cond}_{{S_{}}}(o, P)) \; (\psi\text{-true}, \lnot \pviol)\} \;
+\\\;\;\;\;\;\;\text{if}\;o\;\text{is a support of }P\\
+\{\textit{when} \; (\textit{cond}_{{U_{}}}(o, P)) \; (\lnot \psi\text{-true})\} \;
+\\\;\;\;\;\;\;\text{if}\;o\;\text{is a support of }P\\
+%\{
+%\textit{when} \; (\textit{cond}_{{S}}(o, P)) \; (\textit{seen-}\psi),\\
+%\ \ \textit{when} \; (\textit{cond}_{{T}}(o, P)) \; (\pviol)
+%\} 
+%\\\;\;\;\;\;\;\text{if}\;o\;\text{is a both a threat and support for }P\\
+\end{cases}$$
+where:
+\begin{itemize}
+% \item  $\textit{cond}_{{T_{\phi}}}(o, P) = 
+% % \{\bigcup_{\psi_i \in \overline{C}_{\psi}(o)} \psi_i\} = \{ { \psi_i \in \overline{C}_{\psi}(o)} \}
+% \{
+% \phi \;\mid\; \phi_i \not \in {C}_{\phi}(o)
+% \} \cup \{\bigvee_{\phi_i\,\in\,TC(o, P)}
+% $
+% $
+% (l_1 \wedge \ldots \wedge l_q)\}$ and $\{l_1, \ldots, l_q\}=\overline{AA}(o)_{\phi_i}$;
+
+\item  $\textit{cond}_{{T_{\phi}}}(o, P) = 
+\{ \phi \;\mid\; \phi_i \not \in {C}_{\phi}(o), \psi\text{-is-true}\}$
 
 
-[AG: SONO ARRIVATO QUI...]
+\item  $\textit{cond}_{{T_{\psi}}}(o, P) = 
+% \{\bigcup_{\psi_i \in \overline{C}_{\psi}(o)} \psi_i\} = \{ { \psi_i \in \overline{C}_{\psi}(o)} \}
+\{
+\psi \;\mid\; \psi_i \not \in {C}_{\psi}(o)
+\} \cup \{\bigvee_{\psi_i\,\in\,TC(o, P)}
+$
+$
+(l_1 \wedge \ldots \wedge l_q)\}$ and $\{l_1, \ldots, l_q\}=\overline{AA}(o)_{\psi_i}$;
 
 
+\item  $\textit{cond}_{S}(o, P) = 
+\{ \psi_i \;\mid\; \psi_i \not \in {C}_{\psi}(o)\}$
 
+% \item  $\textit{eff}_{\mathcal{S}}(o, P) = \textit{seen-}\psi$ 
+% \end{itemize}
+% and:
+% \begin{itemize}
+
+\item $\textit{cond}_{U}(o, P) =
+\;\;\;\bigvee_{\phi_i\,\in\,TC_{\mathcal{A}}(o, P)}(l_1 \wedge \ldots \wedge l_q)$\\
+and $\{l_1, \ldots, l_q\}=\overline{AA}(o)_{\phi_i}$.
+% \item  $\textit{eff}_{\mathcal{T}}(o, P) = \pviol$ 
+\end{itemize}
+\end{mydef}
+
+An operator $o$ affecting a preference $P = {\sf SA}_{\phi, \psi}$ can behave as
+(a) a threat of $P$ on $\phi$, (b) a threat of $P$ on $\psi$, (c) a potential support or an (d) updating
+operator of $P$.
 % ----------------------------
 % SEZIONE EFFETTI CONDIZIONALI
 % ----------------------------
 \subsection{Compilation of Conditional Effects} \label{subsection:conditional-effect}
 
-As described before, given an operator $o$ of a {\stripspp} problem which affects a set of
-$n$ preferences, the corresponding compiled operator should have in its effects
-a set \textit{$\{$(when $c_i$\, $e_i$) $|$ $i = 1 \dots m\}$} of $m \leq 2n$ conditional effects,
-which are built using the compilation schema described in the previous subsections.
 
-In order to keep the compiled problem in the {\strips+} class, the conditional effects of $o'$ 
-should be compiled away by replacing $o'$ with an equivalent set of operators without 
-conditional effects. In the literature, there are two main 
-general methods for generating this equivalent set of unconditional operators.
+According to the described compilation schema, each compiled operator $o'$ of an original operator $o$ affecting $n$ preferences
+has $m \leq 2n$ conditional effects. 
 
-% PRIMO METODO GAZEN AND KNOBLOCK
-The first method, introduced by Gazen and Knoblock \cite{gazen97:ecp}, works by recursively splitting $o'$
-for each conditional effect \textit{(when $c_i$\, $e_i$)}
-into a couple of new operator, $o''$ and $\overline{o}''$, such that:
-\begin{align*}
-& pre(o'') = pre(o') \cup \{c_i\} \\
-& \textit{eff}(o'') = \textit{eff}(o') \cup {e_i} \\
-& pre(\overline{o}'') = pre(o') \cup \{\lnot c_i\} \\
-& \textit{eff}(\overline{o}'') = \textit{eff}(o').
-\end{align*}
+In the literature, there are two main general methods for compiling away conditional effects.  In the first method by Gazen and Knoblock's \cite{gazen97:ecp}, each plan of the compiled problem preserves the length of the corresponding plan for the original problem, but an exponential number of compiled operators are generated (in our  context $O(2^m)$ operators for each $o'$).
+In the second method by Nebel \cite[see proof of Theorem 20]{nebel2000compilability}, a polynomial number of new operators are generated, but each plans for the compiled problem increases polynomially the length. 
 
-This method is not practicable because it leads to an exponential blow up of operators 
-(in our case $O(2^m)$ for each operator affecting $n$ preferences), but
-the compiled plan preserves exactly the length of the original plan.
-
-% METODO NEBEL
-The second method, proposed by Nebel \cite[see proof of Theorem 20]{nebel2000compilability}, generates a polynomial number of new operators, but it increases polynomially the plan length. 
-The main idea is to simulate the parallel behaviour of the conditional effects of an operator by a replacing it with an equivalent sequence of unconditional operators.
-For each operator $o'$ with $m$ conditional effects, Nebel's schema introduces $m$ pairs of new operators, that separately evaluate the condition $c_i$ of each conditional effect \textit{(when $c_i$\, $e_i$)} and possibly ``activates'' the corresponding effect $e_i$. One of the operators in the pair for \textit{(when $c_i$\, $e_i$)} contains precondition $c_i$ and an effect indicating that $e_i$ is activated, while the other, that is mutex with the first, contains precondition $\neg c_i$ and does not activate $e_i$. In order to avoid possible (positive or negative) interference in the sequentialisation of the conditional effects through the new operators (e.g.,  if
-\textit{(when $c_1$\, $e_1$)}  and \textit{(when $c_2$\, $e_2$)} are conditional effects of $o'$ and $e_1 \models c_2$), the activated effects in the operator sequence are not made immediately true, but they are deferred to the end of the sequence (i.e., after all conditional effects conditions have been evaluated). This is done by using an additional set of operators, called ``copying operators'' in \cite{nebel2000compilability}, which copy the activated effects to the state description after all operators in the sequence have been executed (For more details the reader is referred to \cite{nebel2000compilability}.)
-
-% \textbf{NOTA SUI COSTI DELLA COMPILAZIONE DA INSERIRE QUI}
-
-% OTTIMIZZAZIONE
-In order to deal with the conditional effects generated by our compilation of {\pddlIII} preferences, we
-have implemented and used Nebel's compilation method because a compiled operator
-can in principle contain
-many conditional effects, which makes Gazen and Knoblock's method impractical given 
-its exponential complexity. Moreover, the conditional effects needed to compile {\pddlIII} preference have a particular structure that 
-allows us to simplify and optimize Nebel's general method. In particular we would like avoid the so-called ``copying operators'' operators
-maintaining the semantics of conditional effects (which requires that all conditions are 
-evaluated at the same time). First of all, note that the conditional effects 
-that refer to different affected preferences can not interfere with each other because
-they involve different fluents.
-
-After that we have to pay attention to those class of preferences whose compilation
-introduces more than one conditional effect,
-because, affecting the same fluents, they can generate interference. In our previous discussion there are two 
-classes of preferences having this feature, i.e.
-sometime-before and at-most-once preferences (see Subsections \ref{subsection:sometime_before_compilation} and \ref{subsect:amo_comp}). In the first case, the set of problematic conditional effects 
-refers to those operators which threats and supports a sometime-before preference at the same time, in the second case to
-those operators that threats at-most-once preference.
-% By Definitions \ref{when_sometimebefore} and \ref{when_atmostonce}, the set of conditional effects that can interfere when sequentialised are those of the compiled operator $o'$ of an operator affecting an at-most-once and sometime-before preferences. 
-
-Concerning at-most-once preferences, an interference could arise through
-the predicate $seen$-$\phi$, that is both an effect of the first conditional 
-effect and a condition of the second. However, the conditional effect interference disappears, if in the compilation, the pair of unconditional operators
-for $(\textit{when } (\textit{cond}_{{V}}(o, P))\textit{ }(P{\it-violated}))$
-is constrained to be ordered before the other pair. If we evaluated these conditional effects without following this order, 
-the execution would be equivalent to not evaluating all conditional effects
-of the same operator simultaneously,
-thus risking to recognize a violators even if this does not happen. Indeed,
-given a preference $P = \sf{AO}_{\phi}$ 
-and a threat operator $o$, if $\phi$ becomes true for the first time in $s'$
-after the application of $o$,
-an we check the condition $\textit{cond}_{{N}}(o, P)$
-before $\textit{cond}_{{V}}(o, P)$, then we could detect a violation
-that may not have happened.
-
-We can expose similar considerations for sometime-before preferences. In this case,
-if we do not check the condition $\textit{cond}_{{V}}(o, P)$
-before $\textit{cond}_{{T}}(o, P)$,
-we risk to not correctly identifying a possible violators if
-$\phi$ and $\psi$ become true at the same time.
-
-Consequently, starting from the previous observations which show that it is possible to eliminate any interferences within our context,
-Nebel's copying operators are not needed in the compilation of our conditional effects; furthermore, in the compiled problem, we can force an arbitrary total order of the unconditional operator pairs, paying attention that the ordering constraints dealing with the potential interference between the conditional effects arising from at-most-once and sometime-before preferences are satisfied.
-
-These changes to Nebel's schema simplify it, and have some beneficial consequences: (1) the compiled problem has smaller size in terms of number of operators, and (2) the search effort of a planner can be reduced because the solution plans are shorter without the coping actions,\footnote{
-Given a plan $\pi$ for a problem with conditional effects and 
- the corresponding plan $\pi'$ for the compiled problem, we have $|\pi'| \leq |\pi| * m$ while with Nebel's general method this bound is $|\pi'| \leq |\pi| * (3 + m)$ \cite{nebel2000compilability}.
-}
-and because the sequence of the unconditional operators can be explicit in the compiled problem, 
-while with the original compilation it is built at search time by the planner. 
-
-Since our compilation of conditional effects can be easily derived from Nebel's method, instead of giving all the formal details of the translation, we illustrate the compilation with an example, referring the reader to \cite{nebel2000compilability} for a formal description. Moreover, in \cite{ceriani2015planning} we give a detailed description of the final (without conditional effects) compiled problem for any \strips+ problem with always preferences.
-
+In our context, we use Nebel's method because, depending on the operators' structure and the input preferences,
+many conditional effects can be generated, making the other approach impractical. Moreover, Nebel's method can be optimised for our conditional effects because of their particular structure. In particular, DARE SPIEGAZIONE DI QUALI SONO LE PROPRIETA' STRUTTURALI DEI COND EFFECTS CHE SFRUTTIAMO.
+This allows us to simplify the compilation by omitting the so called "copy-operators" of Nebel's method. Another optimization concerns the ordering of the set of operator pairs "activating" the conditional effects, which in the original version of unordered, while in our context they can be ordered as a sort of macro operators. For lack of space, in this paper we don't give a detailed description of these optimisations, which leads to a revised method similar to the technique described in \cite{ceriani2015planning} for always constraints, that we extended to deal with every class of {\pddlIII} qualitative preferences.
 
 
 % SEZIONE COMMENTATA
@@ -1583,12 +1579,84 @@ are applicable cause (b) and so $\pi'$ is valid and $\pi' \models G$ cause (b) a
 \end{prop}
 
 % EXPERIMENTAL RESULTS
-\section{Experimental Results}
+\section{Experimental Evaluation}
 
-\subsection{Experiments Description}
+\subsection{Experiment Settings}
+
+We implemented the proposed compilation scheme, and we have compared the performance (plan quality) 
+of propositional planners using it and of  {\lprpgp}, a the state-state-of-the art system for satisficing planning
+with {\pddlIII} preferences \cite{coles2011lprpg}.
+Moreover, we have evaluated the effectiveness of using our compilation for optimal planning with preferences against
+an alternative recent  compilation based on automata.
+
+We used a selection of the best performing planners at IPC-8 and IPC-9 \cite{vallati20152014,pc9website}:
+{\lama} \cite{RicLAMA}, {\mercury} \cite{MercuryIPC8},
+ {\miplan} \cite{nunez2014miplan}, {\ibacop} \cite{cenamor2014ibacop}, 
+\fdss \cite{fdss2018} (abbreviated FDSS), \fdremixcomplete \cite{fdremix} (abbreviated \fdremix).
+In addition, we used a recent version of {\lama}, called {\lamapruning}, exploiting admissibile
+heuristic $h_\text{R}$ for testing reachability of soft goals during search
+\cite{percassi2017improving}.
+
+As benchmarks we used all (100) [CHECK!!! SONO 100??] original problems
+of the qualitative preference track of IPC5 \cite{GHLS+09}, which has five domains,
+% which involve always, sometime, sometime-before, at-most-once and soft goal preferences,
+ i.e.
+Rovers, TPP, Trucks, Openstacks and Storage, of which the problems in Storage and TPP have no 
+hard goal.
+
+%For each original problem all preferences and each original utility were kept.
+The propositional planners were run on the compiled problems, while {\lprpgp}
+was run on the original problems. All the experiments
+were conducted on a 2.00GHz Core Intel(R) Xeon(R) CPU E5-2620 machine with CPU-time
+and memory limits of 30 minutes (compilation time included [CHECK!!! VERO?]) and 8GB, respectively. 
+
+The compared planners are evaluated using the IPC quality score \cite{IPC6}.
+Given a planner $p$ and a planning instance $i$, if $p$ solves $i$, the
+following score is assigned to $p$:
+%$
+$
+\textit{score}(p, i) = \frac{\textit{cost}_{\textit{best}} (i)}{\textit{cost}(p, i)},
+$
+%$
+where $\textit{cost}_{\textit{best}}(i)$ is the cost of the best known
+solution for $i$ 
+found by any planner, and $\textit{cost}(p, i)$
+is the cost of the best solution found by $p$, using at most 30 CPU minutes.
+% In our 
+%case our reference for $\textit{cost}_{\textit{best}} (i)$ is equal to the
+%cost of the best solution among the tested planners within 30 minutes. 
+If $p$
+does not find a solution, then $\textit{score}(p, i) = 0$.
+%is equal to $0$ in order to reward both quality and coverage. 
+
+We also consider another metric of plan quality evaluation, that we denote
+$\alpha_{\text{cost}}$:
+%which is useful for understanding what class of preferences have been achieved and
+%how important they are to achieve a good quality plan.
+%
+% A description follows. 
+if planner $p$ solves instance $i$, we assign the following score to $p$
+$$
+\alpha_{\textit{cost}}(p, i) = \frac{\textit{cost}(p, i)}{\textit{cost}_{\textit{total}}(i)} = \frac{
+\sum_{P \in \mathscr{P}(i) \;:\; \pi \not \models P}{c(P)}}{\sum_{P \in \mathscr{P}(i)}{c(P)}}
+$$
+where 
+%$\textit{cost}(p, i)$ is defined as the cost of the solution found by planner $p$
+%$for the task $i$ within 30 minutes and $\textit{cost}_{\textit{total}}(i)$ is
+%the sum of the costs of all the preferences involved in the task $i$ (note that 
+$\mathscr{P}(i)$ is the set of the preferences in $i$.
+Note that $\alpha_{\textit{cost}}(p, i)$ can vary between $0$ 
+and $1$; if $\alpha_{\textit{cost}}(p, i) = 0$, then $\textit{cost}(p, i)= 0$ and
+$p$ has found an optimal plan for $i$ preference-wise. On opposite side,
+ if $\alpha_{\textit{cost}}(p, i) = 1$,  $p$ has found the worst plan 
+for $i$  (all preferences are violated). If for two planners $p$ and $p'$ we have
+$\alpha_{\textit{cost}}(p, i) < \alpha_{\textit{cost}}(p', i)$, then $p$ performs better than $p'$ for $i$, and
+the difference between these metric values quantifies the performance discrepancy.
 
 
-We implemented the proposed compilation scheme and we have evaluated it
+%ORIGINAL VERSION BY FRANCESCO
+\begin{comment}
+We implemented the proposed compilation scheme and we have evaluated it 
 by two sets of experiments with different purposes. On the one hand we have
 evaluated the scheme in a satisficing planning context in which we focused
 on the search for sub-optimal plans using different planning systems,
@@ -1663,7 +1731,7 @@ for the task $i$ within 30 minutes and $\textit{cost}_{\textit{total}}(i)$ is
 the sum of the costs of all the preferences involved in the task $i$ 
 (note that $\mathscr{P}(i)$ denote the set of the preferences of the task $i$).
 
-If we want to restric the calculation of $\alpha_{\textit{cost}}$ to
+If we want to restrict the calculation of $\alpha_{\textit{cost}}$ to
 a single type of preference, for example just always preferences, we denote
 the cost as $\alpha_{\textit{cost}}(\mathcal{A})$ while if nothing is indicated,
 it means that we have considered all the classes of preferences.
@@ -1720,7 +1788,7 @@ which assign 1 to all states except for goal states to which assign 0,
 the maximum heuristic $h^\text{max}$ \cite{TODO}, 
 and the canonical pattern database heuristic $h^{\text{cpdb}}$ \cite{{haslum2007domain}}.
 
-These heuristitcs used with A* algorithm guarantee the optimality of the solution
+These heuristics used with A* algorithm guarantee the optimality of the solution
 found. Starting from the IPC5 domains we have generated, likewise what was done in \cite{nebel2018},
 simpler instances by randomly sampling subsets of the soft trajectory constraints. Starting
 from each instance we have generated five new instances with 1\%, 5\%, 10\%, 20\% and 40\% of
@@ -1748,37 +1816,64 @@ each of which consists of 320 instances, the 20 original ones plus
 $(20 * \text{sampling\_rates} * \text{sample} )$, 
 where $\text{sampling\_rates} = 5$ and $\text{rate} = 3$), for a total of 4800 runs.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DESCRIZIONE RISULTATI PIANI SUBOTTIMI
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Satisficing Planning Results}
-%%%%%%%%%%%%%%%%%%%%%
-% COMMENTO GENERALE %
-%%%%%%%%%%%%%%%%%%%%%
-The results obtained comparing the satisficing context show that the 
-compilative approach is almost always preferable since the tested classical planners obtain 
-an higher IPC score than {\lprpgp} except for {\mercury} and {\miplan}.
+\end{comment}
 
-% In Table \ref{tab:ipc_score} we have incuded, for the lack of space, just the more significant 
-% planning systems which are {\lamapruning}, {\fdremix}, {\lprpgp} and {\mercury}
-% which were compared in terms of the IPC score. They were chosen
-% because {\lamapruning} and {\fdremix} realize the best performance in term
-% of IPC score among those considered
-% classical planners while {\mercury} the worst.
+\subsection{Experimental Results}
 
-With reference to Table \ref{tab:ipc_score} the compilative approach seems at glance
-to be particularly preferable in Rovers, Trucks and Storage. In these
-domains each classical planner performs better or at least comparable than {\lprpgp}
+Tables \ref{tab:ipc_score} and \ref{tab:ipc_score-class} give the performances of the compared planners
+in term of IPC quality score aggregated by domain. The results in Table \ref{tab:ipc_score} concern plan quality
+considering all preferences, while those in Table \ref{tab:ipc_score-class} concern plan quality when only the specified preferences of a particular class are used for the plan evaluation. Overall the compilation approach performs better than {\lprpgp}, with six planners obtaining better total IPC scores.  The comparison considering each preference class separately shows good performance for every preference class except for soft goals.
+ 
+In Rovers, Trucks and Storage each considered planner performs better than, or at least similarly to, {\lprpgp}
 (except for {\mercury} in Trucks); {\ibacop} performs particularly well in Rovers, {\fdremix} in Trucks
 and {\lamapruning} in Storage. Also {\miplan} works well in Trucks but it
 is penalized due to coverage (it solves only 15 instances out of 20).
+The tested planners from IPC9, {\fdremix} and {\fdss}, perform overall better than those from IPC8, but {\lamapruning} is better than everyone else (it improves the performance of LAMA in all the considered domains except
+Rovers, where there is no soft goal and $h_r$ is not exploited for pruning).
 
-The planning system from the more recent IPC9, {\fdremix}
-and {\fdss}, perform overall better in this benchmark than the planning system from the
-previous IPC8 but the enhanced version {\lamapruning} is better than everyone else indeed
-it improves the performance of LAMA in all the considered domains except in
-Rovers (where there is no soft goal).
 
+On the other hand, {\lprpgp} performs comparably with {\lamapruning} in Openstacks and much better than the other planners in TPP. 
+The bad performances of the compilation approach in TPP is mainly due to presence of many soft goals and, as shown in \cite{percassi2017improving}, compiling soft goals through Keyder and Geffner's method
+can sometimes be problematic.
+%
+Indeed Table \ref{tab:ipc_score-class} shows that for soft goals {\lprpgp} has higher IPC score
+ than all others planners. We can also observe that, compared to {\lprpgp}, the classical planners 
+achieve better results for preferences of classes always, sometime-before and at-most-once, 
+but this has not a crucial impact of the overall plan quality,  because in these problems violating the
+ soft-goals is more expensive than the other preferences (or equivalently they are more useful to satisfy than the other preferences).
+
+
+%COMMENTO ROVERS
+The comparison of the planners' performance using the $\alpha_{\text{cost}}$ helps to further understand the behaviour of the planners.
+For lack of space, we will focus this analysis on two selected domains: Rovers, one of the domains where the compilation approach works better, and TPP, the only domain where we observed poor performance compare to {\lprpgp}.
+Figures \ref{hrovers}  and \ref{htpp} show, for each preferences class, the planners' $\alpha_{\text{cost}}$ values obtained by adding the relative $\alpha_{\text{cost}}$ for every instance in the of these two benchmark domains. Each level of the stacked histogram
+represents the aggregated $\alpha_{\text{cost}}$ restricted to a specific class of preferences, which indicates how much each class of the violated preferences contributes to the total cost of the plans.
+
+For Rovers, the IPC-score gap between the classical planners and {\lprpgp} 
+is due to {\lprpgp}'s violation of the sometime-before preferences. Regarding the other
+classes preferences, the violation costs in the generated plans are similar
+except for {\ibacop}, that satisfies more sometime-before and sometime
+preferences than the others planning, and violates more at-most-once preferences,
+generally obtaining better quality plans.
+
+For TPP,  indeed looking to Figure \ref{htpp} we note that the crucial preferences in this domain are 
+mainly soft goals, which are more satisfied by {\lprpgp}. The search pruning technique in  {\lamap} slightly helps
+{\lama} to achieves more soft goals, but not enough to reach the performance of {\lprpgp}.
+
+
+
+%AG: NB, IL RESTO E' SOLO PARTE DEL TESTO ORIGINALE DI FRANCESCO
+\begin{comment}
+%%%%%%%%%%%%%%%%%%%
+% COMMENTO ROVERS %
+%%%%%%%%%%%%%%%%%%%
+Looking at Figure \ref{hrovers} we note that
+the IPC gap between the classical planners and {\lprpgp} in Rovers
+is due to the {\lprpgp} violation of sometime-before preferences. As regards the remaining
+classes preferences, the violation cost settles down on similar level
+except for {\ibacop}, which achieves more sometime-before and sometime
+preferences than the others planning violating more at-most-once preferences
+but succeeding to obtaining better quality plans.
 % Figures \ref{lst:file1}--\ref{lst:file5} show the $\alpha_{\text{cost}}$ comparison
 % for each domain comparing the best perfoming classical planner 
 % in term of IPC score in such domain with {\lprpgp}.
@@ -1792,16 +1887,6 @@ Rovers (where there is no soft goal).
 % achieves to satisfy a better subset of preferences in all the compared instances
 % compared to {\lprpgp}.
 
-%%%%%%%%%%%%%%%%%%%
-% COMMENTO ROVERS %
-%%%%%%%%%%%%%%%%%%%
-Looking at Figure \ref{hrovers} we note that
-the IPC gap between the classical planners and {\lprpgp} in Rovers
-is due to the {\lprpgp} violation of sometime-before preferences. As regards the remaining
-classes preferences, the violation cost settles down on similar level
-except for {\ibacop}, which achieves more sometime-before and sometime
-preferences than the others planning violating more at-most-once preferences
-but succeeding to obtaining better quality plans.
 
 
 %%%%%%%%%%%%%%%%
@@ -1895,8 +1980,7 @@ than their competitor.
 % of the first seven instances. Looking at Figure \ref{lst:file4} we can say 
 % that both approaches achieve a comparable performance even if {\lprpgp} generally finds 
 % slightly better solutions than both classical competitors in 13 instances out of 20.
-
-\noindent\hl{\textbf{NOTA (FP):} scrivi commento Storage.}
+\end{comment}
 
 
 \begin{table}[]
@@ -1978,46 +2062,40 @@ each subtable by the total IPC score. The best performance are indicated in bold
 \label{tab:ipc_score-class}
 \end{table}\newpage
 
-
-\begin{figure}[]
+\begin{figure*}[t]
 \centering
-% \includegraphics[width=8.5cm]{histogrammi/rovers.png}
-\includegraphics[width=8.5cm]{histogrammi/rovers.png}
-\caption{$\alpha_{\text{cost}}$ comparison for Rovers domain.}
+\includegraphics[width=6cm]{histogrammi/rovers.png}
 \label{hrovers}
-\end{figure}
-
-\begin{figure}[]
-\centering
-% \includegraphics[width=8.5cm]{histogrammi/rovers.png}
-\includegraphics[width=8.5cm]{histogrammi/tpp.png}
-\caption{$\alpha_{\text{cost}}$ comparison for TPP domain.}
+\qquad
+\includegraphics[width=6cm]{histogrammi/tpp.png}
 \label{htpp}
-\end{figure}
 
-\begin{figure}[]
-\centering
-% \includegraphics[width=8.5cm]{histogrammi/rovers.png}
-\includegraphics[width=8.5cm]{histogrammi/trucks.png}
-\caption{$\alpha_{\text{cost}}$ comparison for Trucks domain.}
-\label{htrucks}
-\end{figure}
+\caption{$\alpha_{\text{cost}}$ comparison for TPP domain.}
 
-\begin{figure}[]
-\centering
-% \includegraphics[width=8.5cm]{histogrammi/rovers.png}
-\includegraphics[width=8.5cm]{histogrammi/openstacks.png}
-\caption{$\alpha_{\text{cost}}$ comparison for Openstacks domain.}
-\label{hopenstacks}
-\end{figure}
+\end{figure*}
+% \begin{figure}[]
+% \centering
+% % \includegraphics[width=8.5cm]{histogrammi/rovers.png}
+% \includegraphics[width=8.5cm]{histogrammi/trucks.png}
+% \caption{$\alpha_{\text{cost}}$ comparison for Trucks domain.}
+% \label{htrucks}
+% \end{figure}
 
-\begin{figure}[]
-\centering
-% \includegraphics[width=8.5cm]{histogrammi/rovers.png}
-\includegraphics[width=8.5cm]{histogrammi/preprocessed-storage.png}
-\caption{$\alpha_{\text{cost}}$ comparison for Storage domain.}
-\label{hstorage}
-\end{figure}
+% \begin{figure}[]
+% \centering
+% % \includegraphics[width=8.5cm]{histogrammi/rovers.png}
+% \includegraphics[width=8.5cm]{histogrammi/openstacks.png}
+% \caption{$\alpha_{\text{cost}}$ comparison for Openstacks domain.}
+% \label{hopenstacks}
+% \end{figure}
+
+% \begin{figure}[]
+% \centering
+% % \includegraphics[width=8.5cm]{histogrammi/rovers.png}
+% \includegraphics[width=8.5cm]{histogrammi/preprocessed-storage.png}
+% \caption{$\alpha_{\text{cost}}$ comparison for Storage domain.}
+% \label{hstorage}
+% \end{figure}
 
 
 
@@ -2030,13 +2108,13 @@ each subtable by the total IPC score. The best performance are indicated in bold
 \begin{tabular}{|c||c|c||c|c||c|c||}
 \hline 
 \multirow{2}{*}{Domain} & \multicolumn{2}{c||}{$h^{\text{blind}}$} & \multicolumn{2}{c||}{$h^{\text{max}}$} & \multicolumn{2}{c||}{$h^{\text{cpdb}}$} \\ \cline{2-7}
-& WRB & PG & WRB & PG & WRB & PG \\ \hline
+& WRB & Our & WRB & Our & WRB & Our \\ \hline
 Storage & 24.78 & {\bf 57.0} & 29.2 & {\bf45.0} & 23.10 & 57.0 \\ \hline
 Rovers & 17.4 & {\bf24.0} & 21.43 & {\bf 25.0} & 15.17 & 23.0 \\ \hline
 Trucks & 18.84 & {\bf24.0} & 23.19 & 25.0 & n/a & 25 \\ \hline
 TPP & --- & 47.0 & --- & 45.0 & -- & 40.0 \\ \hline
 \end{tabular}
-\caption{Coverage of our (PG) and Nebel compilation scheme (WRB) on the IPC5 benchmarks set with
+\caption{Coverage of our and Nebel compilation scheme (WRB) on the IPC5 benchmarks set with
 additional instances with random sampled soft-trajectory constraints, A*
 search for optimal solution. Our results concerning the sampled instances are averaged 
 for each generated instance. The best performance are indicated in bold.}

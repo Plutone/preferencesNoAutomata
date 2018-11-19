@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1542629745 "main.aux" "main.bbl" "main" 1542630058
+["bibtex main"] 1542669826 "main.aux" "main.bbl" "main" 1542669826
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "biblio.bib.bib" 0 -1 0 ""
-  "main.aux" 1542629746 3047 e823f31f8a9ec7bc165b2b8b2ff79bf3 ""
+  "main.aux" 1542669826 2891 c4b2bd55a1893c549807f69e8f219ac0 ""
   "main.bcf" 0 -1 0 ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1542629745 "main.tex" "main.pdf" "main" 1542630058
+["pdflatex"] 1542669826 "main.tex" "main.pdf" "main" 1542669826
   "/etc/texmf/web2c/texmf.cnf" 1455791705 1101 af7716885e081ab43982cab7b4672c1a ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -51,7 +51,6 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti7.tfm" 1136768653 1492 86331993fe614793f5e7e755835c31c5 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti8.tfm" 1136768653 1504 1747189e0441d1c18f3ea56fafc1c480 ""
-  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti9.tfm" 1136768653 1476 cccc6cc4935c18ec3d5623b77ecb8b74 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm" 1229303445 688 37338d6ab346c2f1466b29e195316aa4 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm" 1229303445 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm" 1229303445 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
@@ -69,10 +68,8 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb" 1248133631 24457 5cbb7bdf209d5d1ce9892a9b80a307cc ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1248133631 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
-  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb" 1248133631 32442 c975af247b6702f7ca0c299af3616b80 ""
-  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb" 1248133631 36607 d654cb3f2bc54f57509240071db3bffa ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb" 1229303445 16077 4737ac34f0fb5608550f3780a0202c22 ""
@@ -146,14 +143,11 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1455791849 1346346 7f2b8b715a9ddb095afe3697a6ba02b5 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1455791790 3822874 2c1f2fa089d7bef4d8cf0638dad56b01 ""
   "aaai19.sty" 1542012382 9543 fb407d7ca13ddb8a176d39dd131ef82a ""
-  "histogrammi/openstacks.png" 1542289209 6847 0106ac4ace15063d87aecdefa9303664 ""
-  "histogrammi/preprocessed-storage.png" 1542290126 6317 98165b3a3e5c60162ce5ae161463e30b ""
   "histogrammi/rovers.png" 1542289209 6367 9a5fdd00a7f4d7c95eecd704a82840a1 ""
   "histogrammi/tpp.png" 1542289564 7083 059f233c063ebbcb615822a1da7fe7e3 ""
-  "histogrammi/trucks.png" 1542289850 5996 f070217cdd5befa28d9d0d08200314c1 ""
-  "main.aux" 1542629746 3047 e823f31f8a9ec7bc165b2b8b2ff79bf3 ""
+  "main.aux" 1542669826 2891 c4b2bd55a1893c549807f69e8f219ac0 ""
   "main.bbl" 1542018594 3067 9af5fea9c3a718263f7112088b3ec59a "bibtex main"
-  "main.tex" 1542629744 119634 6b047805cf6278cfe86233f63526cced ""
+  "main.tex" 1542669825 120506 ad648a96a118f740bf00b96832820952 ""
   (generated)
   "main.aux"
   "main.log"
