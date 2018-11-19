@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1542578312 "main.aux" "main.bbl" "main" 1542583399
+["bibtex main"] 1542623112 "main.aux" "main.bbl" "main" 1542623248
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "biblio.bib.bib" 0 -1 0 ""
-  "main.aux" 1542582978 2889 650794042159db98fa1e3b99c6d8ad17 ""
+  "main.aux" 1542623248 3047 03c5f782f1179a8dc10784fa77e8018c ""
   "main.bcf" 0 -1 0 ""
   (generated)
-  "main.blg"
   "main.bbl"
-["pdflatex"] 1542582977 "main.tex" "main.pdf" "main" 1542583399
+  "main.blg"
+["pdflatex"] 1542623248 "main.tex" "main.pdf" "main" 1542623248
   "/etc/texmf/web2c/texmf.cnf" 1455791705 1101 af7716885e081ab43982cab7b4672c1a ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -151,10 +151,10 @@
   "histogrammi/rovers.png" 1542289209 6367 9a5fdd00a7f4d7c95eecd704a82840a1 ""
   "histogrammi/tpp.png" 1542289564 7083 059f233c063ebbcb615822a1da7fe7e3 ""
   "histogrammi/trucks.png" 1542289850 5996 f070217cdd5befa28d9d0d08200314c1 ""
-  "main.aux" 1542582978 2889 650794042159db98fa1e3b99c6d8ad17 ""
+  "main.aux" 1542623248 3047 03c5f782f1179a8dc10784fa77e8018c ""
   "main.bbl" 1542018594 3067 9af5fea9c3a718263f7112088b3ec59a "bibtex main"
-  "main.tex" 1542582977 117500 4a0ff82fcf7ab416e727838906329706 ""
+  "main.tex" 1542623248 119628 6178426b0c03a1c5c32f25535ab0ebef ""
   (generated)
   "main.log"
-  "main.pdf"
   "main.aux"
+  "main.pdf"
