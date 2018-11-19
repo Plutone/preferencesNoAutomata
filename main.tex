@@ -242,7 +242,7 @@ The cost $c(\pi)$ of a plan $\pi$ is $\sum_{i=0}^{|\pi|-1} c(a_i)$, where $c(a_i
 We will use the following notation:
 $\mathcal{A}$, $\mathcal{SB}$, $\mathcal{ST}$, $\mathcal{AO}$, $\mathcal{G}$ denote the classes of qualitative preferences of type always, sometime-before, sometime, at-most-once and soft goal, respectively, for a given planning problem; $\sf{A}_{\phi}$, $\sf{SB}_{\phi,\psi}$, $\sf{ST}_{\phi}$, $\sf{AO}_{\phi}$, $\sf{G}_{\phi}$ denote a particular preference over $\mathcal{A}$, $\mathcal{SB}$, $\mathcal{ST}$, $\mathcal{AO}$, $\mathcal{G}$, respectively, involving formulae $\phi$ and $\psi$; moreover,
 if a plan $\pi$ satisfies a preference $P$, we write  $\pi \models P$. 
-[CHECK: NOTAZIONE MODIFICATA: $\mathcal{G}$ invece di $\mathcal{G}$]
+[CHECK: NOTAZIONE MODIFICATA: $\mathcal{G}$ invece di $\mathcal{SG}$]
  
 \begin{comment}
 Starting from a {\stripsp} problem we define the 
@@ -305,7 +305,7 @@ then interpretation of the modal operators considered in this work is specified 
  \vspace{-0.5cm}
  \caption{\label{fig:semantics}
  Semantics of the basic modal operators in {\pddlIII}
- NB: FIGURA DA SEMPLIFICARE: TOGLIERE GLI HAPPENINGS .
+ %NB: FIGURA DA SEMPLIFICARE: TOGLIERE GLI HAPPENINGS .
  % $\phi$ and $\psi$ stand for arbitrary (syntactically valid) goal formulae of {\pddlIII}.
  }
  \end{figure}
@@ -362,7 +362,7 @@ C_{\phi}(o) =  \{\phi_{i} : |L(\phi_{i}) \cap Z(o)| > 0, \;i \in \{1 \ldots n\} 
 $$
 \end{mydef}
 
-[AG: CHECK!!! CAMBIARE NOTAZIONE PERCHE' ABBIAMO TOLTO $\overline{C}_{\phi}(o)$ e DICIAMO $o$ MAKES CERTAINLY TRUE] ------ {FATTO}
+%[AG: CHECK!!! CAMBIARE NOTAZIONE PERCHE' ABBIAMO TOLTO $\overline{C}_{\phi}(o)$ e DICIAMO $o$ MAKES CERTAINLY TRUE] ------ {FATTO}
 
 Given a clause $\phi_{i} = l_1 \lor ... \lor l_{m_i}$ of $\phi$, condition $|L(\phi_{i}) \cap Z(o)| > 0$ in Definition \ref{def:trueclauses} requires that there exists at least a literal $l_j$, $j \in \{1 \ldots m_i\}$ that belongs to $Z(o)$ and thus making clause $\phi_i$ true in $s'$.
 
@@ -381,6 +381,9 @@ Given an operator $o$ and a CNF formula $\phi = \phi_{1} \land ... \land \phi_{n
 \end{mydef}
 
 Condition 1 in Definition \ref{def:becometrue} requires that there exists at least a clause of $\phi$ that is certainly true in $s'$ (independently from $s$), while Condition 2 requires that the clauses that are not certainly true in $s'$ are not certainly false in $s'$.
+
+
+
 
 \section{Operator-Preference Interactions}
 
