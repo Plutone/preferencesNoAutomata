@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.18)  20 NOV 2018 00:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.2.18)  20 NOV 2018 13:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -243,9 +243,6 @@ Excluding comment 'comment')
 \c@tmp=\count115
  (./main.aux
 
-LaTeX Warning: Label `support_sa' multiply defined.
-
-
 LaTeX Warning: Label `subsect:amo_comp' multiply defined.
 
 )
@@ -446,10 +443,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 543--545
 [4] Excluding 'comment' comment. Excluding 'comment' comment.
 
 Package natbib Warning: Citation `kn:geffner09' on page 5 undefined on input li
-ne 704.
+ne 690.
 
 Excluding 'comment' comment.
-Overfull \hbox (2.4861pt too wide) in paragraph at lines 747--748
+Overfull \hbox (2.4861pt too wide) in paragraph at lines 733--734
 []$[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 ) = \OMS/cmsy/m/n/10 hf
 []\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 :\OML/cmm/m/it/10 P[]; []\OMS/cmsy/m/n/10
  g\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 P[]; \OMS/cmsy/m/n/10 :
@@ -460,96 +457,111 @@ Excluding 'comment' comment. Excluding 'comment' comment.
 Excluding 'comment' comment. [5] Excluding 'comment' comment.
 Excluding 'comment' comment. Excluding 'comment' comment.
 Excluding 'comment' comment.
-Overfull \hbox (15.61578pt too wide) detected at line 1325
-\OMS/cmsy/m/n/10 W\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 o; P\OT1/cmr/m/n/10 ) = []
+Overfull \hbox (11.50945pt too wide) in paragraph at lines 1338--1347
+[]$\OML/cmm/m/it/10 R\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 o; ^^^\OT1/cmr/m/n/10 ) 
+= []$ 
  []
 
 
 Package natbib Warning: Citation `gazen97:ecp' on page 6 undefined on input lin
-e 1378.
+e 1365.
 
 
 Package natbib Warning: Citation `nebel2000compilability' on page 6 undefined o
-n input line 1379.
+n input line 1366.
 
 [6]
 
 Package natbib Warning: Citation `ceriani2015planning' on page 7 undefined on i
-nput line 1383.
+nput line 1370.
 
 Excluding 'comment' comment.
 
 Package natbib Warning: Citation `kn:geffner09' on page 7 undefined on input li
-ne 1563.
+ne 1550.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1567--1568
+
+ []
 
 
 Package natbib Warning: Citation `pc9website' on page 7 undefined on input line
- 1592.
+ 1583.
 
 
 Package natbib Warning: Citation `fdss2018' on page 7 undefined on input line 1
-595.
+586.
 
 
 Package natbib Warning: Citation `fdremix' on page 7 undefined on input line 15
-95.
+86.
 
 
-Package natbib Warning: Citation `IPC6' on page 7 undefined on input line 1613.
+Package natbib Warning: Citation `IPC6' on page 7 undefined on input line 1604.
 
 
-Excluding 'comment' comment. [7]
 
-Package caption Warning: \label without proper \caption on input line 2068.
+Package natbib Warning: Citation `TODO' on page 7 undefined on input line 1651.
+
+
+
+Package natbib Warning: Citation `haslum2007domain' on page 7 undefined on inpu
+t line 1652.
+
+[7]
+
+Package caption Warning: \label without proper \caption on input line 1928.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `hrovers' on page 8 undefined on input line 1849.
+LaTeX Warning: Reference `hrovers' on page 8 undefined on input line 1701.
 
 
-Package caption Warning: \label without proper \caption on input line 2071.
+Package caption Warning: \label without proper \caption on input line 1931.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `htpp' on page 8 undefined on input line 1849.
+LaTeX Warning: Reference `htpp' on page 8 undefined on input line 1701.
 
 
-Package caption Warning: \label without proper \caption on input line 2071.
+Package caption Warning: \label without proper \caption on input line 1931.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `htpp' on page 8 undefined on input line 1859.
+LaTeX Warning: Reference `htpp' on page 8 undefined on input line 1711.
 
 Excluding 'comment' comment.
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 1986.
+               Default added (so using `tbp') on input line 1846.
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1994.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1854.
+[8]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 2010.
+               Default added (so using `tbp') on input line 1870.
 
-<histogrammi/rovers.png, id=49, 752.8125pt x 361.35pt>
+<histogrammi/rovers.png, id=52, 752.8125pt x 361.35pt>
 File: histogrammi/rovers.png Graphic file (type png)
 
 <use histogrammi/rovers.png>
-Package pdftex.def Info: histogrammi/rovers.png used on input line 2067.
+Package pdftex.def Info: histogrammi/rovers.png used on input line 1927.
 (pdftex.def)             Requested size: 199.16928pt x 95.6029pt.
 
-<histogrammi/tpp.png, id=50, 752.8125pt x 361.35pt>
+<histogrammi/tpp.png, id=53, 752.8125pt x 361.35pt>
 File: histogrammi/tpp.png Graphic file (type png)
  <use histogrammi/tpp.png>
-Package pdftex.def Info: histogrammi/tpp.png used on input line 2070.
+Package pdftex.def Info: histogrammi/tpp.png used on input line 1930.
 (pdftex.def)             Requested size: 199.16928pt x 95.6029pt.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 2105.
+               Default added (so using `tbp') on input line 1965.
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2112.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1972.
 (./main.bbl
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 5.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
@@ -574,7 +586,7 @@ Underfull \hbox (badness 1178) in paragraph at lines 28--33
 []\OT1/ptm/m/n/10 M.B. Do and S. Kamb-ham-pati.  Par-tial sat-is-fac-
  []
 
-[8]
+
 Underfull \hbox (badness 1107) in paragraph at lines 60--64
 []\OT1/ptm/m/n/10 S. Richter and M. West-phal.  The LAMA plan-
  []
@@ -585,7 +597,7 @@ Missing character: There is no ¼ in font ptmr7t!
 
 Package natbib Warning: There were undefined citations.
 
-[9 <./histogrammi/rovers.png> <./histogrammi/tpp.png>] (./main.aux)
+[9] [10 <./histogrammi/rovers.png> <./histogrammi/tpp.png>] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -594,10 +606,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5584 strings out of 493304
- 81620 string characters out of 6139871
- 177739 words of memory out of 5000000
- 8898 multiletter control sequences out of 15000+600000
+ 5586 strings out of 493304
+ 81643 string characters out of 6139871
+ 167741 words of memory out of 5000000
+ 8900 multiletter control sequences out of 15000+600000
  48736 words of font info for 108 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,13n,38p,867b,325s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -625,10 +637,10 @@ exmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
 mes/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (9 pages, 319264 bytes).
+Output written on main.pdf (10 pages, 321404 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 101 compressed objects within 2 object streams
+ 147 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
