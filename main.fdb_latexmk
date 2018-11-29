@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1542791148 "main.aux" "main.bbl" "main" 1542791149
+["bibtex main"] 1542791148 "main.aux" "main.bbl" "main" 1542794855
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "biblio.bib.bib" 0 -1 0 ""
   "main.aux" 1542791148 3001 a18641967e94f49c19b65fbf2fea4e26 ""
   "main.bcf" 0 -1 0 ""
   (generated)
-  "main.bbl"
   "main.blg"
-["pdflatex"] 1542791148 "main.tex" "main.pdf" "main" 1542791149
+  "main.bbl"
+["pdflatex"] 1542791148 "main.tex" "main.pdf" "main" 1542794855
   "/etc/texmf/web2c/texmf.cnf" 1455791705 1101 af7716885e081ab43982cab7b4672c1a ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -145,6 +145,6 @@
   "main.bbl" 1542018594 3067 9af5fea9c3a718263f7112088b3ec59a "bibtex main"
   "main.tex" 1542791147 120668 372cf920c974b300d7c7527f8802a81a ""
   (generated)
-  "main.log"
-  "main.pdf"
   "main.aux"
+  "main.pdf"
+  "main.log"
